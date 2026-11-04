@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Reservar cita · Sesentainueve Tattoo</title>
+<meta name="description" content="Reserva tu cita en Sesentainueve Tattoo en 30 segundos, a cualquier hora.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/ejemplos/reservas-sesentainueve-widy/css/theme.css">
+<link rel="stylesheet" href="/ejemplos/reservas-sesentainueve-widy/css/app.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="in">
+    <a class="tb-back" href="/ejemplos/reservas-sesentainueve-widy/" aria-label="Volver"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></a>
+    <div class="tb-t"><b id="bizName"></b><span id="bizAddr"></span></div>
+    <a class="tb-call js-tel" href="#" aria-label="Llamar"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="wizard">
+    <div class="steps">
+      <div class="sdot on" id="dot1"><i><span>1</span></i> Servicios</div>
+      <div class="sdot" id="dot2"><i><span>2</span></i> Día y hora</div>
+      <div class="sdot" id="dot3"><i><span>3</span></i> Tus datos</div>
+    </div>
+
+    <!-- 1 · servicios -->
+    <section class="card pane-step show" id="step1">
+      <h2>¿Qué te hacemos?</h2>
+      <p class="sub">Puedes elegir varios: calculamos el tiempo y el precio total.</p>
+      <div id="svcList"></div>
+      <div class="sum" id="svcSum"></div>
+    </section>
+
+    <!-- 2 · cuándo -->
+    <section class="card pane-step" id="step2">
+      <h2>¿Cuándo te viene bien?</h2>
+      <p class="sub">Toca un hueco y listo. Son los primeros que tenemos libres.</p>
+      <div class="quick" id="quick"></div>
+      <button class="more" id="moreDays" type="button">
+        <span>Prefiero otro día</span>
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div id="calBox" class="calbox">
+        <div class="cal-top">
+          <button class="cal-nav" id="calPrev" type="button" aria-label="Mes anterior"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <b id="calTitle"></b>
+          <button class="cal-nav" id="calNext" type="button" aria-label="Mes siguiente"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+        <div class="cal" id="calGrid"></div>
+        <div class="cal-leg"><span><i class="g"></i>Huecos libres</span><span><i class="a"></i>Quedan pocos</span></div>
+        <div id="slotWrap"></div>
+      </div>
+    </section>
+
+    <!-- 3 · datos -->
+    <section class="card pane-step" id="step3">
+      <h2>Tus datos</h2>
+      <p class="sub">Solo esta vez: la próxima ya los tendremos.</p>
+      <div class="saved" id="saved">✓ Hemos rellenado tus datos de la última vez. Revísalos y confirma.</div>
+      <div class="field">
+        <label for="fName">Nombre y apellidos</label>
+        <input id="fName" type="text" autocomplete="name" placeholder="María García" required>
+        <div class="err">Escribe tu nombre.</div>
+      </div>
+      <div class="field">
+        <label for="fPhone">Teléfono móvil</label>
+        <input id="fPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="600 00 00 00" required>
+        <div class="err">Necesitamos un móvil válido para el WhatsApp de confirmación.</div>
+      </div>
+      <div class="field">
+        <label for="fEmail">Correo electrónico</label>
+        <input id="fEmail" type="email" autocomplete="email" inputmode="email" placeholder="maria@email.com" required>
+        <div class="err">Escribe un correo válido.</div>
+      </div>
+      <div class="field">
+        <label for="fNotes">¿Algo que debamos saber? <span style="color:var(--muted2)">(opcional)</span></label>
+        <textarea id="fNotes" placeholder="Alergias, preferencias, quién te atendió la última vez..."></textarea>
+      </div>
+      <div class="note">
+        <span>🔔</span>
+        <div>Te enviaremos la <b>confirmación al momento</b> y un recordatorio <b>24 h y 2 h antes</b> por WhatsApp y correo. Si no puedes venir, cancelas con un solo toque.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- confirmación -->
+  <section class="card done" id="done">
+    <div class="check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h2>¡Cita confirmada!</h2>
+    <p class="p">Te esperamos. Ya está apuntada en la agenda.</p>
+    <div class="recap" id="recap"></div>
+    <div class="wa">
+      <div class="wa-h"><i>✓</i> WhatsApp · enviado automáticamente</div>
+      <div class="bub" id="waMsg"></div>
+      <div class="bub two">🔔 Te recordaremos <b>24 h y 2 h antes</b>. Para cancelar o cambiarla, responde a este mensaje.</div>
+    </div>
+    <div class="mail">📧 Copia enviada a <b id="mailTo"></b> con los datos de la cita y cómo llegar.</div>
+    <div class="done-btns">
+      <button type="button" id="icsBtn">Añadir al calendario</button>
+      <button type="button" class="prim" id="again">Otra reserva</button>
+    </div>
+  </section>
+
+  <p class="foot">Reservas online por <b>Widy</b> · disponible 24 h</p>
+</main>
+
+<div class="bar" id="bar">
+  <div class="bar-in">
+    <button class="btn-back" id="back" type="button" aria-label="Atrás"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="cta" id="cta" type="button" disabled>Elige al menos un servicio</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="/ejemplos/reservas-sesentainueve-widy/js/config.js"></script>
+<script src="/ejemplos/reservas-sesentainueve-widy/js/store.js"></script>
+<script src="/ejemplos/reservas-sesentainueve-widy/js/booking.js"></script>
+</body>
+</html>

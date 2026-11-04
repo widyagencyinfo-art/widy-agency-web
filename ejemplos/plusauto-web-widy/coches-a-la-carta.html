@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coches a la carta · PlusAuto Motor</title>
+<meta name="description" content="¿No está en stock? Dinos qué coche quieres y te lo localizamos, revisado y con garantía, en España o importado de Europa. Sin compromiso.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PlusAuto Motor">
+<meta property="og:title" content="Coches a la carta · PlusAuto Motor">
+<meta property="og:description" content="¿No está en stock? Dinos qué coche quieres y te lo localizamos, revisado y con garantía, en España o importado de Europa. Sin compromiso.">
+<meta property="og:image" content="https://plusauto-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="/ejemplos/plusauto-web-widy/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/ejemplos/plusauto-web-widy/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/ejemplos/plusauto-web-widy/css/styles.css">
+</head>
+<body data-page="alacarta">
+<div id="siteHeader"></div>
+
+<main id="main">
+  <section class="phero">
+    <div class="wrap phero__in">
+      <div>
+        <nav class="crumbs" aria-label="Migas de pan" style="margin-bottom:14px"><a href="/ejemplos/plusauto-web-widy/">Inicio</a><span data-icon="chevR"></span><span>Coches a la carta</span></nav>
+        <span class="eyebrow">Coches a la carta</span>
+        <h1 style="margin-top:14px">Si no lo tenemos, lo encontramos</h1>
+        <p class="hero__lead">Marca, modelo, presupuesto y lo que no negocias. Buscamos entre nuestros proveedores en toda España y en Europa, lo revisamos y te lo traemos con garantía.</p>
+        <div class="hero__pills">
+          <span class="pill"><span data-icon="check"></span>Sin compromiso</span>
+          <span class="pill"><span data-icon="check"></span>Historial verificado</span>
+          <span class="pill"><span data-icon="check"></span>Importación incluida</span>
+        </div>
+      </div>
+      <div class="stepcards" style="grid-template-columns:repeat(2,1fr)">
+        <div class="stepcard"><b class="n">1</b><h3>Nos lo cuentas</h3><p>Rellena el formulario o mándanos un WhatsApp.</p></div>
+        <div class="stepcard"><b class="n">2</b><h3>Buscamos</h3><p>Proveedores nacionales y europeos, sin subasta a ciegas.</p></div>
+        <div class="stepcard"><b class="n">3</b><h3>Te enseñamos opciones</h3><p>Fotos, historial, kilómetros y precio cerrado.</p></div>
+        <div class="stepcard"><b class="n">4</b><h3>Lo traemos</b></h3><p>Transporte, matriculación y entrega con garantía.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:40px">
+    <div class="wrap">
+      <div class="two two--wide">
+        <div>
+          <span class="eyebrow">Por qué merece la pena</span>
+          <h2 style="margin-top:12px">Más mercado, mejor precio, cero sorpresas</h2>
+          <div class="pillars" style="margin-top:20px;grid-template-columns:1fr">
+            <div class="pillar"><h3>Búsqueda personalizada</h3><p>Marca, modelo, presupuesto y equipamiento: buscamos exactamente lo que quieres, no lo que nos sobra.</p></div>
+            <div class="pillar"><h3>Historial y revisión verificados</h3><p>Kilómetros, mantenimiento, procedencia y estado mecánico comprobados antes de enseñártelo.</p></div>
+            <div class="pillar"><h3>Importación con garantías</h3><p>Gestionamos la importación desde Europa con control del proceso y toda la documentación.</p></div>
+            <div class="pillar"><h3>Gestión completa</h3><p>Negociación, transporte, matriculación y entrega. Tú solo eliges.</p></div>
+          </div>
+        </div>
+        <form class="wz sticky" id="cartaForm" novalidate="">
+          <h2 style="font-size:1.35rem">¿Qué coche estás buscando?</h2>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="aMarca">Marca *</label><input id="aMarca" name="marca" required placeholder="Una o varias"></div>
+            <div class="input"><label for="aModelo">Modelo</label><input id="aModelo" name="modelo" placeholder="Si lo tienes claro"></div>
+          </div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="aPres">Presupuesto máximo (€) *</label><input id="aPres" name="presupuesto" type="number" inputmode="numeric" min="1000" step="500" required></div>
+            <div class="input"><label for="aCuota">O cuota al mes (€)</label><input id="aCuota" name="cuota" type="number" inputmode="numeric" min="50" step="10"></div>
+          </div>
+          <div class="input"><label>Combustible</label><div class="opts" id="aComb"><button type="button" class="opt" data-v="Gasolina">Gasolina</button><button type="button" class="opt" data-v="Diésel">Diésel</button><button type="button" class="opt" data-v="Híbrido">Híbrido</button><button type="button" class="opt" data-v="Eléctrico">Eléctrico</button><button type="button" class="opt on" data-v="Me da igual">Me da igual</button></div><input type="hidden" name="combustible" value="Me da igual"></div>
+          <div class="input"><label>Cambio</label><div class="opts" id="aCambio"><button type="button" class="opt" data-v="Manual">Manual</button><button type="button" class="opt" data-v="Automático">Automático</button><button type="button" class="opt on" data-v="Me da igual">Me da igual</button></div><input type="hidden" name="cambio" value="Me da igual"></div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="aKm">Km máximos</label><input id="aKm" name="km" type="number" inputmode="numeric" step="5000" placeholder="80.000"></div>
+            <div class="input"><label for="aAnio">Año mínimo</label><input id="aAnio" name="anio" type="number" inputmode="numeric" min="2000" max="2026" placeholder="2019"></div>
+          </div>
+          <div class="input"><label for="aOtros">Lo que no negocias (opcional)</label><textarea class="textarea" id="aOtros" name="otros" placeholder="Color, techo, 7 plazas, etiqueta ECO, que sea de un solo dueño…"></textarea></div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="aNom">Nombre *</label><input id="aNom" name="nombre" required autocomplete="name"></div>
+            <div class="input"><label for="aTel">Teléfono *</label><input id="aTel" name="tel" type="tel" inputmode="tel" required autocomplete="tel"></div>
+          </div>
+          <label class="check"><input type="checkbox" name="consent" required> Acepto la <a href="/ejemplos/plusauto-web-widy/legal#privacidad">política de privacidad</a>.</label>
+          <button type="submit" class="btn btn--wa btn--lg"><span data-icon="wa"></span>Que me lo busquen</button>
+          <div class="form__ok hide" id="cartaOk"><span data-icon="check"></span><div>Recibido. Empezamos a buscar y te escribimos con las primeras opciones.<br><a data-wa-out href="#" target="_blank" rel="noopener" style="text-decoration:underline">Abrir WhatsApp si no se ha abierto</a></div></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Preguntas frecuentes</span><h2 style="margin-top:12px">Sobre el servicio a la carta</h2></div></div>
+      <div class="faq">
+        <details><summary>¿Cuánto tarda? <span data-icon="plus"></span></summary><p>Las primeras opciones suelen llegar en una semana. Si el coche está en España, la entrega es cuestión de días; si viene de Europa, entre 3 y 5 semanas con matriculación incluida.</p></details>
+        <details><summary>¿Tiene coste pedir la búsqueda? <span data-icon="plus"></span></summary><p>No. Solo pagas si te gusta una de las opciones y decides comprarla, con el precio cerrado por escrito antes.</p></details>
+        <details><summary>¿Los coches a la carta llevan garantía? <span data-icon="plus"></span></summary><p>Sí, la misma garantía que cualquier coche de nuestro stock, y se pueden financiar igual.</p></details>
+        <details><summary>¿Puedo entregar mi coche actual? <span data-icon="plus"></span></summary><p>Sí. Lo tasamos y su valor se descuenta del precio del que te traigamos.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="/ejemplos/plusauto-web-widy/js/stock.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/app.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/paginas.js"></script>
+</body>
+</html>

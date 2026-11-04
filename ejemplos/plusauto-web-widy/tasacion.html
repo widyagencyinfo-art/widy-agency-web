@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasación · Vende tu coche · PlusAuto Motor</title>
+<meta name="description" content="Tasamos y compramos tu coche en Dos Hermanas: valoración gratuita en 24 h, pago inmediato y trámites incluidos. También lo aceptamos como entrada.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PlusAuto Motor">
+<meta property="og:title" content="Tasación · Vende tu coche · PlusAuto Motor">
+<meta property="og:description" content="Tasamos y compramos tu coche en Dos Hermanas: valoración gratuita en 24 h, pago inmediato y trámites incluidos. También lo aceptamos como entrada.">
+<meta property="og:image" content="https://plusauto-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="/ejemplos/plusauto-web-widy/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/ejemplos/plusauto-web-widy/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/ejemplos/plusauto-web-widy/css/styles.css">
+</head>
+<body data-page="tasacion">
+<div id="siteHeader"></div>
+
+<main id="main">
+  <section class="phero">
+    <div class="wrap phero__in">
+      <div>
+        <nav class="crumbs" aria-label="Migas de pan" style="margin-bottom:14px"><a href="/ejemplos/plusauto-web-widy/">Inicio</a><span data-icon="chevR"></span><span>Tasación</span></nav>
+        <span class="eyebrow">Vende tu coche</span>
+        <h1 style="margin-top:14px">Te decimos cuánto vale tu coche en 24 h. Y te lo compramos.</h1>
+        <p class="hero__lead">Valoración gratuita basada en el estado real del coche y el mercado de hoy. Si te encaja, pago inmediato y nos ocupamos de la transferencia. Si no, no pasa nada.</p>
+        <div class="hero__pills">
+          <span class="pill"><span data-icon="check"></span>Sin compromiso</span>
+          <span class="pill"><span data-icon="check"></span>Pago en el acto</span>
+          <span class="pill"><span data-icon="check"></span>Trámites incluidos</span>
+          <span class="pill"><span data-icon="check"></span>Vale como entrada</span>
+        </div>
+        <div class="row-actions" style="margin-top:24px"><a class="btn btn--primary btn--lg" href="#tasar"><span data-icon="tag"></span>Tasar mi coche</a><a class="btn btn--ghost btn--lg" data-wa="Hola PlusAuto, quiero tasar mi coche. Os mando fotos y datos por aquí." href="#"><span data-icon="wa"></span>Mejor por WhatsApp</a></div>
+      </div>
+      <div class="stepcards">
+        <div class="stepcard"><b class="n">1</b><h3>Nos cuentas tu coche</h3><p>Marca, modelo, año, kilómetros y estado. Dos minutos.</p></div>
+        <div class="stepcard"><b class="n">2</b><h3>Te damos precio</h3><p>En menos de 24 h laborables, con el mercado real en la mano.</p></div>
+        <div class="stepcard"><b class="n">3</b><h3>Lo vemos y cobras</h3><p>Lo revisamos en tienda o en tu casa, firmamos y te pagamos en el acto.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="tasar" style="padding-top:40px">
+    <div class="wrap">
+      <form class="wz" id="tasWizard" novalidate="">
+        <div class="wz__nav"><span class="on"><i>1</i>Tu coche</span><span><i>2</i>Estado</span><span><i>3</i>Fotos</span><span><i>4</i>Contacto</span></div>
+        <div class="wz__step on" data-step="1">
+          <h2>¿Qué coche es?</h2>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="tMarca">Marca *</label><input id="tMarca" name="marca" required list="marcasList" autocomplete="off"><datalist id="marcasList"></datalist></div>
+            <div class="input"><label for="tModelo">Modelo *</label><input id="tModelo" name="modelo" required></div>
+          </div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="tAnio">Año de matriculación *</label><input id="tAnio" name="anio" type="number" inputmode="numeric" min="1990" max="2026" required></div>
+            <div class="input"><label for="tKm">Kilómetros *</label><input id="tKm" name="km" type="number" inputmode="numeric" min="0" step="1000" required></div>
+          </div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="tComb">Combustible</label><select id="tComb" name="combustible"><option>Gasolina</option><option>Diésel</option><option>Híbrido</option><option>Híbrido enchufable</option><option>Eléctrico</option><option>GLP</option></select></div>
+            <div class="input"><label for="tCambio">Cambio</label><select id="tCambio" name="cambio"><option>Manual</option><option>Automático</option></select></div>
+          </div>
+          <div class="input"><label for="tVersion">Versión o acabado (opcional)</label><input id="tVersion" name="version" placeholder="Ej.: 1.5 TSI FR, 150 CV"></div>
+        </div>
+        <div class="wz__step" data-step="2">
+          <h2>¿Cómo está?</h2>
+          <div class="input"><label>Estado general</label><div class="opts" id="tEstado"><button type="button" class="opt on" data-v="Muy bueno">Muy bueno</button><button type="button" class="opt" data-v="Bueno">Bueno, con uso normal</button><button type="button" class="opt" data-v="Con detalles">Con detalles de chapa o pintura</button><button type="button" class="opt" data-v="Con averías">Con averías</button></div><input type="hidden" name="estado" value="Muy bueno"></div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="tItv">ITV</label><select id="tItv" name="itv"><option>En vigor</option><option>Caducada</option><option>No lo sé</option></select></div>
+            <div class="input"><label for="tProp">Propietarios</label><select id="tProp" name="propietarios"><option>1 (soy el primero)</option><option>2</option><option>3 o más</option></select></div>
+          </div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="tFin">¿Tiene financiación pendiente?</label><select id="tFin" name="financiado"><option>No</option><option>Sí</option></select></div>
+            <div class="input"><label for="tLibro">Libro de revisiones</label><select id="tLibro" name="libro"><option>Al día, en concesionario oficial</option><option>Al día, en taller</option><option>Incompleto</option><option>No tengo</option></select></div>
+          </div>
+          <div class="input"><label for="tExtras">Extras o cosas que debamos saber (opcional)</label><textarea class="textarea" id="tExtras" name="extras" placeholder="Techo, navegador, ruedas nuevas, un golpe en la puerta…"></textarea></div>
+        </div>
+        <div class="wz__step" data-step="3">
+          <h2>Unas fotos ayudan a afinar el precio</h2>
+          <p class="muted">Opcional. Frontal, trasera, un lateral, el cuadro con los kilómetros y cualquier detalle. Si lo prefieres, nos las mandas luego por WhatsApp.</p>
+          <label class="upload" for="tFotos"><span data-icon="camera"></span><b>Añadir fotos</b><span>JPG o HEIC, hasta 10</span><input id="tFotos" type="file" accept="image/*" multiple></label>
+          <div class="previews" id="tPreviews"></div>
+        </div>
+        <div class="wz__step" data-step="4">
+          <h2>¿Dónde te mandamos la valoración?</h2>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="tNombre">Nombre *</label><input id="tNombre" name="nombre" required autocomplete="name"></div>
+            <div class="input"><label for="tTel">Teléfono *</label><input id="tTel" name="tel" type="tel" inputmode="tel" required autocomplete="tel"></div>
+          </div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="tMail">Email</label><input id="tMail" name="email" type="email" inputmode="email" autocomplete="email"></div>
+            <div class="input"><label for="tZona">¿Dónde está el coche?</label><input id="tZona" name="zona" placeholder="Dos Hermanas, Sevilla…"></div>
+          </div>
+          <div class="input"><label for="tQue">¿Qué prefieres?</label><select id="tQue" name="objetivo"><option>Venderlo</option><option>Entregarlo como entrada de otro vehículo</option><option>Solo saber cuánto vale</option></select></div>
+          <div class="summary" data-summary></div>
+          <label class="check"><input type="checkbox" name="consent" required> He leído la <a href="/ejemplos/plusauto-web-widy/legal#privacidad">política de privacidad</a> y acepto que PlusAuto me contacte con la valoración.</label>
+        </div>
+        <div class="wz__foot">
+          <button type="button" class="btn btn--ghost" data-prev disabled><span data-icon="chevL"></span>Atrás</button>
+          <button type="button" class="btn btn--primary" data-next>Siguiente <span data-icon="chevR"></span></button>
+          <button type="submit" class="btn btn--wa hide" data-submit><span data-icon="wa"></span>Pedir la valoración</button>
+        </div>
+        <div class="form__ok hide" id="tasOk"><span data-icon="check"></span><div>Recibido. Te damos precio en menos de 24 h laborables.<br><a data-wa-out href="#" target="_blank" rel="noopener" style="text-decoration:underline">Abrir WhatsApp si no se ha abierto (ahí puedes adjuntar las fotos)</a></div></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="tas">
+        <div><span class="eyebrow">Cambio de coche</span><h2 style="margin-top:12px">Entrégalo como entrada y baja la cuota del nuevo</h2><p class="muted" style="margin-top:12px">El valor de tu coche se descuenta directamente del precio del que te lleves. Sin vender por tu cuenta, sin visitas de desconocidos ni regateos.</p></div>
+        <div class="row-actions" style="align-content:center"><a class="btn btn--primary btn--lg" href="/ejemplos/plusauto-web-widy/vehiculos"><span data-icon="car"></span>Ver el stock</a><a class="btn btn--ghost btn--lg" href="/ejemplos/plusauto-web-widy/financiacion">Calcular la cuota</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Preguntas frecuentes</span><h2 style="margin-top:12px">Sobre vender tu coche</h2></div></div>
+      <div class="faq">
+        <details><summary>¿La tasación es gratis y sin compromiso? <span data-icon="plus"></span></summary><p>Sí. Te damos precio y decides. No hay ninguna obligación de vender ni coste por la valoración.</p></details>
+        <details><summary>¿Qué documentación necesito para vender? <span data-icon="plus"></span></summary><p>Permiso de circulación, ficha técnica, DNI del titular y, si la tiene, la documentación de la financiación cancelada. El resto de trámites (transferencia, notificación a Tráfico) los hacemos nosotros.</p></details>
+        <details><summary>¿Cuándo cobro? <span data-icon="plus"></span></summary><p>En el momento de la firma, por transferencia inmediata. Nada de «te pagamos cuando lo vendamos».</p></details>
+        <details><summary>¿Recogéis el coche en mi casa? <span data-icon="plus"></span></summary><p>Sí, en Dos Hermanas, Sevilla y alrededores nos desplazamos a verlo y a recogerlo si cerramos la operación.</p></details>
+        <details><summary>¿Tasáis coches con muchos kilómetros o averías? <span data-icon="plus"></span></summary><p>Sí. Cuéntanoslo en el formulario para ajustar el precio desde el principio y evitar sorpresas cuando lo veamos.</p></details>
+        <details><summary>¿Y si tiene financiación pendiente? <span data-icon="plus"></span></summary><p>Se puede vender igualmente: cancelamos la deuda con la financiera con parte del pago y tú recibes la diferencia. Lo gestionamos nosotros.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="/ejemplos/plusauto-web-widy/js/stock.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/app.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/paginas.js"></script>
+</body>
+</html>

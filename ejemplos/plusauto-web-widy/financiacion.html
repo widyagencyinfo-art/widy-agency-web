@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Financiación · PlusAuto Motor</title>
+<meta name="description" content="Financia tu coche o tu moto hasta el 100 % sin entrada. Calcula tu cuota, descubre qué puedes comprar con tu presupuesto mensual y pide el estudio en 2 minutos.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PlusAuto Motor">
+<meta property="og:title" content="Financiación · PlusAuto Motor">
+<meta property="og:description" content="Financia tu coche o tu moto hasta el 100 % sin entrada. Calcula tu cuota, descubre qué puedes comprar con tu presupuesto mensual y pide el estudio en 2 minutos.">
+<meta property="og:image" content="https://plusauto-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="/ejemplos/plusauto-web-widy/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/ejemplos/plusauto-web-widy/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/ejemplos/plusauto-web-widy/css/styles.css">
+</head>
+<body data-page="financiacion">
+<div id="siteHeader"></div>
+
+<main id="main">
+  <section class="phero">
+    <div class="wrap phero__in">
+      <div>
+        <nav class="crumbs" aria-label="Migas de pan" style="margin-bottom:14px"><a href="/ejemplos/plusauto-web-widy/">Inicio</a><span data-icon="chevR"></span><span>Financiación</span></nav>
+        <span class="eyebrow">Financiación</span>
+        <h1 style="margin-top:14px">Hasta el 100 %, sin entrada y con respuesta en el día</h1>
+        <p class="hero__lead">Trabajamos con varias financieras para conseguirte la cuota que te encaje. Tú eliges plazo y entrada; nosotros hacemos el papeleo.</p>
+        <div class="phero__stats" style="margin-top:22px">
+          <div class="spec"><b>100 %</b><small>financiable, sin entrada</small></div>
+          <div class="spec"><b>24 h</b><small>respuesta del estudio</small></div>
+          <div class="spec"><b>36–96</b><small>meses a elegir</small></div>
+        </div>
+        <div class="hero__pills">
+          <span class="pill"><span data-icon="check"></span>Sin comisión de apertura</span>
+          <span class="pill"><span data-icon="check"></span>Tu coche actual como entrada</span>
+          <span class="pill"><span data-icon="check"></span>Cancelación anticipada</span>
+        </div>
+      </div>
+      <div class="fin__calc" id="calcFin">
+        <h2 style="font-size:1.2rem">Calcula tu cuota</h2>
+        <div class="field"><label><span>Precio del vehículo</span><b data-calc-precio-l></b></label><input type="range" data-calc-precio min="2500" max="70000" step="500" value="18000" aria-label="Precio del vehículo"></div>
+        <div class="field"><label><span>Entrada</span><b data-calc-entrada-l></b></label><input type="range" data-calc-entrada min="0" max="50" step="5" value="0" aria-label="Entrada en porcentaje"></div>
+        <div class="field"><label><span>Plazo</span></label><div class="seg" data-calc-meses><button type="button" data-m="36">36</button><button type="button" data-m="48">48</button><button type="button" data-m="60">60</button><button type="button" data-m="72">72</button><button type="button" data-m="84">84</button><button type="button" class="on" data-m="96">96</button></div></div>
+        <div class="fin__out"><div class="big num" data-calc-out></div><p data-calc-total></p></div>
+        <a class="btn btn--primary" href="#estudio"><span data-icon="doc"></span>Pedir el estudio con estos datos</a>
+        <p class="note">Cuota orientativa con TIN 7,99 %. La oferta final depende de la financiera y de tu perfil.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:40px">
+    <div class="wrap">
+      <div class="afford">
+        <div class="afford__top">
+          <div>
+            <span class="eyebrow">Al revés</span>
+            <h2 style="margin-top:10px">¿Qué puedo comprar con lo que quiero pagar al mes?</h2>
+            <p class="muted" style="margin-top:8px">Mueve la cuota y te enseñamos todo lo que te sale por ese dinero o menos. Sin entrada.</p>
+          </div>
+          <div class="afford__val num"><span id="affVal">250</span> <small>€/mes</small></div>
+        </div>
+        <input type="range" id="affRange" min="50" max="1000" step="10" value="250" aria-label="Cuota mensual máxima">
+        <div class="field-inline">
+          <div class="seg" id="affTipo" style="flex:0 0 auto"><button type="button" class="on" data-t="">Todo</button><button type="button" data-t="coche">Coches</button><button type="button" data-t="moto">Motos</button></div>
+          <b id="affCount" class="muted" style="font-weight:500"></b>
+        </div>
+        <div class="grid" id="affGrid"></div>
+        <p class="note">* Cuotas orientativas (coches a 96 meses, motos a 60), TIN 7,99 %, sujetas a aprobación.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="estudio" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Estudio sin compromiso</span><h2 style="margin-top:12px">Pide tu financiación en 2 minutos</h2></div><p>Tres pasos. No te pedimos nóminas ahora: solo lo justo para preparar la propuesta.</p></div>
+      <form class="wz" id="finWizard" novalidate="">
+        <div class="wz__nav"><span class="on"><i>1</i>Vehículo</span><span><i>2</i>Tu perfil</span><span><i>3</i>Datos y envío</span></div>
+        <div class="wz__step on" data-step="1">
+          <h2>¿Qué quieres financiar?</h2>
+          <div class="input"><label for="fVeh">Vehículo</label><select id="fVeh" name="vehiculo"><option value="">Todavía no lo tengo claro</option></select></div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="fImp">Importe a financiar (€)</label><input id="fImp" name="importe" type="number" inputmode="numeric" min="1000" max="90000" step="100" value="18000" required></div>
+            <div class="input"><label for="fEnt">Entrada (€)</label><input id="fEnt" name="entrada" type="number" inputmode="numeric" min="0" step="100" value="0"></div>
+          </div>
+          <div class="input"><label>Plazo</label><div class="seg" id="fPlazo"><button type="button" data-m="36">36</button><button type="button" data-m="48">48</button><button type="button" data-m="60">60</button><button type="button" data-m="72">72</button><button type="button" data-m="84">84</button><button type="button" class="on" data-m="96">96 meses</button></div><input type="hidden" name="plazo" value="96"></div>
+          <div class="summary" style="grid-template-columns:1fr"><div><span>Cuota orientativa</span><b class="num" id="fCuota"></b></div></div>
+        </div>
+        <div class="wz__step" data-step="2">
+          <h2>Un poco sobre ti</h2>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="fSit">Situación laboral</label><select id="fSit" name="situacion" required><option value="">Elige</option><option>Contrato indefinido</option><option>Contrato temporal</option><option>Autónomo/a</option><option>Funcionario/a</option><option>Pensionista</option><option>Otra</option></select></div>
+            <div class="input"><label for="fAnt">Antigüedad en el empleo</label><select id="fAnt" name="antiguedad"><option>Menos de 6 meses</option><option>6 meses – 1 año</option><option selected>1 – 3 años</option><option>Más de 3 años</option></select></div>
+          </div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="fIng">Ingresos mensuales netos</label><select id="fIng" name="ingresos"><option>Menos de 1.000 €</option><option selected>1.000 – 1.500 €</option><option>1.500 – 2.500 €</option><option>Más de 2.500 €</option></select></div>
+            <div class="input"><label for="fOtr">¿Otras financiaciones en curso?</label><select id="fOtr" name="otras"><option selected>No</option><option>Sí, una</option><option>Sí, varias</option></select></div>
+          </div>
+          <p class="note">Estos datos solo sirven para orientar la propuesta. La financiera te pedirá la documentación cuando lleguemos a ese punto.</p>
+        </div>
+        <div class="wz__step" data-step="3">
+          <h2>¿Dónde te mandamos la propuesta?</h2>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="fNom">Nombre *</label><input id="fNom" name="nombre" required autocomplete="name"></div>
+            <div class="input"><label for="fTel">Teléfono *</label><input id="fTel" name="tel" type="tel" inputmode="tel" required autocomplete="tel"></div>
+          </div>
+          <div class="input"><label for="fMail">Email</label><input id="fMail" name="email" type="email" inputmode="email" autocomplete="email"></div>
+          <div class="summary" data-summary></div>
+          <label class="check"><input type="checkbox" name="consent" required> He leído la <a href="/ejemplos/plusauto-web-widy/legal#privacidad">política de privacidad</a> y acepto que PlusAuto me contacte para preparar la propuesta.</label>
+        </div>
+        <div class="wz__foot">
+          <button type="button" class="btn btn--ghost" data-prev disabled><span data-icon="chevL"></span>Atrás</button>
+          <button type="button" class="btn btn--primary" data-next>Siguiente <span data-icon="chevR"></span></button>
+          <button type="submit" class="btn btn--wa hide" data-submit><span data-icon="wa"></span>Enviar solicitud</button>
+        </div>
+        <div class="form__ok hide" id="finOk"><span data-icon="check"></span><div>Solicitud preparada. Te contestamos en menos de 24 h laborables.<br><a data-wa-out href="#" target="_blank" rel="noopener" style="text-decoration:underline">Abrir WhatsApp si no se ha abierto</a></div></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Preguntas frecuentes</span><h2 style="margin-top:12px">Lo que nos preguntan sobre financiar</h2></div></div>
+      <div class="faq">
+        <details><summary>¿Qué requisitos necesito para financiar? <span data-icon="plus"></span></summary><p>Ser mayor de edad, residir en España y tener ingresos demostrables (nómina, pensión o declaración si eres autónomo). Con eso preparamos el estudio; la financiera pedirá DNI, justificante de ingresos y número de cuenta cuando se apruebe.</p></details>
+        <details><summary>¿Puedo financiar el 100 % sin entrada? <span data-icon="plus"></span></summary><p>Sí. La mayoría de nuestros clientes financia el importe completo. Si prefieres dar entrada, o entregar tu coche actual como parte del pago, la cuota baja en proporción.</p></details>
+        <details><summary>¿Cuánto tarda en aprobarse? <span data-icon="plus"></span></summary><p>Normalmente tienes respuesta el mismo día o al siguiente laborable. Con la aprobación y la documentación firmada, te llevas el vehículo.</p></details>
+        <details><summary>¿Con qué entidades trabajáis? <span data-icon="plus"></span></summary><p>Con varias financieras especializadas en automoción. Comparamos condiciones y te proponemos la que mejor encaje con tu caso, no la primera que aprueba.</p></details>
+        <details><summary>¿Puedo cancelar o amortizar antes de tiempo? <span data-icon="plus"></span></summary><p>Sí. Puedes amortizar parcial o totalmente cuando quieras; la comisión, si la hay, está limitada por ley y te la explicamos antes de firmar.</p></details>
+        <details><summary>¿Se pueden financiar las motos eléctricas? <span data-icon="plus"></span></summary><p>Sí, y es donde más se nota: una Silence S02 sale desde unos 60 € al mes, menos de lo que muchos gastan en gasolina. Las ayudas del Plan Auto+ se pueden combinar con la financiación.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="/ejemplos/plusauto-web-widy/js/stock.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/app.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/paginas.js"></script>
+</body>
+</html>

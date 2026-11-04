@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carta — Es Mal Pas · Formentera</title>
+<meta name="description" content="Carta digital de Es Mal Pas. Cocina creativa con raíz mediterránea en Formentera.">
+<meta name="theme-color" content="#1C1A16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="carta.css">
+</head>
+<body>
+
+<header class="mhead">
+  <a href="index.html" class="mhead__back" aria-label="Volver">←</a>
+  <div class="mhead__brand">
+    <span class="mhead__mark">es mal pas</span>
+    <span class="mhead__sub" data-i18n="tagline">Carta · Formentera</span>
+  </div>
+  <button class="mhead__lang" id="langBtn"><span id="langNow">ES</span></button>
+</header>
+
+<div class="tools">
+  <div class="tools__search">
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input type="search" id="q" placeholder="Buscar plato…" data-i18n-ph="search">
+  </div>
+  <div class="tools__filters" id="filters"></div>
+</div>
+
+<nav class="tabs" id="tabs"></nav>
+
+<main id="menu" class="menu"></main>
+
+<p class="empty" id="empty" hidden data-i18n="empty">No encontramos nada con ese nombre.</p>
+
+<section class="aleg">
+  <h3 data-i18n="alergTitle">Alérgenos</h3>
+  <p data-i18n="alergTxt">Informamos con gusto de los alérgenos de cada plato. Consulta a nuestro equipo antes de pedir.</p>
+</section>
+
+<footer class="mfoot">
+  <div class="mfoot__cta">
+    <a href="https://wa.me/34971321670" target="_blank" rel="noopener" class="mbtn mbtn--wa" data-i18n="reserveWa">Reservar por WhatsApp</a>
+    <a href="tel:+34971321670" class="mbtn" data-i18n="call">Llamar · 971 321 670</a>
+  </div>
+  <div class="mfoot__meta">
+    <span>Lunes a domingo · 13:30–19:00 · 20:00–23:00</span>
+    <span>Paraíso de los Pinos, Formentera</span>
+  </div>
+  <div class="mfoot__qr">
+    <img src="img/qr.png" alt="QR de la carta">
+    <span data-i18n="qrTxt">Escanea para abrir esta carta en tu móvil</span>
+  </div>
+  <p class="mfoot__legal">© 2026 Es Mal Pas · Demo por <a href="https://widy.agency" target="_blank" rel="noopener">Widy</a></p>
+</footer>
+
+<a href="#" class="totop" id="totop" aria-label="Arriba">↑</a>
+
+<script src="carta.js"></script>
+</body>
+</html>

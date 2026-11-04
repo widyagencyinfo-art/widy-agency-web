@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carta · Nuevo Guagüita · Valladolid</title>
+<meta name="description" content="Carta de raciones del Nuevo Guagüita, Valladolid. Calamares, langostinos, torreznos, revueltos y ensaladas. Precios actualizados.">
+<meta name="theme-color" content="#C9372A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="carta.css">
+</head>
+<body>
+
+<header class="chead">
+  <a class="chead__back" href="index.html" aria-label="Volver">&larr;</a>
+  <div class="chead__brand">
+    <svg viewBox="0 0 64 64" class="chead__prawn" aria-hidden="true">
+      <path d="M45 12c-1.6 3.2-4.3 5.6-7.6 6.8 4.9.6 9 3.4 11.3 7.5 1.1 2 1.7 4.3 1.7 6.7 0 8.6-7.4 15.6-16.4 15.6-2.6 0-5-.6-7.2-1.6l-3.3 6.4c-.4.8-1.4 1.1-2.2.7-.8-.4-1.1-1.4-.7-2.2l3.4-6.6c-4.4-3-7.3-7.9-7.3-13.5 0-1 .1-2 .3-3l-6.9-1.4c-.9-.2-1.4-1-1.2-1.9.2-.9 1-1.4 1.9-1.2l7.1 1.5c1.4-3.2 3.8-5.9 6.8-7.7l-4-5.4c-.5-.7-.4-1.7.3-2.2.7-.5 1.7-.4 2.2.3l4.3 5.8c1.8-.7 3.7-1.1 5.7-1.2 1.7-2.5 2.7-5.5 2.7-8.7 0-.9.7-1.6 1.6-1.6s1.6.7 1.6 1.6c0 1.5-.2 3-.6 4.4 2.1-1 3.9-2.6 5.1-4.6.4-.8 1.4-1 2.2-.6.7.4 1 1.4.5 2.1zM33 45.4c7.2 0 13.1-5.6 13.1-12.4S40.2 20.6 33 20.6s-13.1 5.6-13.1 12.4S25.8 45.4 33 45.4zm-5.6-14.7c1.2 0 2.2 1 2.2 2.2s-1 2.2-2.2 2.2-2.2-1-2.2-2.2 1-2.2 2.2-2.2z"/>
+    </svg>
+    <span>Nuevo Guagüita</span>
+  </div>
+  <a class="chead__wa" href="https://wa.me/34633502306?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20Nuevo%20Guag%C3%BCita." target="_blank" rel="noopener">Reservar</a>
+</header>
+
+<section class="chero">
+  <p class="ceyebrow">Valladolid · desde 1971</p>
+  <h1>La carta</h1>
+  <p class="chero__sub">Raciones para compartir. Los precios son los de la casa.</p>
+</section>
+
+<div class="ctools">
+  <div class="csearch">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 105.06 13.06l4.19 4.19 1.41-1.41-4.19-4.19A7.5 7.5 0 0010.5 3zm0 2a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"/></svg>
+    <input id="q" type="search" placeholder="Buscar un plato…" autocomplete="off" aria-label="Buscar un plato">
+    <button id="clear" class="csearch__clear" aria-label="Borrar" hidden>&times;</button>
+  </div>
+  <div class="cchips" id="chips">
+    <button class="chip is-on" data-f="all">Todo</button>
+    <button class="chip" data-f="top">Lo más pedido</button>
+    <button class="chip" data-f="mar">Del mar</button>
+    <button class="chip" data-f="tierra">De la tierra</button>
+    <button class="chip" data-f="sarten">De sartén</button>
+    <button class="chip" data-f="verde">Verduras y patatas</button>
+    <button class="chip" data-f="veg">Sin carne ni pescado</button>
+  </div>
+</div>
+
+<main id="menu" class="cmenu"></main>
+
+<p class="cempty" id="empty" hidden>No encontramos ese plato. Prueba con otra palabra.</p>
+
+<section class="cnote">
+  <h3>Antes de pedir</h3>
+  <ul>
+    <li><strong>Montadito gratis</strong> con cada consumición, de martes a viernes y sábados y domingos por la mañana.</li>
+    <li>Las raciones son para compartir: con 4 raciones comen 3 personas de sobra.</li>
+    <li>Si tienes alguna alergia o intolerancia, dínoslo y te contamos cómo está hecho cada plato.</li>
+    <li>Pregunta por las sugerencias del día y por las ofertas de raciones con botella de sidra.</li>
+  </ul>
+</section>
+
+<section class="cqr">
+  <div class="cqr__box">
+    <div class="cqr__code" id="qr" aria-label="Código QR de la carta"></div>
+    <div>
+      <h3>Esta carta cabe en una pegatina</h3>
+      <p>Pon este código en la mesa y tus clientes la abren en su móvil. Cuando suba un precio, se cambia aquí y ya está: sin reimprimir nada.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="cfoot">
+  <p><strong>Nuevo Guagüita</strong> · C/ de la Penitencia, 4 · 47011 Valladolid</p>
+  <p>Martes a domingo · 12:00–16:00 y 20:00–23:30 · Lunes cerrado</p>
+  <p><a href="tel:+34633502306">633 50 23 06</a> · <a href="index.html">Volver a la web</a></p>
+</footer>
+
+<a class="fab" href="https://wa.me/34633502306?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20Nuevo%20Guag%C3%BCita." target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4c-1.1-1.7-1.6-3.7-1.6-5.6C5.2 10 10 5.2 16 5.2S26.8 10 26.8 16 22 26.6 16 26.6zm5.9-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3s0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5s0-.4 0-.6c-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.4 3.7 5.9 5.1.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script src="carta.js"></script>
+</body>
+</html>

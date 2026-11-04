@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PlusAuto Motor · Motos eléctricas y coches de ocasión en Dos Hermanas (Sevilla)</title>
+<meta name="description" content="Distribuidor oficial Silence y coches de ocasión revisados y garantizados en Dos Hermanas. Financiación hasta el 100 %, tasación y entrega en toda España. ¿Lo quieres? Lo tenemos.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PlusAuto Motor">
+<meta property="og:title" content="PlusAuto Motor · Motos eléctricas y coches de ocasión en Dos Hermanas (Sevilla)">
+<meta property="og:description" content="Distribuidor oficial Silence y coches de ocasión revisados y garantizados en Dos Hermanas. Financiación hasta el 100 %, tasación y entrega en toda España. ¿Lo quieres? Lo tenemos.">
+<meta property="og:image" content="https://plusauto-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="/ejemplos/plusauto-web-widy/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/ejemplos/plusauto-web-widy/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="preload" as="image" href="/ejemplos/plusauto-web-widy/img/video/portada.jpg">
+<link rel="stylesheet" href="/ejemplos/plusauto-web-widy/css/styles.css">
+</head>
+<body data-page="home">
+<div id="siteHeader"></div>
+
+<main id="main">
+  <!-- HERO · LANZAMIENTO -->
+  <section class="hero hero--video hero--launch">
+    <div class="hero__video" aria-hidden="true">
+      <video muted loop playsinline autoplay preload="auto" disablepictureinpicture disableremoteplayback poster="/ejemplos/plusauto-web-widy/img/video/portada.jpg"><source src="/ejemplos/plusauto-web-widy/img/video/portada.mp4" type="video/mp4"></video>
+      <div class="hero__shade"></div>
+    </div>
+    <div class="wrap hero__in hero__in--launch">
+      <div class="hero__copy">
+        <span class="launch"><i></i>Novedad · ya en exposición en Dos Hermanas</span>
+        <h1>Las nuevas <span>Silence</span> ya están aquí.</h1>
+        <p class="hero__lead">Motos eléctricas con la batería que subes a casa. Hasta 138 km por 1 € de luz, desde 2.990 € o 61 €/mes. Ven, súbete y decide.</p>
+        <div class="row-actions hero__cta">
+          <a class="btn btn--light btn--lg" data-wa="Hola PlusAuto, quiero probar la nueva Silence S02. ¿Cuándo puedo pasarme?" href="#"><span data-icon="calendar"></span>Reservar una prueba</a>
+          <a class="btn btn--glass btn--lg" href="#motos">Ver las motos<span data-icon="arrow"></span></a>
+        </div>
+        <div class="hero__pills">
+          <span class="pill"><span data-icon="check"></span>Distribuidor oficial Silence</span>
+          <span class="pill"><span data-icon="check"></span>Ayudas hasta 2.000 €</span>
+          <span class="pill"><span data-icon="check"></span>Financiación 100 %</span>
+        </div>
+      </div>
+      <a class="launchcard" href="/ejemplos/plusauto-web-widy/vehiculo?id=silence-s02-l3e" id="launchCard" aria-label="Ver la Silence S02">
+        <span class="launchcard__tag"><span data-icon="zap"></span>Nueva · Silence S02</span>
+        <div class="launchcard__img"><img id="launchImg" src="/ejemplos/plusauto-web-widy/img/silence/s02-mint-6.webp" alt="Silence S02 vista de lado" width="1400" height="1050" fetchpriority="high"></div>
+        <div class="launchcard__dots" id="launchDots" aria-hidden="true"></div>
+        <div class="launchcard__foot"><div><b>Silence S02</b><small>desde <span class="num">2.990 €</span> · <span class="num">61 €/mes</span>*</small></div><span class="launchcard__go">Ver la moto<span data-icon="arrow"></span></span></div>
+        <div class="launchcard__chips"><span><b>138 km</b>autonomía</span><span><b>5,6 kWh</b>batería extraíble</span><span><b>0 €</b>de gasolina</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- BUSCADOR (dock) -->
+  <div class="dock">
+    <div class="wrap">
+      <div class="ss ss--dock" id="heroSearch">
+        <div class="ss__box">
+          <span data-icon="spark"></span>
+          <input class="ss__input" type="search" placeholder="Dinos qué buscas con tus palabras. Ej.: SUV automático hasta 20.000 €" aria-label="Buscar vehículo" autocomplete="off" enterkeyhint="search">
+          <button class="ss__btn" type="button"><span data-icon="search"></span><span>Buscar</span></button>
+        </div>
+        <div class="ss__drop"></div>
+        <div class="ss__ex" aria-label="Ejemplos de búsqueda">
+          <span class="ss__exl">Prueba con:</span>
+          <button type="button">Moto sin carnet</button>
+          <button type="button">Automático hasta 15.000 €</button>
+          <button type="button">Híbrido con pocos km</button>
+          <button type="button">Menos de 200 € al mes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARQUESINA -->
+  <div class="marquee" aria-hidden="true"><div class="marquee__track" id="marquee"></div></div>
+
+  <!-- MOTOS · HISTORIA -->
+  <section class="sec motos" id="motos">
+    <div class="wrap">
+      <div class="sec__head">
+        <div><span class="eyebrow">Motos eléctricas · Novedad</span><h2 style="margin-top:12px">La nueva Silence S02, de cerca</h2></div>
+        <p>Distribuidor oficial Silence en el sur de Sevilla. En cuatro pasos entiendes por qué se están vendiendo tan rápido.</p>
+      </div>
+
+      <div class="story" id="story" data-active="0">
+        <div class="story__visual">
+          <div class="story__vtitle"><span class="eyebrow">Gírala</span><h3>Arrastra para verla desde todos los ángulos y elige color</h3></div>
+          <div class="silence silence--story" id="silenceHome" data-frame="1">
+            <div class="silence__visual">
+              <img class="silence__img" src="/ejemplos/plusauto-web-widy/img/silence/s02-mint-6.webp" alt="Silence S02" width="1400" height="1050">
+              <div class="spin"><button type="button" class="spin__l" aria-label="Girar a la izquierda"><span data-icon="chevL"></span></button><span>Arrastra para girarla</span><button type="button" class="spin__r" aria-label="Girar a la derecha"><span data-icon="chevR"></span></button></div>
+            </div>
+            <div class="swatches"></div>
+          </div>
+          <div class="story__alt" aria-hidden="true"><img src="/ejemplos/plusauto-web-widy/img/silence/battery.webp" alt="" width="1330" height="1326" loading="lazy"><span class="story__cap">La batería lleva ruedas y asa, como una maleta</span></div>
+          <div class="story__dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+
+        <div class="story__steps">
+          <article class="story__step" data-step="0" data-alt="1">
+            <div class="story__img story__img--foto"><img src="/ejemplos/plusauto-web-widy/img/silence/battery.webp" alt="Batería extraíble de la Silence S02" loading="lazy" width="1330" height="1326"></div>
+            <b class="n">01</b>
+            <h3>La batería la sacas y la subes a casa</h3>
+            <p>No necesitas garaje ni punto de carga. La batería de 5,6 kWh tiene ruedas y asa: la sacas de la moto, la subes al piso y la enchufas donde cargas el móvil.</p>
+            <a class="story__link" href="/ejemplos/plusauto-web-widy/motos">Cómo funciona la batería<span data-icon="arrow"></span></a>
+          </article>
+          <article class="story__step" data-step="1" data-color="2" data-frame="1">
+            <div class="story__img"><img src="/ejemplos/plusauto-web-widy/img/silence/s02-mint-6.webp" alt="Silence S02 color menta, de perfil" loading="lazy" width="1400" height="1050"></div>
+            <b class="n">02</b>
+            <h3>138 km con menos de 1 € de luz</h3>
+            <p>Una carga completa cuesta lo que un café y te da para toda la semana en Dos Hermanas y Sevilla. Sin gasolina, sin aceite, sin ruido y con etiqueta 0 emisiones.</p>
+            <div class="story__stats"><div><b>138 km</b><small>autonomía real</small></div><div><b>≈ 1 €</b><small>por carga</small></div><div><b>132 kg</b><small>ligera y ágil</small></div></div>
+            <a class="story__link" href="/ejemplos/plusauto-web-widy/motos#ahorro">Calcula lo que te ahorras<span data-icon="arrow"></span></a>
+          </article>
+          <article class="story__step" data-step="2" data-color="0" data-frame="0">
+            <div class="story__img"><img src="/ejemplos/plusauto-web-widy/img/silence/s02-grey-1.webp" alt="Silence S02 color gris" loading="lazy" width="1400" height="1050"></div>
+            <b class="n">03</b>
+            <h3>Dos versiones, un carnet para cada uno</h3>
+            <p>La misma moto y la misma batería. Solo cambia la velocidad y el carnet que necesitas: desde los 15 años con el AM, o con tu carnet de coche.</p>
+            <div class="versions versions--story">
+              <a class="ver" href="/ejemplos/plusauto-web-widy/vehiculo?id=silence-s02-l1e"><span class="tag">Desde 15 años</span><small>S02 L1e · ciclomotor</small><b>45 km/h · carnet AM</b><div class="price num">2.990 €<small data-cuota="silence-s02-l1e"></small></div></a>
+              <a class="ver" href="/ejemplos/plusauto-web-widy/vehiculo?id=silence-s02-l3e"><span class="tag">Con carnet de coche</span><small>S02 L3e · equivalente 125 cc</small><b>85 km/h · carnet A1 o B</b><div class="price num">3.490 €<small data-cuota="silence-s02-l3e"></small></div></a>
+            </div>
+          </article>
+          <article class="story__step" data-step="3" data-color="1" data-frame="4">
+            <div class="story__img"><img src="/ejemplos/plusauto-web-widy/img/silence/s02-white-24.webp" alt="Silence S02 color blanco" loading="lazy" width="1400" height="1050"></div>
+            <b class="n">04</b>
+            <h3>Hasta 2.000 € de ayudas, y te las gestionamos</h3>
+            <p>Plan Auto+ para motos eléctricas, con la solicitud preparada por nosotros. Y para la versión L3e, deducción del 15 % en el IRPF hasta el 31 de diciembre de 2026.</p>
+            <div class="row-actions"><a class="btn btn--primary" data-wa="Hola PlusAuto, quiero probar la nueva Silence S02. ¿Cuándo puedo pasarme?" href="#"><span data-icon="calendar"></span>Reservar una prueba</a><a class="btn btn--ghost" href="/ejemplos/plusauto-web-widy/motos">Todo sobre la S02</a></div>
+            <p class="note">* Cuota orientativa a 60 meses sin entrada, TIN 7,99 %, sujeta a aprobación. PVP recomendado. Ayudas sujetas a las condiciones del plan y a disponibilidad de fondos.</p>
+          </article>
+        </div>
+        <div class="story__nav" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+
+      <div class="sec__head" style="margin-top:72px;margin-bottom:20px"><div><span class="eyebrow">En exposición</span><h3 style="font-size:1.6rem;margin-top:8px">Todas las motos eléctricas, hoy</h3></div><a class="btn btn--ghost btn--sm" href="/ejemplos/plusauto-web-widy/motos">Ver la página de motos <span data-icon="arrow"></span></a></div>
+      <div class="grid grid--4" id="motosGrid"></div>
+    </div>
+  </section>
+
+  <!-- COCHES -->
+  <section class="sec" id="coches">
+    <div class="wrap">
+      <div class="sec__head">
+        <div><span class="eyebrow">Coches de ocasión y km 0</span><h2 style="margin-top:12px"><span data-count="coches"></span> coches revisados, con garantía y listos para llevar</h2></div>
+        <p>Todos pasan por nuestro taller antes de salir a exposición. Elige por lo que te importa o pregunta con tus palabras en el buscador.</p>
+      </div>
+      <div class="cats cats--inline">
+        <a class="cat" href="/ejemplos/plusauto-web-widy/vehiculos?tipo=coche"><span data-icon="car"></span><div><b>Todos los coches</b><small data-catcount='{"tipo":"coche"}'>Ver</small></div></a>
+        <a class="cat" href="/ejemplos/plusauto-web-widy/vehiculos?carroceria=SUV"><span data-icon="route"></span><div><b>SUV</b><small data-catcount='{"carroceria":["SUV"]}'>Ver</small></div></a>
+        <a class="cat" href="/ejemplos/plusauto-web-widy/vehiculos?cambio=Automático"><span data-icon="gear"></span><div><b>Automáticos</b><small data-catcount='{"cambio":"Automático"}'>Ver</small></div></a>
+        <a class="cat" href="/ejemplos/plusauto-web-widy/vehiculos?precioMax=15000"><span data-icon="euro"></span><div><b>Menos de 15.000 €</b><small data-catcount='{"precioMax":15000}'>Ver</small></div></a>
+        <a class="cat" href="/ejemplos/plusauto-web-widy/vehiculos?kmMax=100"><span data-icon="tag"></span><div><b>Km 0 y nuevos</b><small data-catcount='{"kmMax":100}'>Ver</small></div></a>
+        <a class="cat" href="/ejemplos/plusauto-web-widy/vehiculos?combustible=Híbrido"><span data-icon="bolt"></span><div><b>Híbridos</b><small data-catcount='{"combustible":["Híbrido","Híbrido enchufable"]}'>Ver</small></div></a>
+      </div>
+      <div class="feat" data-feat="78a89628" style="margin-top:28px"></div>
+      <div class="grid" id="cochesGrid" style="margin-top:28px"></div>
+      <div style="text-align:center;margin-top:36px"><a class="btn btn--primary btn--lg" href="/ejemplos/plusauto-web-widy/vehiculos?tipo=coche">Ver los <span data-count="coches" style="margin:0 5px"></span> coches <span data-icon="arrow"></span></a></div>
+      <p class="note" style="text-align:center">* Cuotas orientativas sin entrada a 96 meses, TIN 7,99 %, sujetas a aprobación de la financiera.</p>
+      <div class="brands" id="brands" style="margin-top:40px" aria-label="Marcas en exposición"></div>
+    </div>
+  </section>
+
+  <!-- CINTA DE DATOS -->
+  <div class="ribbon">
+    <div class="wrap ribbon__in">
+      <div class="ribbon__item"><b data-count="total"></b><small>vehículos en exposición hoy</small></div>
+      <div class="ribbon__item"><b id="ribFotos"></b><small>fotos reales, sin retoques</small></div>
+      <div class="ribbon__item"><b>24 h</b><small>respuesta a tu financiación</small></div>
+      <div class="ribbon__item"><b>Silence</b><small>distribuidor oficial en Dos Hermanas</small></div>
+    </div>
+  </div>
+
+  <!-- PRODUCTOS Y SERVICIOS -->
+  <section class="sec" id="servicios">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Productos y servicios</span><h2 style="margin-top:12px">Todo lo que necesitas, en un solo sitio</h2></div><a class="btn btn--ghost btn--sm" href="/ejemplos/plusauto-web-widy/servicios">Todos los servicios <span data-icon="arrow"></span></a></div>
+      <div class="bento">
+        <a class="tile tile--wide tile--ink" href="/ejemplos/plusauto-web-widy/financiacion">
+          <div class="tile__ic"><span data-icon="euro"></span></div>
+          <div class="tile__body"><h3>Financiación hasta el 100 %</h3><p>Sin entrada, con respuesta en el día y la cuota que te encaje. Tu coche actual puede ser la entrada.</p></div>
+          <div class="tile__big"><small>Motos desde</small><b class="num" data-cuota-big="silence-s02-l1e"></b><small>Coches desde <b class="num" data-cuota-min-coche></b></small></div>
+          <span class="tile__go">Calcular mi cuota<span data-icon="arrow"></span></span>
+        </a>
+        <a class="tile" href="/ejemplos/plusauto-web-widy/tasacion">
+          <div class="tile__ic"><span data-icon="tag"></span></div>
+          <div class="tile__body"><h3>Tasamos y compramos tu coche</h3><p>Tasación transparente en 24 h, pago inmediato y trámites incluidos.</p></div>
+          <span class="tile__go">Pedir tasación<span data-icon="arrow"></span></span>
+        </a>
+        <a class="tile tile--tall tile--img" href="#" data-wa="Hola PlusAuto, quiero información sobre accesorios y recambios para la Silence S02.">
+          <div class="tile__ic"><span data-icon="bolt"></span></div>
+          <div class="tile__body"><h3>Accesorios y recambios Silence</h3><p>Segunda batería, cargador rápido, baúl, casco y recambios originales. Pregúntanos y te decimos precio y plazo.</p></div>
+          <span class="tile__go">Consultar por WhatsApp<span data-icon="arrow"></span></span>
+          <img class="tile__img" src="/ejemplos/plusauto-web-widy/img/silence/battery.webp" alt="" loading="lazy" width="1330" height="1326">
+        </a>
+        <a class="tile" href="/ejemplos/plusauto-web-widy/taller">
+          <div class="tile__ic"><span data-icon="wrench"></span></div>
+          <div class="tile__body"><h3>Taller propio</h3><p>Revisiones, mantenimiento y puesta a punto de tu coche o tu moto. Pide cita online.</p></div>
+          <span class="tile__go">Pedir cita<span data-icon="arrow"></span></span>
+        </a>
+        <a class="tile" href="/ejemplos/plusauto-web-widy/coches-a-la-carta">
+          <div class="tile__ic"><span data-icon="search"></span></div>
+          <div class="tile__body"><h3>Coches a la carta</h3><p>¿No está en stock? Dinos qué buscas y te lo localizamos entre nuestros proveedores.</p></div>
+          <span class="tile__go">Encargar mi coche<span data-icon="arrow"></span></span>
+        </a>
+        <div class="tile tile--soft">
+          <div class="tile__ic"><span data-icon="shield"></span></div>
+          <div class="tile__body"><h3>Garantía y entrega en toda España</h3><p>Garantía por escrito hasta 36 meses, revisión en taller y entrega en cualquier punto de la península.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="sec sec--alt" id="como">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Así de fácil</span><h2 style="margin-top:12px">De la web a tu garaje en tres pasos</h2></div><p>Sin sorpresas y sin papeleo por tu parte. Tú eliges y pruebas; del resto nos ocupamos nosotros.</p></div>
+      <div class="how">
+        <div class="how__step"><b class="n">1</b><h3>Elige y pregunta</h3><p>Busca con tus palabras, compara hasta tres y escríbenos por WhatsApp desde la ficha. Te contestamos en minutos en horario de tienda.</p></div>
+        <div class="how__step"><b class="n">2</b><h3>Pruébalo sin compromiso</h3><p>Reserva hora online y te lo dejamos preparado en Dos Hermanas. Si quieres, te lo reservamos hasta que vengas.</p></div>
+        <div class="how__step"><b class="n">3</b><h3>Te lo llevas con todo hecho</h3><p>Financiación aprobada en el día, transferencia y trámites incluidos, garantía por escrito y entrega en toda España.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINANCIACIÓN -->
+  <section class="sec sec--alt" id="financiacion">
+    <div class="wrap">
+      <div class="fin">
+        <div>
+          <span class="eyebrow">Financiación</span>
+          <h2 style="margin-top:12px">Hasta el 100 %, sin entrada y con respuesta en el día</h2>
+          <p class="muted" style="margin-top:14px">Trabajamos con las principales financieras para conseguirte la cuota que te encaje. Mueve los controles y mira cuánto pagarías al mes.</p>
+          <ul style="margin:20px 0 0;padding:0;list-style:none;display:grid;gap:10px" class="muted">
+            <li style="display:flex;gap:10px;align-items:center"><span data-icon="check" style="color:var(--accent)"></span>Sin entrada y sin comisión de apertura</li>
+            <li style="display:flex;gap:10px;align-items:center"><span data-icon="check" style="color:var(--accent)"></span>Plazos de 36 a 96 meses</li>
+            <li style="display:flex;gap:10px;align-items:center"><span data-icon="check" style="color:var(--accent)"></span>Estudio gratuito en 24 h, sin compromiso</li>
+            <li style="display:flex;gap:10px;align-items:center"><span data-icon="check" style="color:var(--accent)"></span>Tu coche actual como entrada</li>
+          </ul>
+        </div>
+        <div class="fin__calc" id="calcHome">
+          <div class="field"><label><span>Precio del vehículo</span><b data-calc-precio-l></b></label><input type="range" data-calc-precio min="2500" max="70000" step="500" value="18000" aria-label="Precio del vehículo"></div>
+          <div class="field"><label><span>Entrada</span><b data-calc-entrada-l></b></label><input type="range" data-calc-entrada min="0" max="50" step="5" value="0" aria-label="Entrada en porcentaje"></div>
+          <div class="field"><label><span>Plazo</span></label><div class="seg" data-calc-meses><button type="button" data-m="48">48</button><button type="button" data-m="60">60</button><button type="button" data-m="72">72</button><button type="button" data-m="84">84</button><button type="button" class="on" data-m="96">96 meses</button></div></div>
+          <div class="fin__out"><div class="big num" data-calc-out></div><p data-calc-total></p></div>
+          <div class="row-actions"><a class="btn btn--primary" href="/ejemplos/plusauto-web-widy/financiacion#estudio"><span data-icon="doc"></span>Pedir estudio sin compromiso</a><a class="btn btn--ghost" href="/ejemplos/plusauto-web-widy/financiacion">¿Qué puedo comprar con X €/mes?</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TASACIÓN -->
+  <section class="sec" id="tasacion" style="padding-top:0">
+    <div class="wrap">
+      <div class="tas">
+        <div>
+          <span class="eyebrow">Tasación</span>
+          <h2 style="margin-top:12px">Compramos tu coche al mejor precio</h2>
+          <p class="muted" style="margin-top:14px">Tasación transparente y sin compromiso, pago inmediato y nos encargamos de todos los trámites. También lo aceptamos como entrada para tu siguiente vehículo.</p>
+        </div>
+        <form class="form" id="tasForm" novalidate="">
+          <div class="row">
+            <div class="input"><label for="tMarca">Marca *</label><input id="tMarca" name="marca" required autocomplete="off"></div>
+            <div class="input"><label for="tModelo">Modelo *</label><input id="tModelo" name="modelo" required></div>
+          </div>
+          <div class="row">
+            <div class="input"><label for="tAnio">Año *</label><input id="tAnio" name="anio" type="number" inputmode="numeric" min="1990" max="2026" required></div>
+            <div class="input"><label for="tKm">Kilómetros *</label><input id="tKm" name="km" type="number" inputmode="numeric" required></div>
+          </div>
+          <div class="input"><label for="tNombre">Tu nombre *</label><input id="tNombre" name="nombre" required autocomplete="name"></div>
+          <button class="btn btn--primary" type="submit">Pedir tasación gratis</button>
+          <div class="form__ok hide" id="tasOk"><span data-icon="check"></span><div>Recibido. Te contestamos en el día.<br><a id="tasWa" href="#" target="_blank" rel="noopener" style="text-decoration:underline">Enviarlo también por WhatsApp</a></div></div>
+          <p class="note">Sin compromiso. No compartimos tus datos con nadie. ¿Quieres afinar más? <a href="/ejemplos/plusauto-web-widy/tasacion" style="color:var(--accent);text-decoration:underline">Tasación completa en 4 pasos</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPINIONES -->
+  <section class="sec sec--alt">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Opiniones</span><h2 style="margin-top:12px">Lo que dicen quienes ya han comprado</h2></div><a class="gbtn" href="https://www.google.com/maps/search/PlusAuto+Motor+Dos+Hermanas" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.4 14a6 6 0 0 1 0-3.9V7.5H3.1a10 10 0 0 0 0 9z"/><path fill="#EA4335" d="M12 6c1.5 0 2.8.5 3.8 1.5l2.8-2.8A10 10 0 0 0 3.1 7.5L6.4 10c.8-2.3 3-4 5.6-4z"/></svg>Ver todas las opiniones en Google</a></div>
+      <div class="reviews">
+        <div class="review"><div class="stars"><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span></div><p>«Compra segura y tranquilidad. Muy profesionales.»</p><footer><div class="avatar">J</div><div><b>Javier García</b><small>Lexus CT200h · 2019</small></div></footer></div>
+        <div class="review"><div class="stars"><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span></div><p>«Todo bien, Jorge me atendió durante todo el proceso y fue muy rápido y fácil.»</p><footer><div class="avatar">E</div><div><b>Elena Fernández</b><small>Nissan Versa · 2023</small></div></footer></div>
+        <div class="review"><div class="stars"><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span></div><p>«Buena relación calidad-precio en el coche. Sin líos y sin trampas.»</p><footer><div class="avatar">L</div><div><b>Luis González</b><small>Renault Captur · 2022</small></div></footer></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENDIDOS -->
+  <section class="sec" style="padding-top:0;padding-bottom:56px">
+    <div class="wrap">
+      <div class="sec__head" style="margin-bottom:16px"><div><span class="eyebrow">Entregados</span><h2 style="margin-top:12px;font-size:1.5rem">Los últimos que se han ido a casa</h2></div><p>El stock se mueve. Si ves algo que te gusta, no lo dejes para mañana.</p></div>
+      <div class="sold" id="soldStrip"></div>
+    </div>
+  </section>
+
+  <!-- REDES: muro de vídeos -->
+  <section class="sec sec--alt" id="redes">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Redes</span><h2 style="margin-top:12px">Cada coche y cada moto, primero en vídeo</h2></div><p>Antes de que un vehículo llegue a la web ya lo hemos enseñado en TikTok e Instagram. Pasa el ratón o desliza para verlos moverse.</p></div>
+      <div class="wall">
+        <aside class="wall__profile">
+          <img class="wall__avatar" src="/ejemplos/plusauto-web-widy/img/social/avatar.webp" alt="PlusAuto Motor en TikTok" width="72" height="72" loading="lazy">
+          <div class="wall__name"><b>@plusauto.motor</b><small>PLUSAUTO MOTOR · TikTok</small></div>
+          <p class="wall__bio">¿Lo quieres? ¡Lo tenemos! Seminuevos con garantía de satisfacción, precios inmejorables y hasta 3 años de garantía.</p>
+          <div class="wall__stats"><div><b class="num">376</b><small>seguidores</small></div><div><b class="num">1.440</b><small>me gusta</small></div><div><b class="num">21</b><small>vídeos</small></div></div>
+          <a class="btn btn--primary btn--block" href="https://www.tiktok.com/@plusauto.motor" target="_blank" rel="noopener"><span data-icon="tiktok"></span>Seguir en TikTok</a>
+          <div class="wall__links">
+            <a href="https://www.instagram.com/plusautomotor/" target="_blank" rel="noopener"><span data-icon="ig"></span>@plusautomotor<small>Instagram</small></a>
+            <a href="https://www.facebook.com/plusautomotor/" target="_blank" rel="noopener"><span data-icon="fb"></span>PlusAuto Motor<small>Facebook</small></a>
+          </div>
+        </aside>
+        <div class="wall__grid" id="socialWall" aria-label="Últimos vídeos en TikTok"></div>
+      </div>
+      <p class="note" style="text-align:center;margin-top:18px">Vídeos reales del perfil @plusauto.motor. En la web definitiva se actualizan solos cada vez que publicáis.</p>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="sec" id="contacto">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Contacto</span><h2 style="margin-top:12px">Ven a verlos en Dos Hermanas</h2></div></div>
+      <div class="contact">
+        <div class="contact__card">
+          <div class="contact__row"><span class="ic" data-icon="pin"></span><div><b>Av. Cristóbal Colón, 39</b><span>41701 Dos Hermanas (Sevilla)</span></div></div>
+          <div class="contact__row"><span class="ic" data-icon="phone"></span><div><b><a data-tel href="#">624 078 107</a></b><span>Llamada o WhatsApp</span></div></div>
+          <div class="contact__row"><span class="ic" data-icon="mail"></span><div><b><a href="mailto:info@plusauto.net">info@plusauto.net</a></b><span>Te contestamos en el día</span></div></div>
+          <div class="contact__row"><span class="ic" data-icon="clock"></span><div class="hours" style="flex:1"><div><span>Lunes a viernes</span><b>9:00 – 19:00</b></div><div><span>Sábados</span><b>Consultar</b></div><div><span>Domingos</span><b>Cerrado</b></div></div></div>
+          <div class="row-actions"><a class="btn btn--wa" data-wa href="#"><span data-icon="wa"></span>WhatsApp</a><a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&destination=Avenida+Crist%C3%B3bal+Col%C3%B3n+39,+41701+Dos+Hermanas" target="_blank" rel="noopener"><span data-icon="pin"></span>Cómo llegar</a></div>
+        </div>
+        <div class="map"><iframe title="Mapa de PlusAuto Motor" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Avenida+Crist%C3%B3bal+Col%C3%B3n+39,+41701+Dos+Hermanas,+Sevilla&z=16&output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="/ejemplos/plusauto-web-widy/js/stock.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/social.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/app.js"></script>
+</body>
+</html>

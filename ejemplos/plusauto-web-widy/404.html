@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página no encontrada · PlusAuto Motor</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/png" sizes="64x64" href="/ejemplos/plusauto-web-widy/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/ejemplos/plusauto-web-widy/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/ejemplos/plusauto-web-widy/css/styles.css">
+</head>
+<body data-page="404">
+<div id="siteHeader"></div>
+<main id="main" class="page">
+  <div class="wrap" style="max-width:720px;text-align:center;padding-block:40px">
+    <span class="eyebrow">Error 404</span>
+    <h1 style="margin-top:12px;font-size:clamp(1.9rem,4.5vw,3rem)">Este vehículo ya no está aquí</h1>
+    <p class="muted" style="margin-top:14px;font-size:1.08rem">O la página ha cambiado de sitio, o el coche que buscabas se ha vendido. El stock se mueve rápido, pero seguro que tenemos algo parecido.</p>
+    <div class="ss ss--compact" id="heroSearch" style="margin:28px auto 0;max-width:560px;text-align:left">
+      <div class="ss__box"><span data-icon="spark"></span><input class="ss__input" type="search" placeholder="¿Qué buscas? Ej.: SUV automático hasta 20.000 €" aria-label="Buscar vehículo" autocomplete="off"><button class="ss__btn" type="button"><span data-icon="search"></span><span>Buscar</span></button></div>
+      <div class="ss__drop"></div>
+    </div>
+    <div class="row-actions" style="justify-content:center;margin-top:22px"><a class="btn btn--primary" href="/ejemplos/plusauto-web-widy/vehiculos"><span data-icon="car"></span>Ver todo el stock</a><a class="btn btn--ghost" href="/ejemplos/plusauto-web-widy/motos"><span data-icon="bolt"></span>Motos eléctricas</a><a class="btn btn--wa" data-wa="Hola PlusAuto, buscaba un vehículo en la web y no lo encuentro. ¿Me ayudáis?" href="#"><span data-icon="wa"></span>Pregúntanos</a></div>
+  </div>
+</main>
+<div id="siteFooter"></div>
+<script src="/ejemplos/plusauto-web-widy/js/stock.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/app.js"></script>
+<script>document.addEventListener('pa:ready',function(){ window.PA.initSmartSearch(document.getElementById('heroSearch'),{staticPlaceholder:true}); });</script>
+</body>
+</html>

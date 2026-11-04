@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vehículos · PlusAuto Motor</title>
+<meta name="description" content="Todo el stock de PlusAuto Motor: motos eléctricas y coches de ocasión en Dos Hermanas. Busca con tus palabras.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PlusAuto Motor">
+<meta property="og:title" content="Vehículos · PlusAuto Motor">
+<meta property="og:description" content="Todo el stock de PlusAuto Motor: motos eléctricas y coches de ocasión en Dos Hermanas. Busca con tus palabras.">
+<meta property="og:image" content="https://plusauto-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="/ejemplos/plusauto-web-widy/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/ejemplos/plusauto-web-widy/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/ejemplos/plusauto-web-widy/css/styles.css">
+</head>
+<body data-page="catalogo">
+<div id="siteHeader"></div>
+
+<main id="main" class="page">
+  <div class="wrap">
+    <div class="page__head">
+      <nav class="crumbs" aria-label="Migas de pan"><a href="/ejemplos/plusauto-web-widy/">Inicio</a><span data-icon="chevR"></span><span>Vehículos</span></nav>
+      <h1 id="pageTitle">Todo nuestro stock</h1>
+      <div class="ss ss--compact" id="catSearch">
+        <div class="ss__box">
+          <span data-icon="spark"></span>
+          <input class="ss__input" type="search" placeholder="Busca con tus palabras: «SUV automático hasta 20.000 €», «moto sin carnet»…" aria-label="Buscar vehículo" autocomplete="off" enterkeyhint="search">
+          <button class="ss__btn" type="button"><span data-icon="search"></span><span>Buscar</span></button>
+        </div>
+        <div class="ss__drop"></div>
+      </div>
+    </div>
+    <div class="quick" aria-label="Accesos rápidos"><a href="/ejemplos/plusauto-web-widy/vehiculos?tipo=moto"><span data-icon="moto"></span>Motos eléctricas</a><a href="/ejemplos/plusauto-web-widy/vehiculos?tipo=coche"><span data-icon="car"></span>Coches</a><a href="/ejemplos/plusauto-web-widy/vehiculos?carroceria=SUV"><span data-icon="route"></span>SUV</a><a href="/ejemplos/plusauto-web-widy/vehiculos?cambio=Automático"><span data-icon="gear"></span>Automáticos</a><a href="/ejemplos/plusauto-web-widy/vehiculos?precioMax=15000"><span data-icon="euro"></span>Menos de 15.000 €</a><a href="/ejemplos/plusauto-web-widy/vehiculos?kmMax=100"><span data-icon="tag"></span>Km 0 y nuevos</a><a href="/ejemplos/plusauto-web-widy/vehiculos?fav=1"><span data-icon="heart"></span>Mis favoritos</a></div>
+    <div class="interp hide" id="interp" aria-live="polite"></div>
+    <div class="cat-layout">
+      <aside id="aside" aria-label="Filtros"><div class="filters" id="filters"></div></aside>
+      <div>
+        <div class="tools" id="tools">
+          <div class="tools__count" id="count" aria-live="polite"></div>
+          <div class="row-actions">
+            <button class="fbtn" id="openFilters" type="button"><span data-icon="sliders"></span>Filtros <span id="fCount"></span></button>
+            <div class="select"><select id="sort" aria-label="Ordenar por"><option value="reco">Recomendados</option><option value="precio-asc">Precio: menor a mayor</option><option value="precio-desc">Precio: mayor a menor</option><option value="km-asc">Menos kilómetros</option><option value="anio-desc">Más nuevos</option><option value="cv-desc">Más potentes</option></select><span data-icon="chevD"></span></div>
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+        <p class="note" style="margin-top:22px">* Cuotas orientativas sin entrada (coches a 96 meses, motos a 60), TIN 7,99 %, sujetas a aprobación de la financiera. Precios al contado.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="sheet" id="sheet">
+  <div class="sheet__bg"></div>
+  <div class="sheet__panel" role="dialog" aria-label="Filtros">
+    <div class="sheet__grab"></div>
+    <div id="sheetBody"></div>
+    <div class="sheet__foot"><button class="btn btn--ghost" id="sheetClose" type="button">Cerrar</button><button class="btn btn--primary" id="sheetApply" type="button">Ver resultados</button></div>
+  </div>
+</div>
+
+<div id="siteFooter"></div>
+<script src="/ejemplos/plusauto-web-widy/js/stock.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/app.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/catalogo.js"></script>
+</body>
+</html>

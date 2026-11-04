@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vehículo · PlusAuto Motor</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PlusAuto Motor">
+<meta property="og:title" content="Vehículo · PlusAuto Motor">
+<meta property="og:description" content="Motos eléctricas Silence y coches de ocasión con garantía en Dos Hermanas (Sevilla).">
+<meta property="og:image" content="https://plusauto-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="/ejemplos/plusauto-web-widy/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/ejemplos/plusauto-web-widy/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/ejemplos/plusauto-web-widy/css/styles.css">
+</head>
+<body data-page="ficha">
+<div id="siteHeader"></div>
+
+<main id="main" class="page page--ficha">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Migas de pan"><a href="/ejemplos/plusauto-web-widy/">Inicio</a><span data-icon="chevR"></span><a id="crumbTipo" href="/ejemplos/plusauto-web-widy/vehiculos">Vehículos</a><span data-icon="chevR"></span><span id="crumbName"></span></nav>
+
+    <header class="fh">
+      <div class="buy__meta" id="bBadges"></div>
+      <h1 class="fh__title" id="bTitle"></h1>
+      <p class="fh__sub" id="bSub"></p>
+    </header>
+
+    <section class="mosaic" id="mosaic" aria-label="Fotos del vehículo">
+      <div class="mosaic__grid" id="mosaicGrid"></div>
+      <button class="btn btn--ghost btn--sm mosaic__all" id="mosaicAll" type="button"><span data-icon="eye"></span><span id="mosaicAllTxt">Ver todas las fotos</span></button>
+      <span class="badge mosaic__count" id="mCount"></span>
+    </section>
+    <div class="swatches hide" id="colorRow" style="margin-top:16px"></div>
+    <div class="spin360 hide" id="spin360" data-frame="1" style="margin-top:16px">
+      <div class="spin360__head"><div><span class="eyebrow">Gírala</span><h2 style="font-size:1.2rem;margin-top:4px">Arrastra para verla desde todos los ángulos</h2></div><div class="swatches"></div></div>
+      <div class="silence__visual"><img class="silence__img" src="/ejemplos/plusauto-web-widy/img/silence/s02-grey-6.webp" alt="Silence S02 en 360 grados" width="1400" height="1050"><div class="spin"><button type="button" class="spin__l" aria-label="Girar a la izquierda"><span data-icon="chevL"></span></button><span>Arrastra para girarla</span><button type="button" class="spin__r" aria-label="Girar a la derecha"><span data-icon="chevR"></span></button></div></div>
+    </div>
+    <a class="gallery__ask" id="bVideo" href="#" target="_blank" rel="noopener"><span data-icon="wa"></span>¿Quieres un vídeo de este vehículo? Te lo grabamos y te lo mandamos por WhatsApp</a>
+
+    <nav class="ftabs" id="ftabs" aria-label="Secciones de la ficha"><a href="#glance">Resumen</a><a href="#highlightsSec">Lo mejor</a><a href="#datosSec">Datos</a><a href="#descSec">Descripción</a><a href="#calc">Cuota</a><a href="#whereSec">Dónde verlo</a><a href="#simSec">Parecidos</a></nav>
+
+    <div class="ficha">
+      <div class="ficha__main">
+        <div class="glance" id="glance"></div>
+
+        <section class="block" id="highlightsSec">
+          <div class="block__head"><h2>Lo mejor de este vehículo</h2><small class="muted hl__hint">Toca cada punto para ver por qué</small></div>
+          <ul class="hl" id="highlights"></ul>
+        </section>
+
+        <section class="block" id="datosSec"><h2>Características</h2><div class="kv" id="kv"></div></section>
+
+        <section class="block" id="descSec"><h2>Descripción</h2><p class="prose" id="desc"></p><button class="more hide" id="more" type="button">Leer más</button></section>
+
+        <section class="block fin__calc fin__calc--card" id="calc">
+          <div><span class="eyebrow">Financiación</span><h2 style="margin-top:6px;font-size:1.4rem">Calcula tu cuota <small class="muted" style="font-family:var(--font-b);font-weight:400;font-size:.95rem">· sobre <b data-calc-precio-fixed></b></small></h2></div>
+          <div class="field"><label><span>Entrada</span><b data-calc-entrada-l></b></label><input type="range" data-calc-entrada min="0" max="50" step="5" value="0" aria-label="Entrada en porcentaje"></div>
+          <div class="field"><label><span>Plazo</span></label><div class="seg" data-calc-meses><button type="button" data-m="36">36</button><button type="button" data-m="48">48</button><button type="button" data-m="60">60</button><button type="button" data-m="72">72</button><button type="button" data-m="84">84</button><button type="button" data-m="96">96</button></div></div>
+          <div class="fin__out"><div class="big num" data-calc-out></div><p data-calc-total></p></div>
+          <div class="row-actions"><a class="btn btn--primary" id="bFinanciar" href="/ejemplos/plusauto-web-widy/financiacion"><span data-icon="doc"></span>Pedir el estudio con estos datos</a></div>
+          <p class="note">Cuota orientativa, sujeta a aprobación de la financiera. Te hacemos el estudio real en 24 h.</p>
+        </section>
+
+        <section class="block"><h2>Lo que incluye</h2>
+          <div class="trust">
+            <div><span data-icon="shield"></span>Garantía por escrito</div>
+            <div><span data-icon="wrench"></span>Revisado en nuestro taller</div>
+            <div><span data-icon="euro"></span>Financiación hasta el 100 %</div>
+            <div><span data-icon="tag"></span>Tu coche como entrada</div>
+            <div><span data-icon="doc"></span>Trámites y transferencia incluidos</div>
+            <div><span data-icon="truck"></span>Entrega en toda España</div>
+          </div>
+        </section>
+
+        <section class="block" id="whereSec"><h2>Dónde verlo</h2>
+          <div class="where">
+            <div class="map map--sm"><iframe title="Mapa de PlusAuto Motor" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Avenida+Crist%C3%B3bal+Col%C3%B3n+39,+41701+Dos+Hermanas,+Sevilla&z=15&output=embed"></iframe></div>
+            <div style="display:grid;gap:12px">
+              <div class="contact__row"><span class="ic" data-icon="pin"></span><div><b>PlusAuto Motor · Av. Cristóbal Colón, 39</b><span>41701 Dos Hermanas (Sevilla), a 15 minutos de Sevilla</span></div></div>
+              <div class="contact__row"><span class="ic" data-icon="clock"></span><div><b>Lunes a viernes, 9:00 – 19:00</b><span>Con cita te lo tenemos preparado y limpio</span></div></div>
+              <div class="row-actions"><a class="btn btn--ghost btn--sm" href="https://www.google.com/maps/dir/?api=1&destination=Avenida+Crist%C3%B3bal+Col%C3%B3n+39,+41701+Dos+Hermanas" target="_blank" rel="noopener"><span data-icon="pin"></span>Cómo llegar</a><button class="btn btn--primary btn--sm" id="bPrueba3" type="button"><span data-icon="calendar"></span>Reservar prueba</button></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="buy" id="buyBox">
+        <div class="buy__price"><div class="big num" id="bPrice"></div><p class="buy__fin" id="bFin"></p></div>
+        <div class="buy__cta">
+          <a class="btn btn--wa btn--lg" id="bWa" href="#" target="_blank" rel="noopener"><span data-icon="wa"></span>Preguntar por WhatsApp</a>
+          <button class="btn btn--primary" id="bPrueba" type="button"><span data-icon="calendar"></span>Reservar una prueba</button>
+          <a class="btn btn--ghost" data-tel href="#"><span data-icon="phone"></span>Llamar · 624 078 107</a>
+        </div>
+        <a class="buy__link" id="bReserva" href="#" target="_blank" rel="noopener"><span data-icon="key"></span><span>Reservar este vehículo hasta que lo veas</span><span data-icon="chevR"></span></a>
+        <div class="buy__icons">
+          <button class="favbtn" id="bFav" data-fav="" type="button"><span data-icon="heart"></span>Guardar</button>
+          <button class="favbtn" id="bCmp" data-cmp="" type="button"><span data-icon="cmp"></span>Comparar</button>
+          <button id="bShare" type="button"><span data-icon="share"></span>Compartir</button>
+          <button id="bPrint" type="button"><span data-icon="print"></span>Imprimir</button>
+        </div>
+        <div class="buy__note"><span class="dot"></span><span>Te contestamos en minutos en horario de tienda. Lunes a viernes de 9:00 a 19:00.</span></div>
+      </aside>
+    </div>
+
+    <section class="similar" id="simSec">
+      <div class="sec__head"><div><span class="eyebrow">Parecidos</span><h2 style="margin-top:6px;font-size:1.6rem">También te pueden interesar</h2></div><a class="btn btn--ghost btn--sm" href="/ejemplos/plusauto-web-widy/vehiculos">Ver todo el stock <span data-icon="arrow"></span></a></div>
+      <div class="grid" id="simGrid"></div>
+    </section>
+  </div>
+
+  <div class="ficha-bar" id="fichaBar">
+    <div><b class="num" id="bPrice3"></b><small id="bCuota3"></small></div>
+    <a class="btn btn--wa" id="bWa2" href="#" target="_blank" rel="noopener"><span data-icon="wa"></span>WhatsApp</a>
+    <button class="btn btn--primary" id="bPrueba2" type="button">Prueba</button>
+  </div>
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Foto ampliada">
+  <button class="lightbox__x" id="lbClose" type="button" aria-label="Cerrar"><span data-icon="x"></span></button>
+  <button class="gallery__nav gallery__nav--l" id="lbPrev" type="button" aria-label="Anterior"><span data-icon="chevL"></span></button>
+  <img id="lbImg" src="" alt="">
+  <button class="gallery__nav gallery__nav--r" id="lbNext" type="button" aria-label="Siguiente"><span data-icon="chevR"></span></button>
+  <span class="badge lightbox__count" id="lbCount"></span>
+</div>
+<div class="modal" id="modal">
+  <div class="modal__bg"></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="modal__x" id="mClose" type="button" aria-label="Cerrar"><span data-icon="x"></span></button>
+    <h3 id="mTitle">Reservar prueba</h3>
+    <p class="muted">Dinos cuándo te viene bien y te lo confirmamos por WhatsApp.</p>
+    <form class="form" id="pruebaForm">
+      <div class="input"><label for="pNombre">Nombre *</label><input id="pNombre" name="nombre" required autocomplete="name"></div>
+      <div class="input"><label for="pTel">Teléfono *</label><input id="pTel" name="tel" type="tel" inputmode="tel" required autocomplete="tel"></div>
+      <div class="row">
+        <div class="input"><label for="pDia">Día</label><input id="pDia" name="dia" type="date"></div>
+        <div class="input"><label for="pHora">Hora</label><select id="pHora" name="hora"><option value="">Cualquiera</option><option>9:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>16:00</option><option>17:00</option><option>18:00</option></select></div>
+      </div>
+      <button class="btn btn--primary btn--block" type="submit"><span data-icon="wa"></span>Enviar solicitud</button>
+    </form>
+  </div>
+</div>
+
+<div id="siteFooter"></div>
+<script src="/ejemplos/plusauto-web-widy/js/stock.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/app.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/ficha.js"></script>
+</body>
+</html>

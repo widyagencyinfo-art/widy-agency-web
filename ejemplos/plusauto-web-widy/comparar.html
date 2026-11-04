@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparador · PlusAuto Motor</title>
+<meta name="description" content="Compara hasta 3 vehículos de nuestro stock lado a lado: precio, cuota, kilómetros, potencia, garantía y más.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PlusAuto Motor">
+<meta property="og:title" content="Comparador · PlusAuto Motor">
+<meta property="og:description" content="Compara hasta 3 vehículos de nuestro stock lado a lado: precio, cuota, kilómetros, potencia, garantía y más.">
+<meta property="og:image" content="https://plusauto-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="/ejemplos/plusauto-web-widy/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/ejemplos/plusauto-web-widy/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/ejemplos/plusauto-web-widy/css/styles.css">
+</head>
+<body data-page="comparar">
+<div id="siteHeader"></div>
+
+<main id="main" class="page">
+  <div class="wrap">
+    <div class="page__head">
+      <nav class="crumbs" aria-label="Migas de pan"><a href="/ejemplos/plusauto-web-widy/">Inicio</a><span data-icon="chevR"></span><span>Comparador</span></nav>
+      <h1>Compara hasta 3 vehículos</h1>
+      <p class="muted" style="max-width:60ch">Lado a lado, con lo mejor de cada fila marcado. Añade vehículos desde el catálogo con el icono de la balanza, o elígelos aquí.</p>
+    </div>
+    <div class="cmp__add" id="cmpAdd">
+      <div class="field-inline">
+        <div class="select" style="flex:1;max-width:520px;display:flex"><select id="cmpSel" aria-label="Añadir vehículo al comparador" style="width:100%"><option value="">Añadir un vehículo…</option></select><span data-icon="chevD"></span></div>
+        <button class="btn btn--primary btn--sm" id="cmpAddBtn" type="button"><span data-icon="plus"></span>Añadir</button>
+        <button class="btn btn--ghost btn--sm" id="cmpClear" type="button"><span data-icon="trash"></span>Vaciar</button>
+      </div>
+      <div class="cmp__pick" id="cmpPick"></div>
+    </div>
+    <div id="cmpArea" style="margin-top:22px"></div>
+    <p class="note" style="margin-top:16px">* Cuotas orientativas sin entrada (coches a 96 meses, motos a 60), TIN 7,99 %, sujetas a aprobación.</p>
+  </div>
+</main>
+
+<div id="siteFooter"></div>
+<script src="/ejemplos/plusauto-web-widy/js/stock.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/app.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/paginas.js"></script>
+</body>
+</html>

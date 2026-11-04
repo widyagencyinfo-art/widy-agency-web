@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto · PlusAuto Motor</title>
+<meta name="description" content="PlusAuto Motor en Av. Cristóbal Colón 39, Dos Hermanas (Sevilla). WhatsApp 624 078 107, info@plusauto.net. Lunes a viernes de 9:00 a 19:00.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PlusAuto Motor">
+<meta property="og:title" content="Contacto · PlusAuto Motor">
+<meta property="og:description" content="PlusAuto Motor en Av. Cristóbal Colón 39, Dos Hermanas (Sevilla). WhatsApp 624 078 107, info@plusauto.net. Lunes a viernes de 9:00 a 19:00.">
+<meta property="og:image" content="https://plusauto-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="/ejemplos/plusauto-web-widy/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/ejemplos/plusauto-web-widy/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/ejemplos/plusauto-web-widy/css/styles.css">
+</head>
+<body data-page="contacto">
+<div id="siteHeader"></div>
+
+<main id="main">
+  <section class="phero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Migas de pan" style="margin-bottom:14px"><a href="/ejemplos/plusauto-web-widy/">Inicio</a><span data-icon="chevR"></span><span>Contacto</span></nav>
+      <span class="eyebrow">Contacto</span>
+      <h1 style="margin-top:14px;max-width:16ch">Hablamos cuando quieras</h1>
+      <p class="hero__lead">Por WhatsApp contestamos en minutos en horario de tienda. Y si prefieres venir, estamos en la avenida Cristóbal Colón, en Dos Hermanas.</p>
+      <div style="margin-top:18px"><span class="hours-badge" id="openNow"><span class="dot"></span>Lunes a viernes, 9:00 – 19:00</span></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:32px">
+    <div class="wrap">
+      <div class="contact">
+        <div style="display:grid;gap:20px">
+          <div class="contact__card">
+            <div class="contact__row"><span class="ic" data-icon="pin"></span><div><b>Av. Cristóbal Colón, 39</b><span>41701 Dos Hermanas (Sevilla)</span></div></div>
+            <div class="contact__row"><span class="ic" data-icon="phone"></span><div><b><a data-tel href="#">624 078 107</a></b><span>Llamada o WhatsApp</span></div></div>
+            <div class="contact__row"><span class="ic" data-icon="mail"></span><div><b><a href="mailto:info@plusauto.net">info@plusauto.net</a></b><span>Te contestamos en el día</span></div></div>
+            <div class="contact__row"><span class="ic" data-icon="clock"></span><div class="hours" style="flex:1"><div><span>Lunes a viernes</span><b>9:00 – 19:00</b></div><div><span>Sábados</span><b>Consultar</b></div><div><span>Domingos</span><b>Cerrado</b></div></div></div>
+            <div class="row-actions"><a class="btn btn--wa" data-wa href="#"><span data-icon="wa"></span>WhatsApp</a><a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&destination=Avenida+Crist%C3%B3bal+Col%C3%B3n+39,+41701+Dos+Hermanas" target="_blank" rel="noopener"><span data-icon="pin"></span>Cómo llegar</a></div>
+          </div>
+          <div class="map"><iframe title="Mapa de PlusAuto Motor" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Avenida+Crist%C3%B3bal+Col%C3%B3n+39,+41701+Dos+Hermanas,+Sevilla&z=16&output=embed"></iframe></div>
+        </div>
+        <form class="wz" id="contactForm" novalidate="">
+          <h2 style="font-size:1.35rem">Escríbenos</h2>
+          <div class="input"><label for="kAsunto">¿Sobre qué?</label><select id="kAsunto" name="asunto"><option>Información de un vehículo</option><option>Financiación</option><option>Tasación · vender mi coche</option><option>Taller</option><option>Coches a la carta</option><option>Motos eléctricas</option><option>Otro</option></select></div>
+          <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div class="input"><label for="kNom">Nombre *</label><input id="kNom" name="nombre" required autocomplete="name"></div>
+            <div class="input"><label for="kTel">Teléfono *</label><input id="kTel" name="tel" type="tel" inputmode="tel" required autocomplete="tel"></div>
+          </div>
+          <div class="input"><label for="kMail">Email</label><input id="kMail" name="email" type="email" inputmode="email" autocomplete="email"></div>
+          <div class="input"><label for="kMsg">Mensaje *</label><textarea class="textarea" id="kMsg" name="mensaje" required placeholder="Cuéntanos qué necesitas"></textarea></div>
+          <label class="check"><input type="checkbox" name="consent" required> Acepto la <a href="/ejemplos/plusauto-web-widy/legal#privacidad">política de privacidad</a>.</label>
+          <button type="submit" class="btn btn--wa btn--lg"><span data-icon="wa"></span>Enviar</button>
+          <div class="form__ok hide" id="contactOk"><span data-icon="check"></span><div>Mensaje preparado. Te contestamos en el día.<br><a data-wa-out href="#" target="_blank" rel="noopener" style="text-decoration:underline">Abrir WhatsApp si no se ha abierto</a></div></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Preguntas frecuentes</span><h2 style="margin-top:12px">Antes de escribir</h2></div></div>
+      <div class="faq">
+        <details><summary>¿Qué tipo de vehículos tenéis? <span data-icon="plus"></span></summary><p>Coches de ocasión y km 0 revisados de todas las marcas, y motos eléctricas nuevas: somos distribuidor oficial Silence y tenemos Velca y Ultraviolette en exposición.</p></details>
+        <details><summary>¿Actualizáis el stock a menudo? <span data-icon="plus"></span></summary><p>Cada semana entran y salen vehículos. Lo que ves en la web es lo que hay en la exposición hoy; si algo se vende, desaparece de la web ese mismo día.</p></details>
+        <details><summary>¿Puedo reservar un vehículo antes de verlo? <span data-icon="plus"></span></summary><p>Sí, desde la ficha de cada vehículo. Te lo guardamos hasta que vengas a probarlo.</p></details>
+        <details><summary>¿Ofrecéis financiación para cualquier vehículo? <span data-icon="plus"></span></summary><p>Sí, coches y motos, hasta el 100 % sin entrada. Mira la calculadora en la página de financiación.</p></details>
+        <details><summary>¿Enviáis vehículos a cualquier punto de España? <span data-icon="plus"></span></summary><p>A toda la península con transporte asegurado y coste cerrado por adelantado.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="/ejemplos/plusauto-web-widy/js/stock.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/app.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/paginas.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller · Pide cita · PlusAuto Motor</title>
+<meta name="description" content="Taller propio multimarca en Dos Hermanas: mantenimiento, diagnosis, frenos, neumáticos, pre-ITV y motos eléctricas. Pide cita online en un minuto.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PlusAuto Motor">
+<meta property="og:title" content="Taller · Pide cita · PlusAuto Motor">
+<meta property="og:description" content="Taller propio multimarca en Dos Hermanas: mantenimiento, diagnosis, frenos, neumáticos, pre-ITV y motos eléctricas. Pide cita online en un minuto.">
+<meta property="og:image" content="https://plusauto-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="/ejemplos/plusauto-web-widy/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/ejemplos/plusauto-web-widy/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/ejemplos/plusauto-web-widy/css/styles.css">
+</head>
+<body data-page="taller">
+<div id="siteHeader"></div>
+
+<main id="main">
+  <section class="phero">
+    <div class="wrap phero__in">
+      <div>
+        <nav class="crumbs" aria-label="Migas de pan" style="margin-bottom:14px"><a href="/ejemplos/plusauto-web-widy/">Inicio</a><span data-icon="chevR"></span><span>Taller</span></nav>
+        <span class="eyebrow">Taller propio multimarca</span>
+        <h1 style="margin-top:14px">Tu coche o tu moto, en buenas manos y con cita en un minuto</h1>
+        <p class="hero__lead">Revisiones, diagnosis, frenos, neumáticos y pre-ITV con recambios de calidad. Y servicio técnico para las motos eléctricas que vendemos.</p>
+        <div style="margin-top:18px"><span class="hours-badge" id="openNow"><span class="dot"></span>Lunes a viernes, 9:00 – 19:00</span></div>
+        <div class="row-actions" style="margin-top:22px"><a class="btn btn--primary btn--lg" href="#cita"><span data-icon="calendar"></span>Pedir cita</a><a class="btn btn--ghost btn--lg" data-tel href="#"><span data-icon="phone"></span>624 078 107</a></div>
+      </div>
+      <div class="phero__stats" style="grid-template-columns:repeat(2,1fr)">
+        <div class="spec"><b>Multimarca</b><small>coches y motos</small></div>
+        <div class="spec"><b>Pre-ITV</b><small>revisión y puesta a punto</small></div>
+        <div class="spec"><b>Presupuesto</b><small>cerrado antes de tocar nada</small></div>
+        <div class="spec"><b>Silence</b><small>servicio técnico oficial</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:40px">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Servicios</span><h2 style="margin-top:12px">Lo que hacemos</h2></div></div>
+      <div class="svc-grid">
+        <div class="svc"><div class="ic"><span data-icon="wrench"></span></div><h3>Mantenimiento y revisiones</h3><p>Aceite, filtros, líquidos y controles periódicos según el fabricante para que la garantía siga viva.</p></div>
+        <div class="svc"><div class="ic"><span data-icon="gauge"></span></div><h3>Diagnosis y electrónica</h3><p>Equipos de diagnosis multimarca para localizar el fallo a la primera, sin cambiar piezas a ciegas.</p></div>
+        <div class="svc"><div class="ic"><span data-icon="shield"></span></div><h3>Frenos y suspensión</h3><p>Pastillas, discos, amortiguadores y componentes de suspensión. Seguridad y confort.</p></div>
+        <div class="svc"><div class="ic"><span data-icon="route"></span></div><h3>Neumáticos y alineación</h3><p>Cambio, equilibrado y alineación con marcas de calidad y servicio rápido.</p></div>
+        <div class="svc"><div class="ic"><span data-icon="check"></span></div><h3>Pre-ITV y preparación</h3><p>Revisión completa y puesta a punto para pasar la inspección sin sustos.</p></div>
+        <div class="svc"><div class="ic"><span data-icon="bolt"></span></div><h3>Motos eléctricas</h3><p>Servicio técnico de Silence, Velca y Ultraviolette: actualizaciones, baterías y revisiones.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cita" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Cita online</span><h2 style="margin-top:12px">Elige día y hora y te lo confirmamos</h2></div><p>Sin llamadas ni esperas. Te confirmamos por WhatsApp en horario de tienda.</p></div>
+      <form class="wz" id="citaForm" novalidate="">
+        <div class="two two--wide">
+          <div style="display:grid;gap:14px">
+            <div class="input"><label>¿Qué necesitas? *</label><div class="opts" id="cServ">
+              <button type="button" class="opt" data-v="Revisión / mantenimiento">Revisión / mantenimiento</button><button type="button" class="opt" data-v="Aceite y filtros">Aceite y filtros</button><button type="button" class="opt" data-v="Frenos">Frenos</button><button type="button" class="opt" data-v="Neumáticos">Neumáticos</button><button type="button" class="opt" data-v="Diagnosis (testigo encendido)">Diagnosis</button><button type="button" class="opt" data-v="Pre-ITV">Pre-ITV</button><button type="button" class="opt" data-v="Aire acondicionado">Aire acondicionado</button><button type="button" class="opt" data-v="Moto eléctrica">Moto eléctrica</button><button type="button" class="opt" data-v="Otro">Otro</button>
+            </div><input type="hidden" name="servicios"></div>
+            <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+              <div class="input"><label for="cMat">Matrícula *</label><input id="cMat" name="matricula" required placeholder="1234 ABC" style="text-transform:uppercase"></div>
+              <div class="input"><label for="cVeh">Vehículo *</label><input id="cVeh" name="vehiculo" required placeholder="Marca y modelo"></div>
+            </div>
+            <div class="input"><label for="cMsg">Cuéntanos qué le pasa (opcional)</label><textarea class="textarea" id="cMsg" name="mensaje" placeholder="Ruido al frenar, testigo del motor encendido, revisión de los 60.000…"></textarea></div>
+            <div class="row" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+              <div class="input"><label for="cNom">Nombre *</label><input id="cNom" name="nombre" required autocomplete="name"></div>
+              <div class="input"><label for="cTel">Teléfono *</label><input id="cTel" name="tel" type="tel" inputmode="tel" required autocomplete="tel"></div>
+            </div>
+          </div>
+          <div style="display:grid;gap:14px">
+            <div class="input"><label for="cDia">Día *</label><input id="cDia" name="dia" type="date" required></div>
+            <div class="input"><label>Hora *</label><div class="slots" id="cSlots"></div><input type="hidden" name="hora" required><p class="note" id="cSlotsNote"></p></div>
+            <div class="summary" id="cResumen"></div>
+            <label class="check"><input type="checkbox" name="consent" required> Acepto la <a href="/ejemplos/plusauto-web-widy/legal#privacidad">política de privacidad</a>.</label>
+            <button type="submit" class="btn btn--wa btn--lg"><span data-icon="wa"></span>Reservar cita</button>
+            <div class="form__ok hide" id="citaOk"><span data-icon="check"></span><div>Cita solicitada. Te la confirmamos por WhatsApp en horario de tienda.<br><a data-wa-out href="#" target="_blank" rel="noopener" style="text-decoration:underline">Abrir WhatsApp si no se ha abierto</a></div></div>
+          </div>
+        </div>
+      </form>
+      <p class="note" style="margin-top:14px">También puedes venir sin cita: te atendemos por orden de llegada. Con cita, tu hueco está reservado.</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head"><div><span class="eyebrow">Preguntas frecuentes</span><h2 style="margin-top:12px">Sobre el taller</h2></div></div>
+      <div class="faq">
+        <details><summary>¿Trabajáis con todas las marcas? <span data-icon="plus"></span></summary><p>Sí. Coches de cualquier marca y las motos eléctricas que distribuimos. Si tu marca requiere una herramienta específica, te lo decimos antes de la cita.</p></details>
+        <details><summary>¿Me dais presupuesto antes de reparar? <span data-icon="plus"></span></summary><p>Siempre. Diagnosticamos, te pasamos el presupuesto cerrado y no tocamos nada hasta que nos digas que sí.</p></details>
+        <details><summary>¿Cuánto tarda una revisión? <span data-icon="plus"></span></summary><p>Una revisión básica, en el día. Para reparaciones mayores te damos fecha de entrega al aceptar el presupuesto.</p></details>
+        <details><summary>¿Se mantiene la garantía del fabricante? <span data-icon="plus"></span></summary><p>Sí, siempre que se sigan las pautas del fabricante y se usen recambios de calidad equivalente, que es lo que hacemos y dejamos anotado en el libro.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="/ejemplos/plusauto-web-widy/js/stock.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/app.js"></script>
+<script src="/ejemplos/plusauto-web-widy/js/paginas.js"></script>
+</body>
+</html>

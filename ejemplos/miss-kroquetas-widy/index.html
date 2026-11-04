@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miss Kroquetas — Sabor de Brasil en Benalmádena</title>
+<meta name="description" content="Cocina brasileña de verdad en Benalmádena: picanha a la brasa, croquetas caseras, feijoada y caipirinha. Los domingos, roda de samba en vivo. Reserva por WhatsApp.">
+<meta property="og:title" content="Miss Kroquetas — Sabor de Brasil en Benalmádena">
+<meta property="og:description" content="Picanha a la brasa, croquetas caseras y caipirinha. Comida brasileña casera en la Costa del Sol.">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="theme-color" content="#0F3D2E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="loader" id="loader"><span class="loader__mark">Miss Kroquetas</span></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="nav__brand">Miss <em>Kroquetas</em></a>
+  <nav class="nav__links">
+    <a href="#casa">La casa</a>
+    <a href="#carta">Carta</a>
+    <a href="#samba">Domingos</a>
+    <a href="#galeria">Galería</a>
+    <a href="#visitanos">Visítanos</a>
+  </nav>
+  <div class="nav__actions">
+    <a href="https://wa.me/34630624730?text=Hola%20Miss%20Kroquetas!%20Quiero%20reservar%20mesa" target="_blank" rel="noopener" class="btn btn--solid">Reservar mesa</a>
+  </div>
+  <button class="nav__burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+</header>
+
+<div class="drawer" id="drawer">
+  <a href="#casa">La casa</a>
+  <a href="#carta">Carta</a>
+  <a href="#samba">Domingos de samba</a>
+  <a href="#galeria">Galería</a>
+  <a href="#visitanos">Visítanos</a>
+  <a href="https://wa.me/34630624730?text=Hola%20Miss%20Kroquetas!%20Quiero%20reservar%20mesa" target="_blank" rel="noopener" class="drawer__cta drawer__cta--solid">Reservar por WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero__media">
+    <img src="img/hero.jpg" alt="Picanha a la brasa con farofa y arroz, cocina brasileña de Miss Kroquetas" class="hero__img">
+    <div class="hero__veil"></div>
+  </div>
+  <div class="hero__panel">
+    <p class="eyebrow eyebrow--gold">Comida brasileña · Benalmádena, Málaga</p>
+    <h1 class="hero__title">Miss <em>Kroquetas</em></h1>
+    <p class="hero__sub">El sabor de Brasil, hecho en casa.<br>Picanha a la brasa, croquetas de verdad y caipirinha.</p>
+    <div class="hero__cta">
+      <a href="https://wa.me/34630624730?text=Hola%20Miss%20Kroquetas!%20Quiero%20reservar%20mesa" target="_blank" rel="noopener" class="btn btn--solid btn--lg">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Z"/></svg>
+        Reservar mesa
+      </a>
+      <a href="#carta" class="btn btn--outline btn--lg">Ver la carta</a>
+    </div>
+    <div class="hero__badge">
+      <span class="stars">★★★★★</span>
+      <span>5,0 · <strong>Travelers' Choice</strong> en Tripadvisor</span>
+    </div>
+  </div>
+  <div class="hero__wave" aria-hidden="true"></div>
+</section>
+
+<!-- STRIP -->
+<section class="strip">
+  <div class="strip__item">
+    <span class="strip__k">Horario</span>
+    <span class="strip__v">Miércoles a domingo · 12:30–22:30</span>
+  </div>
+  <div class="strip__item">
+    <span class="strip__k">Dónde</span>
+    <span class="strip__v">C. El Montículo, Local 6 · Benalmádena</span>
+  </div>
+  <div class="strip__item">
+    <span class="strip__k">Reservas</span>
+    <span class="strip__v"><a href="tel:+34630624730">630 62 47 30</a></span>
+  </div>
+</section>
+
+<!-- LA CASA -->
+<section class="split" id="casa">
+  <div class="split__media reveal">
+    <img src="img/croquetas.jpg" alt="Croquetas caseras doradas de Miss Kroquetas">
+    <span class="split__tag">Nuestras croquetas</span>
+  </div>
+  <div class="split__body reveal">
+    <p class="eyebrow">A casa é sua</p>
+    <h2>Un pedacito de Brasil<br>en la Costa del Sol.</h2>
+    <p>Somos una casa familiar. Cocinamos como se cocina en Brasil: sin prisa, con producto de verdad y con la puerta siempre abierta. Aquí se viene a comer bien y a quedarse un rato.</p>
+    <p>Nuestras croquetas se hacen a mano cada día —pollo, ternera, bacalao— y la picanha se hace a la brasa como manda la tradición. Lo demás lo ponen la música, la caipirinha y la gente.</p>
+    <ul class="ticks">
+      <li>Cocina brasileña casera</li>
+      <li>Carnes a la brasa y croquetas hechas a mano</li>
+      <li>Terraza, parking y ambiente familiar</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CARTA -->
+<section class="carta" id="carta">
+  <div class="section-head reveal">
+    <p class="eyebrow eyebrow--gold">La carta</p>
+    <h2>Lo que sale de la cocina</h2>
+    <p class="lede">Recetas brasileñas de siempre, de las que se comen con las manos y con ganas. Esto es solo una muestra: la carta completa cambia según el día y la temporada.</p>
+  </div>
+
+  <div class="dishes">
+    <article class="dish reveal">
+      <div class="dish__img"><img src="img/picanha.jpg" alt="Picanha a la brasa con arroz y farofa"></div>
+      <div class="dish__txt">
+        <div class="dish__top"><span class="dish__cat">A la brasa</span><span class="dish__price">19,50 €</span></div>
+        <h3>Picanha na brasa</h3>
+        <p>El corte estrella de Brasil, a la parrilla, con arroz, farofa y vinagreta.</p>
+      </div>
+    </article>
+    <article class="dish reveal">
+      <div class="dish__img"><img src="img/croquetas.jpg" alt="Ración de croquetas caseras"></div>
+      <div class="dish__txt">
+        <div class="dish__top"><span class="dish__cat">Para picar</span><span class="dish__price">8,50 €</span></div>
+        <h3>Kroquetas da casa</h3>
+        <p>Las de siempre, hechas a mano. Pollo, ternera, bacalao o queso. Media docena.</p>
+      </div>
+    </article>
+    <article class="dish reveal">
+      <div class="dish__img"><img src="img/feijoada.jpg" alt="Feijoada brasileña con alubias negras"></div>
+      <div class="dish__txt">
+        <div class="dish__top"><span class="dish__cat">De cuchara</span><span class="dish__price">14,00 €</span></div>
+        <h3>Feijoada completa</h3>
+        <p>El guiso nacional de Brasil: alubias negras, carnes, arroz, col y naranja.</p>
+      </div>
+    </article>
+    <article class="dish reveal">
+      <div class="dish__img"><img src="img/salgadinhos.jpg" alt="Salgadinhos brasileños: coxinha y pastéis"></div>
+      <div class="dish__txt">
+        <div class="dish__top"><span class="dish__cat">Salgadinhos</span><span class="dish__price">6,00 €</span></div>
+        <h3>Coxinha &amp; pastéis</h3>
+        <p>Los aperitivos brasileños de toda la vida, recién fritos y crujientes.</p>
+      </div>
+    </article>
+    <article class="dish reveal">
+      <div class="dish__img"><img src="img/postre.jpg" alt="Pudim de leite, flan brasileño"></div>
+      <div class="dish__txt">
+        <div class="dish__top"><span class="dish__cat">Dulce</span><span class="dish__price">5,00 €</span></div>
+        <h3>Pudim de leite</h3>
+        <p>El flan brasileño de leche condensada, con su caramelo. O bolo de cenoura.</p>
+      </div>
+    </article>
+    <article class="dish reveal">
+      <div class="dish__img"><img src="img/caipirinha.jpg" alt="Caipirinha, cóctel brasileño con lima"></div>
+      <div class="dish__txt">
+        <div class="dish__top"><span class="dish__cat">Para brindar</span><span class="dish__price">6,50 €</span></div>
+        <h3>Caipirinha</h3>
+        <p>Cachaça, lima y azúcar. La de verdad. También de maracuyá o fresa.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="carta__cta reveal">
+    <p>¿Vienes en grupo o para un evento? Preparamos <strong>catering</strong> y menús a medida.</p>
+    <a href="https://wa.me/34630624730?text=Hola!%20Me%20gustaría%20ver%20la%20carta%20completa%20de%20Miss%20Kroquetas" target="_blank" rel="noopener" class="btn btn--solid btn--lg">Pedir la carta por WhatsApp</a>
+    <span class="carta__note">Carta de muestra · precios orientativos</span>
+  </div>
+</section>
+
+<!-- SAMBA / DOMINGOS -->
+<section class="samba" id="samba">
+  <div class="samba__grid">
+    <div class="samba__txt reveal">
+      <p class="eyebrow eyebrow--light">Domingos de roda</p>
+      <h2>Los domingos,<br>esto se llena de samba.</h2>
+      <p>De vez en cuando montamos una <em>roda</em>: músicos en directo, samba, y la casa entera cantando. La entrada incluye plato de comida y una caipirinha o mojito. Es lo más parecido a estar en Río sin salir de Benalmádena.</p>
+      <div class="samba__stats">
+        <div><strong>5,0<i>/5</i></strong><span>Valoración Tripadvisor</span></div>
+        <div><strong>Dom.</strong><span>Música en vivo</span></div>
+        <div><strong>Grátis</strong><span>Parking y WiFi</span></div>
+      </div>
+      <a href="https://www.instagram.com/miss_kroquetas/" target="_blank" rel="noopener" class="btn btn--light">Ver los próximos eventos</a>
+    </div>
+    <div class="samba__pics">
+      <img src="img/samba.jpg" alt="Roda de samba en vivo en Miss Kroquetas" class="reveal">
+      <img src="img/caipirinha.jpg" alt="Caipirinhas para brindar" class="reveal">
+    </div>
+  </div>
+</section>
+
+<!-- CITA -->
+<section class="quote reveal">
+  <span class="quote__mark">“</span>
+  <blockquote>An outpost of Brasil. Comida brasileña auténtica, casera y con muchísimo cariño.</blockquote>
+  <cite>Reseña real de cliente · Tripadvisor · 5,0 / 5</cite>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria" id="galeria">
+  <div class="section-head reveal">
+    <p class="eyebrow eyebrow--gold">Galería</p>
+    <h2>Se entra con hambre, se sale cantando</h2>
+  </div>
+  <div class="mosaic">
+    <figure class="reveal"><img src="img/picanha.jpg" alt="Picanha a la brasa"></figure>
+    <figure class="reveal"><img src="img/croquetas.jpg" alt="Croquetas caseras"></figure>
+    <figure class="reveal"><img src="img/samba.jpg" alt="Ambiente de samba"></figure>
+    <figure class="reveal"><img src="img/feijoada.jpg" alt="Feijoada"></figure>
+    <figure class="reveal"><img src="img/caipirinha.jpg" alt="Caipirinha"></figure>
+    <figure class="reveal"><img src="img/salgadinhos.jpg" alt="Salgadinhos"></figure>
+    <figure class="reveal"><img src="img/postre.jpg" alt="Postre brasileño"></figure>
+    <figure class="reveal"><img src="img/local.jpg" alt="El local de Miss Kroquetas"></figure>
+  </div>
+  <div class="galeria__cta">
+    <a href="https://www.instagram.com/miss_kroquetas/" target="_blank" rel="noopener" class="btn btn--outline">Ver más en @miss_kroquetas</a>
+  </div>
+</section>
+
+<!-- RESERVAR -->
+<section class="reservar" id="reservar">
+  <div class="reservar__inner reveal">
+    <div class="reservar__wave" aria-hidden="true"></div>
+    <p class="eyebrow eyebrow--gold">Reservas</p>
+    <h2>Guarda tu mesa</h2>
+    <p>Mejor avisa, sobre todo fines de semana y noches de samba. Te confirmamos al momento por WhatsApp.</p>
+    <div class="reservar__actions">
+      <a href="https://wa.me/34630624730?text=Hola%20Miss%20Kroquetas!%20Quiero%20reservar%20mesa%20para..." target="_blank" rel="noopener" class="btn btn--wa btn--lg">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Z"/></svg>
+        Reservar por WhatsApp
+      </a>
+      <a href="tel:+34630624730" class="btn btn--outline btn--lg">Llamar · 630 62 47 30</a>
+    </div>
+  </div>
+</section>
+
+<!-- VISITANOS -->
+<section class="visitanos" id="visitanos">
+  <div class="visitanos__info reveal">
+    <p class="eyebrow">Visítanos</p>
+    <h2>Te esperamos en Benalmádena</h2>
+    <dl class="datos">
+      <div><dt>Dirección</dt><dd>C. El Montículo, Local 6<br>29631 Benalmádena, Málaga</dd></div>
+      <div><dt>Horario</dt><dd>Miércoles a domingo · 12:30–22:30<br>Lunes y martes cerrado</dd></div>
+      <div><dt>Teléfono</dt><dd><a href="tel:+34630624730">630 62 47 30</a></dd></div>
+      <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/miss_kroquetas/" target="_blank" rel="noopener">@miss_kroquetas</a></dd></div>
+    </dl>
+    <a href="https://maps.google.com/?q=Miss+Kroquetas+Calle+El+Monticulo+Benalmadena" target="_blank" rel="noopener" class="btn btn--solid">Cómo llegar</a>
+  </div>
+  <a class="visitanos__map reveal" href="https://maps.google.com/?q=Miss+Kroquetas+Calle+El+Monticulo+Benalmadena" target="_blank" rel="noopener">
+    <img src="img/local.jpg" alt="Fachada de Miss Kroquetas en Benalmádena">
+    <span class="visitanos__pin">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      Abrir en Google Maps
+    </span>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot__brand">Miss <em>Kroquetas</em></div>
+  <p class="foot__tag">Comida brasileña casera · Benalmádena, Málaga</p>
+  <div class="foot__links">
+    <a href="#carta">Carta</a>
+    <a href="https://wa.me/34630624730" target="_blank" rel="noopener">Reservar</a>
+    <a href="https://www.instagram.com/miss_kroquetas/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <p class="foot__legal">© 2026 Miss Kroquetas · Boceto de diseño realizado por <a href="https://widy.agency" target="_blank" rel="noopener">Widy</a></p>
+</footer>
+
+<a href="https://wa.me/34630624730?text=Hola%20Miss%20Kroquetas!%20Quiero%20reservar%20mesa" class="fab" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Z"/></svg>
+</a>
+
+<script src="app.js"></script>
+</body>
+</html>

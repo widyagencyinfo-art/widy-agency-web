@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kit para llenar la agenda · Sesentainueve Tattoo</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/ejemplos/reservas-sesentainueve-widy/css/theme.css">
+<link rel="stylesheet" href="/ejemplos/reservas-sesentainueve-widy/css/kit.css">
+</head>
+<body>
+
+<header class="k-top">
+  <div class="in">
+    <a class="k-back" href="/ejemplos/reservas-sesentainueve-widy/">←</a>
+    <div><b>Kit para llenar la agenda</b><span id="bizName"></span></div>
+  </div>
+</header>
+
+<main class="k-wrap">
+
+  <section class="k-card poster-card">
+    <h2>1 · Los carteles para el local</h2>
+    <p class="k-p">Cuatro tamaños, cada uno para un sitio. Se imprimen en folio normal (A4) y se recortan por la línea de puntos.</p>
+
+    <div class="fmt" id="fmt" role="tablist" aria-label="Tamaño del cartel"></div>
+    <p class="fmt-help" id="fmtHelp"></p>
+
+    <div class="stage" id="stage">
+      <div class="sheet" id="sheet"></div>
+    </div>
+
+    <button class="k-btn prim" id="printBtn">Imprimir este cartel</button>
+    <p class="k-tip">En la ventana de impresión, marca <b>«Gráficos de fondo»</b> y pon márgenes en <b>«Ninguno»</b>.<br>
+    Si tu impresora deja un borde blanco no pasa nada: solo se recorta la franja de color, nunca el QR ni el texto.</p>
+  </section>
+
+  <section class="k-card">
+    <h2>2 · Dónde poner el enlace</h2>
+    <p class="k-p">Cinco sitios. Diez minutos. Es lo que más visitas trae.</p>
+    <ol class="k-list" id="places"></ol>
+  </section>
+
+  <section class="k-card">
+    <h2>3 · Textos listos para copiar</h2>
+    <p class="k-p">Copia, pega y a funcionar. No hay que escribir nada.</p>
+    <div id="texts"></div>
+  </section>
+
+  <p class="k-foot">Kit de <b>Widy</b> · pensado para llenar huecos, no para dar trabajo</p>
+</main>
+
+<div class="k-toast" id="toast">Copiado ✓</div>
+
+<script src="/ejemplos/reservas-sesentainueve-widy/js/config.js"></script>
+<script src="/ejemplos/reservas-sesentainueve-widy/js/kit.js"></script>
+</body>
+</html>

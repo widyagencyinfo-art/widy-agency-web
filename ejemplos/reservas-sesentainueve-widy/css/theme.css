@@ -1,0 +1,32 @@
+/* Sesentainueve Tattoo · negro estudio + rojo tinta */
+:root{
+  --bg:#0B0B0C;
+  --bg-img:radial-gradient(1000px 540px at 50% -12%, #2a1111 0%, transparent 58%);
+  --surface:#141416;
+  --surface2:#1b1b1f;
+  --surface-dim:#0f0f11;
+  --line:#28282e;
+  --accent:#D4342E;
+  --accent2:#F0605A;
+  --accent-soft:#5c2320;
+  --accent-bg:#1e1214;
+  --accent-ink:#ffffff;
+  --glow:radial-gradient(circle at 50% 30%, rgba(212,52,46,.20), transparent 62%);
+  --text:#F2EFEA;
+  --muted:#98928b;
+  --muted2:#6b665f;
+  --ok:#3ec26a;
+  --warn:#e0a33c;
+  --danger:#e05b4c;
+  --r:20px;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Playfair Display',Georgia,serif;
+  --display:'Bebas Neue',Impact,sans-serif;
+  --display2:'Playfair Display',Georgia,serif;
+  --lg-nav:26px;
+  --lg-ls:1.2px;
+  --lg-lh:.92;
+}
+.nav .lg b{color:var(--accent)}
+.hero h1{letter-spacing:2px}
+.close h2{letter-spacing:2px}
