@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAF6EF">
+<link rel="icon" href="img/marca/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/marca/icono-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&display=swap">
+<link rel="stylesheet" href="css/cuore.css">
+<script>document.documentElement.className += " js";</script>
+<title>Tienda · Cuore · Vestidos, faldas y bolsos de piel</title>
+<meta name="description" content="Toda la ropa de Cuore: vestidos, faldas, chaquetas y bolsos de piel en pocas unidades. Elige tu talla y haz el pedido por WhatsApp. Envío a toda España.">
+<link rel="canonical" href="https://coure-web.vercel.app/tienda">
+<meta property="og:title" content="La tienda de Cuore · Ropa divertida">
+<meta property="og:image" content="https://coure-web.vercel.app/img/marca/og.jpg">
+</head>
+<body>
+<a class="oculto-visual" href="#contenido">Saltar al contenido</a>
+<div class="aviso" data-avisos><p class="aviso__frase activa"><span>Envío a toda España · <b>gratis desde 60 €</b></span></p></div>
+<header class="cab">
+  <div class="envoltura cab__in">
+    <div class="cab__izq">
+      <button class="cab__btn cab__menu" type="button" data-menu aria-expanded="false" aria-label="Abrir el menú"><svg class="ico i-menu" aria-hidden="true"><use href="img/marca/sprite.svg#i-menu"/></svg></button>
+      <nav class="cab__nav" aria-label="Principal">
+        <a href="tienda.html" aria-current="page">Tienda</a>
+        <a href="tienda.html?cat=vestidos">Vestidos</a>
+        <a href="tienda.html?cat=bolsos">Bolsos</a>
+        <a href="index.html#luz">Quién es Luz</a>
+        <a href="index.html#visitanos">Visítanos</a>
+      </nav>
+    </div>
+    <a class="cab__logo" href="index.html" aria-label="Cuore · inicio"><svg viewBox="0 0 344.4 150" aria-hidden="true"><use href="img/marca/sprite.svg#logo"/></svg></a>
+    <div class="cab__acc">
+      <a class="cab__wa" href="https://wa.me/34658330136?text=%C2%A1Hola%20Luz%21%20Te%20escribo%20desde%20la%20web%20de%20Cuore%20%F0%9F%99%82%20" target="_blank" rel="noopener"><svg class="ico i-whatsapp" aria-hidden="true"><use href="img/marca/sprite.svg#i-whatsapp"/></svg>Escríbenos</a>
+      <button class="cab__btn" type="button" data-abrir-bolsa aria-label="Abrir la bolsa"><svg class="ico i-bolsa" aria-hidden="true"><use href="img/marca/sprite.svg#i-bolsa"/></svg><span class="contador" data-contador>0</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+  <header class="cab-tienda">
+    <div class="envoltura cab-tienda__in">
+      <div>
+        <nav class="migas" aria-label="Estás en"><a href="index.html">Inicio</a><span>/</span><span data-miga>Tienda</span></nav>
+        <h1 class="titulo" data-titulo>La <em>tienda</em></h1>
+        <p class="entrada" data-entradilla>Todo lo que tenemos ahora mismo. De cada prenda hay pocas unidades: si te gusta algo, no lo dejes para la semana que viene.</p>
+      </div>
+      <figure class="cab-tienda__foto" data-cab-foto aria-hidden="true"></figure>
+    </div>
+  </header>
+
+  <div class="filtros">
+    <div class="envoltura filtros__in">
+      <div class="pildoras" role="group" aria-label="Categorías" data-cats></div>
+      <div class="filtros__extra">
+        <div class="tallas-filtro" role="group" aria-label="Talla"><span>Talla</span><span data-tallas style="display:flex;gap:6px"></span></div>
+        <label class="orden">Ordenar
+          <select data-orden>
+            <option value="nuevo">Lo último</option>
+            <option value="barato">Precio: de menos a más</option>
+            <option value="caro">Precio: de más a menos</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="envoltura">
+    <p class="resultado" data-resultado style="padding-top:22px" aria-live="polite"></p>
+    <div class="rejilla" data-rejilla></div>
+  </div>
+
+  <section class="sec insta" style="padding:clamp(56px,7vw,96px) 0">
+    <div class="insta__patron" aria-hidden="true"></div>
+    <div class="envoltura insta__in">
+      <h2 class="titulo h2">¿Buscas algo que no ves?</h2>
+      <p>Dinos qué necesitas, para qué es y tu talla. Te mandamos fotos de lo que tenemos en la tienda, que siempre hay más de lo que cabe aquí.</p>
+      <a class="boton boton--hueso" href="https://wa.me/34658330136?text=%C2%A1Hola%20Luz%21%20Te%20escribo%20desde%20la%20web%20de%20Cuore%20%F0%9F%99%82%20" target="_blank" rel="noopener"><svg class="ico i-whatsapp" aria-hidden="true"><use href="img/marca/sprite.svg#i-whatsapp"/></svg>Pregúntale a Luz</a>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <div class="pie__in">
+      <div class="pie__marca">
+        <svg class="logo" viewBox="0 0 344.4 150" role="img" aria-label="Cuore"><use href="img/marca/sprite.svg#logo"/></svg>
+        <p>Ropa divertida para no ir como todas. Moda mujer en la calle San Antonio, en pleno Arroyo de la Miel.</p>
+        <div class="pie__redes">
+          <a href="https://www.instagram.com/cuorearroyo/" target="_blank" rel="noopener" aria-label="Instagram de Cuore"><svg class="ico i-instagram" aria-hidden="true"><use href="img/marca/sprite.svg#i-instagram"/></svg></a>
+          <a href="https://wa.me/34658330136?text=%C2%A1Hola%20Luz%21%20Te%20escribo%20desde%20la%20web%20de%20Cuore%20%F0%9F%99%82%20" target="_blank" rel="noopener" aria-label="WhatsApp de Cuore"><svg class="ico i-whatsapp" aria-hidden="true"><use href="img/marca/sprite.svg#i-whatsapp"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="tienda.html">Toda la tienda</a></li>
+          <li><a href="tienda.html?cat=vestidos">Vestidos</a></li>
+          <li><a href="tienda.html?cat=faldas">Faldas y tops</a></li>
+          <li><a href="tienda.html?cat=chaquetas">Chaquetas</a></li>
+          <li><a href="tienda.html?cat=bolsos">Bolsos de piel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="index.html#como-comprar">Cómo se compra</a></li>
+          <li><a href="https://wa.me/34658330136?text=%C2%A1Hola%20Luz%21%20%C2%BFMe%20ayudas%20con%20la%20talla%3F%20Suelo%20usar%20la%20" target="_blank" rel="noopener">¿Qué talla soy?</a></li>
+          <li><a href="index.html#visitanos">Horario y dirección</a></li>
+          <li><a href="index.html#luz">Quién es Luz</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>C/ San Antonio, 5<br>29631 Arroyo de la Miel · Málaga</li>
+          <li><a href="tel:+34658330136">658 33 01 36</a></li>
+          <li><a href="https://www.instagram.com/cuorearroyo/" target="_blank" rel="noopener">@cuorearroyo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie__base">
+      <span>© <span data-anio>2026</span> Cuore · Ropa divertida</span>
+      <span>Web hecha por <a href="https://widy.agency" target="_blank" rel="noopener">Widy</a></span>
+    </div>
+  </div>
+</footer>
+<a class="wa-flota" href="https://wa.me/34658330136?text=%C2%A1Hola%20Luz%21%20Te%20escribo%20desde%20la%20web%20de%20Cuore%20%F0%9F%99%82%20" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="ico i-whatsapp" aria-hidden="true"><use href="img/marca/sprite.svg#i-whatsapp"/></svg><span>¿Te ayudo?</span></a>
+
+<script src="js/config.js"></script>
+<script src="js/catalogo.js"></script>
+<script src="js/cuore.js"></script>
+<script src="js/tienda.js"></script>
+</body>
+</html>
