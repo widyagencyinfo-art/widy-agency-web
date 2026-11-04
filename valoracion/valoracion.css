@@ -1,0 +1,272 @@
+/* ===================================================
+   Widy · Valoración de propietarios (captación)
+   Extiende /css/styles.css
+   =================================================== */
+
+body.val {
+  background:
+    radial-gradient(900px 500px at 85% -10%, var(--em) 0%, transparent 58%),
+    radial-gradient(700px 460px at -5% 105%, var(--em) 0%, transparent 52%),
+    var(--bg2);
+  color: #c9c9cc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- CABECERA ---------- */
+.v-top {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .14);
+}
+.v-top-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.val .logo-text { font-size: 20px; color: #fff; }
+.v-top-note {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ac2);
+}
+
+/* ---------- LAYOUT ---------- */
+.v-main { flex: 1; padding: 46px 0 64px; }
+.v-wrap { max-width: 720px; }
+
+.v-panel {
+  background: var(--sf);
+  color: var(--tx);
+  border-radius: var(--radio);
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .6);
+}
+
+.v-head { margin-bottom: 26px; }
+.v-head h1 {
+  font-size: clamp(27px, 4.6vw, 38px);
+  font-weight: 800;
+  margin: 12px 0 12px;
+  line-height: 1.15;
+}
+.v-head h1 em { color: var(--tx); font-style: normal; }
+.val .eyebrow { color: var(--tx); margin-bottom: 0; }
+.v-sub { color: var(--tx2); font-size: 16px; }
+
+/* ---------- FORMULARIO ---------- */
+.v-grid {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+@media (min-width: 620px) {
+  .v-grid { grid-template-columns: 1fr 1fr; }
+  .v-col2 { grid-column: 1 / -1; }
+}
+
+.val .field label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--tx);
+  margin-bottom: 6px;
+  display: block;
+}
+.val select,
+.val input[type="number"],
+.val input[type="text"],
+.val input[type="tel"] {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--ln);
+  border-radius: var(--radio-s);
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--tx);
+  background: var(--sf);
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.val select:focus,
+.val input:focus {
+  outline: none;
+  border-color: var(--ln2);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, .16);
+}
+
+.v-extras {
+  border: 1px solid var(--ln);
+  border-radius: var(--radio-s);
+  padding: 14px;
+  margin: 0;
+}
+.v-extras legend {
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 0 6px;
+}
+.v-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.v-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid var(--ln);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: border-color .18s ease, background .18s ease;
+  user-select: none;
+}
+.v-check input { accent-color: var(--verde-cta); margin: 0; }
+.v-check:has(input:checked) {
+  border-color: var(--ln2);
+  background: rgba(0, 0, 0, .08);
+  font-weight: 600;
+}
+.v-check:has(input:focus-visible) { outline: 2px solid var(--verde-cta); outline-offset: 2px; }
+
+/* ---------- RESULTADO ---------- */
+.v-result { animation: v-in .45s var(--ease) both; }
+@keyframes v-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.v-res-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--tx2);
+  margin: 10px 0 6px;
+}
+
+.v-figura { margin-bottom: 6px; }
+.v-rango {
+  font-family: var(--f-body);
+  font-size: clamp(30px, 6.4vw, 50px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  color: var(--tx);
+  font-variant-numeric: tabular-nums;
+}
+.v-m2 { color: var(--tx2); font-size: 14.5px; margin-top: 6px; }
+
+/* La cifra aparece de golpe y completa; solo se anima su entrada.
+   Nunca se anima el valor: un número a medias sería un precio falso. */
+.v-pop { animation: v-pop .5s var(--ease) both; }
+@keyframes v-pop {
+  from { opacity: 0; transform: translateY(8px) scale(.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Barra de rango */
+.v-barra {
+  margin: 22px 0 26px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--sf2);
+  position: relative;
+}
+.v-barra-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ac), var(--ac));
+  transition: width .9s var(--ease);
+}
+.v-barra-marks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 9px;
+  font-size: 12.5px;
+  color: var(--tx2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Desglose */
+.v-desglose {
+  list-style: none;
+  margin: 0 0 26px;
+  padding: 18px;
+  display: grid;
+  gap: 9px;
+  background: var(--sf2);
+  border-radius: var(--radio-s);
+}
+.v-desglose li {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 14.5px;
+  align-items: baseline;
+}
+.v-desglose li span:first-child { color: var(--tx2); }
+.v-desglose li span:last-child {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.v-desglose li.suma span:last-child { color: var(--tx); }
+.v-desglose li.resta span:last-child { color: #b4472f; }
+
+/* CTA */
+.v-cta {
+  border-top: 1px solid var(--ln);
+  padding-top: 24px;
+}
+.v-cta-txt {
+  font-size: 14.5px;
+  color: var(--tx2);
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+.v-cta-txt b { color: var(--tx); }
+.v-legal {
+  font-size: 12px;
+  color: var(--tx2);
+  margin-top: 12px;
+  text-align: center;
+}
+
+.v-otra {
+  display: block;
+  margin: 22px auto 0;
+  background: none;
+  border: none;
+  color: var(--tx2);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.v-otra:hover { color: var(--tx); }
+
+/* ---------- PIE ---------- */
+.v-foot {
+  padding: 26px 0 34px;
+  text-align: center;
+}
+.v-foot p {
+  font-size: 12px;
+  color: var(--mu);
+  max-width: 62ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.v-foot-brand { margin-top: 8px; }
+.v-foot-brand a { color: var(--ac2); text-decoration: none; font-weight: 600; }
+.v-foot-brand a:hover { text-decoration: underline; }
+
+/* ---------- MOVIMIENTO REDUCIDO ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .v-result { animation: none; }
+  .v-barra-fill { transition: none; }
+}

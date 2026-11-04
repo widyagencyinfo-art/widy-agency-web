@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Cerebro — Panel de leads | Widy</title>
+<meta name="description" content="Panel de leads de la inmobiliaria: todo lo que entra, en qué punto está y qué toca hacer.">
+<meta name="theme-color" content="#0e0e10">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/panel/panel.css">
+</head>
+<body class="panel">
+
+<header class="p-top">
+  <div class="p-wrap p-top-inner">
+    <span class="logo">
+      <img class="logo-mark" src="/widy-logo.png" alt="" width="38" height="27">
+      <span class="logo-text">Widy<span class="logo-dot">.</span><span class="p-vertical">el cerebro</span></span>
+    </span>
+    <div class="p-top-actions">
+      <a href="/valoracion" class="p-link" target="_blank" rel="noopener">Abrir web de valoración ↗</a>
+      <button type="button" class="p-btn p-btn--ghost" id="csvBtn">Exportar CSV</button>
+    </div>
+  </div>
+</header>
+
+<div class="p-demo" id="demoAviso" hidden>
+  <div class="p-wrap p-demo-inner">
+    <span><b>Modo demo.</b> Los leads de ejemplo son inventados, para que veas cómo se ve el panel lleno. Los que entren de verdad por la web de valoración aparecen aquí arriba al momento.</span>
+    <button type="button" class="p-btn p-btn--mini" id="limpiarDemo">Quitar los de ejemplo</button>
+  </div>
+</div>
+
+<main class="p-wrap p-main">
+
+  <!-- ===== RESUMEN ===== -->
+  <section class="p-kpis" aria-label="Resumen">
+    <article class="p-kpi">
+      <span class="p-kpi-lab">Leads en cartera</span>
+      <b class="p-kpi-num" id="kTotal">0</b>
+      <span class="p-kpi-pie" id="kTotalPie">—</span>
+    </article>
+    <article class="p-kpi p-kpi--alerta" id="kpiNuevos">
+      <span class="p-kpi-lab">Sin contactar</span>
+      <b class="p-kpi-num" id="kNuevos">0</b>
+      <span class="p-kpi-pie">Cada hora cuenta</span>
+    </article>
+    <article class="p-kpi">
+      <span class="p-kpi-lab">Propietarios captados</span>
+      <b class="p-kpi-num" id="kProp">0</b>
+      <span class="p-kpi-pie">Producto para vender</span>
+    </article>
+    <article class="p-kpi p-kpi--dinero">
+      <span class="p-kpi-lab">Comisión potencial</span>
+      <b class="p-kpi-num" id="kComision">—</b>
+      <span class="p-kpi-pie">3 % de la cartera valorada</span>
+    </article>
+  </section>
+
+  <!-- ===== FILTROS ===== -->
+  <section class="p-filtros" aria-label="Filtros">
+    <div class="p-buscar">
+      <input type="search" id="buscar" placeholder="Buscar por nombre, teléfono o zona…" aria-label="Buscar lead">
+    </div>
+    <div class="p-chips" id="chipsEstado" role="group" aria-label="Filtrar por estado">
+      <button type="button" class="p-chip is-on" data-estado="todos">Todos</button>
+      <button type="button" class="p-chip" data-estado="nuevo">Nuevos</button>
+      <button type="button" class="p-chip" data-estado="contactado">Contactados</button>
+      <button type="button" class="p-chip" data-estado="visita">Con visita</button>
+      <button type="button" class="p-chip" data-estado="oferta">Con oferta</button>
+      <button type="button" class="p-chip" data-estado="cerrado">Cerrados</button>
+      <button type="button" class="p-chip" data-estado="perdido">Perdidos</button>
+    </div>
+  </section>
+
+  <!-- ===== TABLA ===== -->
+  <section class="p-tabla-wrap">
+    <table class="p-tabla">
+      <thead>
+        <tr>
+          <th scope="col">Entró</th>
+          <th scope="col">Quién</th>
+          <th scope="col">Qué busca / qué tiene</th>
+          <th scope="col" class="p-num">Valor</th>
+          <th scope="col">Estado</th>
+          <th scope="col"><span class="p-sr">Acciones</span></th>
+        </tr>
+      </thead>
+      <tbody id="filas"></tbody>
+    </table>
+    <p class="p-vacio" id="vacio" hidden>No hay leads que encajen con ese filtro.</p>
+  </section>
+
+  <p class="p-nota">
+    Los leads se guardan en este navegador (demo autónoma, sin servidor). Para varios comerciales a la vez
+    hace falta una base de datos de verdad — es el paso siguiente cuando entre el primer cliente.
+  </p>
+</main>
+
+<script src="/panel/panel.js" defer></script>
+</body>
+</html>

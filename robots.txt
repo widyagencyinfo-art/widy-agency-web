@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /panel
+Disallow: /calendario
+Disallow: /radar
+Disallow: /embudo
+Disallow: /api/
+
+Sitemap: https://widy.agency/sitemap.xml

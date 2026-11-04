@@ -1,0 +1,122 @@
+/* ===================================================
+   Widy — herramientas gratis (calculadora, enlace de WhatsApp)
+   Se apoya en /css/styles.css y /diseno-web/web.css
+   =================================================== */
+.hero-tool { padding-bottom: 28px !important; }
+.section-tool { padding-top: 28px !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+.tool-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 30px; align-items: start; }
+.tool-card-form { background: var(--sf); border: 1px solid var(--ln); border-radius: 24px; padding: 10px 30px 20px; }
+.tq { border: 0; padding: 22px 0; margin: 0; border-bottom: 1px solid var(--ln); }
+.tq:last-child { border-bottom: 0; }
+.tq[hidden] { display: none; }
+.tq legend { display: flex; align-items: center; gap: 12px; font-family: var(--f-body); font-weight: 700; font-size: 1.2rem; margin-bottom: 14px; padding: 0; }
+.tq legend small { font-family: var(--f-body); font-weight: 500; font-size: .95rem; color: var(--tx2); }
+.tq-n { width: 34px; height: 34px; border-radius: 50%; background: var(--em); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.tq-help { font-size: .98rem; color: var(--tx2); margin-top: 10px; }
+.tq-help.error { color: #b91c1c; font-weight: 600; }
+
+.opts { display: grid; gap: 10px; }
+.opts-2 { grid-template-columns: repeat(2, 1fr); }
+.opts-3 { grid-template-columns: repeat(3, 1fr); }
+.opts-4 { grid-template-columns: repeat(4, 1fr); }
+.opt { position: relative; cursor: pointer; }
+.opt[hidden] { display: none; }
+.opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.opt > span { display: flex; flex-direction: column; gap: 3px; min-height: 64px; justify-content: center; padding: 14px 16px; border: 2px solid var(--ln); border-radius: 16px; background: var(--sf); transition: border-color .15s, background .15s; }
+.opt strong { font-size: 1.05rem; line-height: 1.3; }
+.opt small { font-size: .92rem; line-height: 1.35; color: var(--tx2); }
+.opt-sm > span { min-height: 56px; padding: 12px 14px; }
+.opt:hover > span { border-color: var(--ln2); }
+.opt input:checked + span { border-color: var(--ln2); background: var(--em); color: #fff; }
+.opt input:checked + span small { color: #d6d6da; }
+.opt input:focus-visible + span { outline: 3px solid var(--ac2); outline-offset: 3px; }
+.opt-check input:checked + span strong::before { content: "✓ "; }
+
+.calc-out { position: sticky; top: 96px; background: var(--sf); border: 2px solid var(--ln2); border-radius: 24px; padding: 26px 24px 22px; box-shadow: 0 30px 60px -40px rgba(0,0,0,.4); }
+.calc-out-tit { font-family: var(--f-body); font-weight: 800; font-size: 1.25rem; margin-bottom: 10px; }
+.calc-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--ln); }
+.calc-row span { font-size: 1.02rem; color: var(--tx); }
+.calc-row strong { font-family: var(--f-body); font-size: 1.12rem; text-align: right; }
+.calc-note { font-size: .96rem; color: var(--tx2); margin: 10px 0 0; }
+.calc-widy { background: var(--em); color: #fff; border-radius: 18px; padding: 18px 18px 16px; margin: 18px 0 12px; }
+.calc-widy-tit { font-size: .9rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #bdbdc4 !important; margin: 0 0 4px; }
+.calc-widy-price { font-family: var(--f-body); font-weight: 800; font-size: 1.7rem; letter-spacing: -.02em; color: #fff !important; margin: 0 0 6px; }
+.calc-widy-txt { font-size: 1rem; line-height: 1.5; color: #e6e6ea !important; margin: 0; }
+.calc-sube { font-size: 1rem; line-height: 1.5; color: var(--tx); margin: 0 0 14px; }
+.calc-out .btn { width: 100%; margin-top: 8px; font-size: 1.02rem; padding: 14px 18px; min-height: 56px; }
+.calc-priv { font-size: .92rem; color: var(--tx2); text-align: center; margin: 12px auto 0; }
+
+/* Enlace de WhatsApp */
+.wa-num { display: grid; grid-template-columns: 130px 1fr; gap: 10px; }
+.wa-num select, .wa-num input, #wg-msg { width: 100%; font: inherit; font-size: 1.15rem; padding: 14px 16px; min-height: 58px; border: 2px solid var(--ln); border-radius: 14px; background: var(--sf); color: var(--tx); }
+.wa-num select { appearance: none; -webkit-appearance: none; padding-right: 30px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%2316161a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+#wg-msg { min-height: 110px; resize: vertical; line-height: 1.5; margin-top: 12px; }
+.wa-num select:focus, .wa-num input:focus, #wg-msg:focus { outline: none; border-color: var(--ln2); box-shadow: 0 0 0 4px rgba(0,0,0,.08); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: inherit; font-size: .98rem; font-weight: 600; padding: 9px 14px; border-radius: 999px; border: 2px solid var(--ln); background: var(--sf); color: var(--tx); cursor: pointer; }
+.chip:hover { border-color: var(--ln2); }
+.wa-link { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .98rem; line-height: 1.5; word-break: break-all; background: var(--sf2); border: 1px solid var(--ln); border-radius: 14px; padding: 14px; min-height: 56px; margin: 0 0 6px; }
+.wa-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.wa-btns .btn { margin-top: 8px; }
+.wa-out .btn[disabled], .wa-out .btn[aria-disabled="true"] { opacity: .45; cursor: not-allowed; }
+.wa-qr { margin-top: 16px; text-align: center; }
+.wa-qr canvas { width: 232px; height: 232px; max-width: 100%; border: 1px solid var(--ln); border-radius: 16px; background: var(--sf); }
+.wa-code { margin-top: 14px; border-top: 1px solid var(--ln); padding-top: 12px; }
+.wa-code summary { cursor: pointer; font-weight: 700; font-size: 1.02rem; padding: 6px 0; }
+.wa-code textarea { width: 100%; font-family: ui-monospace, Menlo, monospace; font-size: .85rem; line-height: 1.45; padding: 12px; border: 1px solid var(--ln); border-radius: 12px; margin-top: 8px; background: var(--sf2); resize: vertical; }
+
+@media (max-width: 980px) {
+  .tool-grid { grid-template-columns: 1fr; }
+  .calc-out { position: static; }
+  .opts-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .tool-card-form { padding: 6px 18px 14px; }
+  .opts-3, .opts-2 { grid-template-columns: 1fr; }
+  .wa-num { grid-template-columns: 112px 1fr; }
+}
+
+/* ---------- Calculadora de financiación ---------- */
+.fc-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fc-fields-3 { grid-template-columns: 1fr 1fr 1fr; }
+.fc-f { display: grid; gap: 6px; font-weight: 700; font-size: 1rem; }
+.fc-f input, .fc-f select, .fc-f textarea, .ct-input { width: 100%; font: inherit; font-size: 1.12rem; padding: 13px 15px; min-height: 56px; border: 2px solid var(--ln); border-radius: 14px; background: var(--sf); color: var(--tx); }
+.fc-f textarea { font-family: ui-monospace, Menlo, monospace; font-size: .85rem; min-height: 120px; background: var(--sf2); }
+.fc-f input[type="color"] { padding: 6px; height: 56px; cursor: pointer; }
+.fc-f input:focus, .fc-f select:focus, .ct-input:focus { outline: none; border-color: var(--ln2); box-shadow: 0 0 0 4px rgba(0,0,0,.08); }
+.fc-cuota { margin: 0 0 8px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.fc-cuota strong { font-family: var(--f-body); font-weight: 800; font-size: 2.4rem; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.fc-cuota span { color: var(--tx2); font-weight: 600; }
+.fc-tae-row strong { font-size: 1.3rem; }
+.calc-row strong { font-variant-numeric: tabular-nums; }
+.fc-vacio .calc-row strong { color: var(--mu); }
+.fc-ejemplo { width: 100%; font: inherit; font-size: 1.05rem; line-height: 1.6; padding: 18px; border: 2px solid var(--ln2); border-radius: 16px; background: var(--sf); margin: 18px 0 16px; resize: vertical; }
+.fc-embed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+.fc-embed-cfg { display: grid; gap: 14px; }
+.fc-prev-t { font-weight: 700; margin: 0 0 8px; }
+.fc-embed-prev iframe { width: 100%; height: 520px; border: 1px dashed var(--ln); border-radius: 18px; background: var(--sf2); }
+
+/* ---------- Cartel de reseñas ---------- */
+.ct-input + .ct-input { margin-top: 10px; }
+.ct-poster { --fg: #0e0e10; --bg: #fff; background: var(--bg); color: var(--fg); border: 1px solid var(--ln); border-radius: 18px; padding: 26px 20px 22px; text-align: center; margin-bottom: 14px; aspect-ratio: 148 / 210; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+.ct-poster[data-tema="oscuro"] { --fg: #fff; --bg: #0e0e10; border-color: var(--ln2); }
+.ct-stars { font-size: 1.9rem; letter-spacing: .12em; color: #f4b400; margin: 0; }
+.ct-frase { font-family: var(--f-body); font-weight: 800; font-size: 1.35rem; line-height: 1.2; margin: 4px 0 8px; max-width: 16ch; }
+.ct-poster canvas { width: 62%; max-width: 220px; height: auto; aspect-ratio: 1; border-radius: 12px; background: var(--sf); padding: 6px; }
+.ct-scan { font-size: .92rem; margin: 6px 0 0; opacity: .85; }
+.ct-nombre { font-family: var(--f-body); font-weight: 700; font-size: 1.1rem; margin: 6px 0 0; }
+.ct-out .btn { margin-top: 8px; }
+@media print {
+  body.imprimiendo-cartel * { visibility: hidden !important; }
+  body.imprimiendo-cartel .ct-poster, body.imprimiendo-cartel .ct-poster * { visibility: visible !important; }
+  body.imprimiendo-cartel .ct-poster { position: fixed; inset: 0; margin: 0; border: 0; border-radius: 0; aspect-ratio: auto; width: 100%; height: 100%; padding: 12% 10%; gap: 3%; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body.imprimiendo-cartel .ct-frase { font-size: 30pt; }
+  body.imprimiendo-cartel .ct-stars { font-size: 34pt; }
+  body.imprimiendo-cartel .ct-poster canvas { width: 55%; max-width: none; }
+  body.imprimiendo-cartel .ct-nombre { font-size: 20pt; }
+  body.imprimiendo-cartel .ct-scan { font-size: 13pt; }
+}
+@media (max-width: 980px) { .fc-embed-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .fc-fields, .fc-fields-3 { grid-template-columns: 1fr; } }

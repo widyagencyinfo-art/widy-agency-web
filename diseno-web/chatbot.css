@@ -1,0 +1,19 @@
+/* Páginas /chatbot-whatsapp/<ciudad>: conversaciones de ejemplo */
+.cb-chats { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 34px; }
+.cb-chat { background: var(--sf); border: 1px solid var(--ln); border-radius: 22px; overflow: hidden; box-shadow: var(--sh-sm); display: flex; flex-direction: column; }
+.cb-top { display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-bottom: 1px solid var(--ln); background: var(--sf2); }
+.cb-av { width: 34px; height: 34px; border-radius: 50%; background: var(--ac); color: var(--on-ac); display: grid; place-items: center; flex: none; }
+.cb-av svg { width: 18px; height: 18px; stroke: currentColor; }
+.cb-top strong { display: block; font-size: 1rem; line-height: 1.25; }
+.cb-top small { display: block; font-size: .85rem; color: var(--mu); }
+.cb-body { padding: 18px; display: flex; flex-direction: column; gap: 10px; flex: 1; background: var(--bg2); }
+.cb-msg { max-width: 88%; padding: 10px 14px; border-radius: 16px; font-size: 1rem; line-height: 1.45; margin: 0; }
+.cb-in { align-self: flex-start; background: var(--sf); border: 1px solid var(--ln); border-bottom-left-radius: 4px; }
+.cb-out { align-self: flex-end; background: var(--marca); border: 1px solid rgba(31,95,240,.18); border-bottom-right-radius: 4px; }
+.cb-tag { display: block; font-family: var(--f-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ac); margin-bottom: 3px; }
+.cb-nota { margin-top: 18px; font-size: .95rem; color: var(--mu); text-align: center; }
+.cb-lang { display: inline-block; margin-left: 6px; font-family: var(--f-mono); font-size: .7rem; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--ln); color: var(--tx2); vertical-align: middle; }
+@media (max-width: 560px) {
+  .cb-chats { gap: 14px; }
+  .cb-msg { font-size: .98rem; }
+}

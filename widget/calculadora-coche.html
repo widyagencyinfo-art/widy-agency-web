@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>Calculadora de financiación</title>
+<link rel="canonical" href="https://widy.agency/calculadora-financiacion-coche">
+<link rel="stylesheet" href="/widget/widget.css">
+</head>
+<body>
+<main class="wg" id="wg">
+  <p class="wg-t" id="wgTitulo">Calcula tu cuota</p>
+  <form id="wgForm" novalidate>
+    <label>Precio del coche (€)<input id="w-precio" inputmode="decimal" value="15000"></label>
+    <label>Entrada (€)<input id="w-entrada" inputmode="decimal" value="3000"></label>
+    <label>Meses
+      <select id="w-meses"><option>24</option><option>36</option><option>48</option><option>60</option><option selected>72</option><option>84</option><option>96</option></select>
+    </label>
+    <label>TIN (%)<input id="w-tin" inputmode="decimal" value="7,99"></label>
+  </form>
+  <div class="wg-out">
+    <span>Cuota aproximada</span>
+    <strong id="w-cuota">—</strong>
+    <small id="w-tae"></small>
+  </div>
+  <p class="wg-legal">Cálculo orientativo con cuota fija, sin comisiones. La cuota final depende de la entidad financiera y de su aprobación.</p>
+  <p class="wg-by"><a href="https://widy.agency/calculadora-financiacion-coche" target="_blank" rel="noopener">Calculadora de Widy</a></p>
+</main>
+<script src="/widget/widget.js" defer></script>
+</body>
+</html>

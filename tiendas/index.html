@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserva tu llamada estrategica</title>
+  <meta name="description" content="Agenda una llamada gratuita de 30 minutos. Plazas limitadas cada semana." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/tiendas/styles.css" />
+  <link rel="icon" href="/tiendas/logo.png" />
+</head>
+<body>
+  <!-- Fondo decorativo -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <header class="nav">
+    <div class="brand">
+      <img src="/tiendas/logo.png" alt="" class="brand-logo" onerror="this.remove()" />
+      <span class="brand-name">WIDY</span>
+    </div>
+    <a href="#agendar" class="nav-cta">Reservar llamada</a>
+  </header>
+
+  <main>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="badge">
+        <span class="pulse"></span>
+        Plazas limitadas esta semana
+      </div>
+
+      <h1 class="hero-title">
+        Mira el video y reserva tu
+        <span class="grad">llamada estrategica gratuita</span>
+      </h1>
+
+      <p class="hero-sub">
+        En 30 minutos detectamos que esta frenando tu crecimiento y te damos
+        un plan de accion claro. Sin compromiso, sin relleno.
+      </p>
+
+      <!-- ===== VIDEO (YouTube) ===== -->
+      <div class="video-card">
+        <div class="video-frame" id="videoFrame">
+          <iframe
+            id="ytFrame"
+            src="https://www.youtube.com/embed/YRmTn6Lp8y8?autoplay=1&mute=1&controls=0&loop=1&playlist=YRmTn6Lp8y8&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&enablejsapi=1"
+            title="Presentacion Widy"
+            frameborder="0"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+          <!-- Capa transparente: impide pausar o interactuar con el video -->
+          <div class="video-guard" aria-hidden="true"></div>
+          <button class="unmute-pill" id="unmutePill" type="button" aria-label="Activar sonido">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/>
+              <path d="M16 8c1.5 1 1.5 7 0 8M19 5c3 2.5 3 11.5 0 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Activar sonido
+          </button>
+        </div>
+      </div>
+
+      <a href="#agendar" class="hero-cta">
+        Quiero agendar mi llamada
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <ul class="trust">
+        <li><strong>+500</strong> llamadas realizadas</li>
+        <li><strong>4.9/5</strong> valoracion media</li>
+        <li><strong>100%</strong> gratuita y sin compromiso</li>
+      </ul>
+    </section>
+
+    <!-- ========================== AGENDAR ========================== -->
+    <section class="schedule" id="agendar">
+      <div class="schedule-head">
+        <h2>Elige el dia y la hora que mejor te venga</h2>
+        <p>La llamada dura 30 minutos. Recibiras la confirmacion al instante.</p>
+      </div>
+
+      <div class="booking-card">
+        <!-- Barra de pasos -->
+        <div class="steps" id="steps">
+          <div class="step is-active" data-step="1"><span>1</span> Fecha</div>
+          <div class="step" data-step="2"><span>2</span> Hora</div>
+          <div class="step" data-step="3"><span>3</span> Tus datos</div>
+        </div>
+
+        <!-- ---- PASO 1: Calendario ---- -->
+        <div class="panel is-active" data-panel="1">
+          <div class="cal">
+            <div class="cal-head">
+              <button type="button" class="cal-nav" id="prevMonth" aria-label="Mes anterior">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <span class="cal-title" id="calTitle">Mes</span>
+              <button type="button" class="cal-nav" id="nextMonth" aria-label="Mes siguiente">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="cal-weekdays">
+              <span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+            <p class="cal-hint">Solo se muestran dias laborables disponibles.</p>
+          </div>
+        </div>
+
+        <!-- ---- PASO 2: Horas ---- -->
+        <div class="panel" data-panel="2">
+          <div class="slots-head">
+            <button type="button" class="back-link" data-goto="1">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Cambiar fecha
+            </button>
+            <span class="slots-date" id="slotsDate"></span>
+          </div>
+          <div class="slots" id="slots"></div>
+          <div class="slots-legend">
+            <span><i class="leg leg-free"></i> Disponible</span>
+            <span><i class="leg leg-taken"></i> Reservado</span>
+          </div>
+        </div>
+
+        <!-- ---- PASO 3: Formulario ---- -->
+        <div class="panel" data-panel="3">
+          <button type="button" class="back-link" data-goto="2">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Cambiar hora
+          </button>
+
+          <div class="summary" id="summary"></div>
+
+          <form id="bookingForm" novalidate>
+            <div class="field">
+              <label for="name">Nombre y apellidos *</label>
+              <input type="text" id="name" name="name" autocomplete="name" required placeholder="Ej. Ana Garcia" />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" autocomplete="email" required placeholder="ana@empresa.com" />
+              </div>
+              <div class="field">
+                <label for="phone">Teléfono *</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="600 000 000" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="company">Empresa o proyecto</label>
+              <input type="text" id="company" name="company" autocomplete="organization" placeholder="Nombre de tu empresa" />
+            </div>
+            <div class="field">
+              <label for="notes">Cuentanos brevemente tu situacion</label>
+              <textarea id="notes" name="notes" rows="3" maxlength="1000" placeholder="Que te gustaria resolver en la llamada"></textarea>
+            </div>
+
+            <p class="form-error" id="formError" hidden></p>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <span class="btn-text">Confirmar mi llamada</span>
+              <span class="btn-spinner" hidden></span>
+            </button>
+            <p class="form-legal">
+              Al confirmar aceptas la <a href="/privacidad">política de privacidad</a> y que te llamemos para esta cita.
+              Tus datos no se comparten con terceros.
+            </p>
+          </form>
+        </div>
+
+        <!-- ---- EXITO ---- -->
+        <div class="panel" data-panel="success">
+          <div class="success">
+            <div class="success-check">
+              <svg viewBox="0 0 24 24" width="42" height="42"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Llamada confirmada</h3>
+            <p class="success-detail" id="successDetail"></p>
+            <p class="success-note">Te hemos guardado el hueco. Te llamamos a esa hora al teléfono que nos has dejado.</p>
+            <button type="button" class="ghost-btn" id="bookAnother">Reservar otra llamada</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= CASOS DE EXITO ========================= -->
+    <section class="proof" id="casos">
+      <div class="proof-head">
+        <span class="eyebrow"><span class="dot"></span> Casos de exito</span>
+        <h2>Marcas que ya crecen con <span class="grad">Widy</span></h2>
+        <p>Esto es lo que pasa cuando un negocio deja de improvisar y pone un sistema detras.</p>
+      </div>
+
+      <!-- Tira de clientes -->
+      <p class="clients-label">Han confiado en nosotros</p>
+      <div class="clients">
+        <span class="client-logo">NEZA&nbsp;STUDIOS</span>
+        <span class="client-logo">GOVA&nbsp;CLOTHING</span>
+        <span class="client-logo">MAGUE</span>
+      </div>
+
+      <!-- Tarjetas de casos -->
+      <div class="cases">
+        <article class="case">
+          <div class="case-stars" aria-hidden="true">★★★★★</div>
+          <p class="case-text">"Pasamos de depender del boca a boca a tener un sistema de captacion que funciona solo. En pocas semanas se noto el cambio."</p>
+          <div class="case-client">
+            <span class="case-avatar">N</span>
+            <div class="case-id">
+              <strong>Neza Studios</strong>
+              <span>Estudio creativo</span>
+            </div>
+            <span class="case-metric">+128%</span>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-stars" aria-hidden="true">★★★★★</div>
+          <p class="case-text">"El equipo de Widy entendio nuestra marca desde el primer dia. Ahora vendemos online sin estar pendientes 24/7."</p>
+          <div class="case-client">
+            <span class="case-avatar">G</span>
+            <div class="case-id">
+              <strong>Gova Clothing</strong>
+              <span>Marca de ropa</span>
+            </div>
+            <span class="case-metric">x3 ventas</span>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-stars" aria-hidden="true">★★★★★</div>
+          <p class="case-text">"Profesionales y directos. Nos dieron un plan claro y lo ejecutaron. Resultados reales, sin humo ni promesas vacias."</p>
+          <div class="case-client">
+            <span class="case-avatar">M</span>
+            <div class="case-id">
+              <strong>Mague</strong>
+              <span>Negocio digital</span>
+            </div>
+            <span class="case-metric">+90 leads/mes</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Banda de cifras -->
+      <div class="stats-band">
+        <div class="stat-box"><strong>+40</strong><span>negocios escalados</span></div>
+        <div class="stat-box"><strong>4.9/5</strong><span>valoracion media</span></div>
+        <div class="stat-box"><strong>+1.2M&euro;</strong><span>generados para clientes</span></div>
+        <div class="stat-box"><strong>24h</strong><span>tiempo de respuesta</span></div>
+      </div>
+
+      <!-- Garantias / confianza -->
+      <ul class="guarantees">
+        <li>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Sin permanencia ni ataduras
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Primera llamada 100% gratuita
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Plan de accion claro desde el dia uno
+        </li>
+      </ul>
+
+      <a href="#agendar" class="hero-cta proof-cta">
+        Quiero estos resultados
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Widy · Hecho para cerrar mas llamadas.</p>
+  </footer>
+
+  <script src="/tiendas/app.js?v=2"></script>
+</body>
+</html>

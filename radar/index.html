@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Radar de particulares | Widy</title>
+<meta name="description" content="Propietarios que venden su casa sin agencia, verificados uno a uno.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --osc:#0e0e10; --verde:#0e0e10; --cta:#0e0e10; --lima:#ffffff; --tinta:#14141a;
+    --gris:#5b6a62; --crema:#f4f7f3; --linea:#e2e9e3; --blanco:#fff; --amb:#828282; --amb-bg:#fdf6e9; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--crema);
+    color:var(--tinta);line-height:1.55;padding-bottom:50px}
+  h1,h2,.precio,.kpi b{font-family:'Sora',sans-serif;letter-spacing:-.02em}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+  header{background:var(--osc);color:#fff;padding:32px 0 28px}
+  .eyebrow{color:var(--lima);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+  header h1{font-size:clamp(23px,4vw,33px);font-weight:800;line-height:1.15;max-width:24ch}
+  header p{color:#b4b4b4;margin-top:12px;max-width:64ch;font-size:15px}
+  /* selector de ciudad */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .tab{font:inherit;font-size:14px;font-weight:600;padding:9px 18px;border-radius:99px;cursor:pointer;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255, 255, 255,.3);color:#c9c9cc}
+  .tab span{opacity:.65;font-weight:500;margin-left:4px}
+  .tab--on{background:var(--lima);border-color:var(--lima);color:var(--osc)}
+  .tab--on span{opacity:.7}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 4px}
+  @media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.kpis{grid-template-columns:1fr}}
+  .kpis.oculta{display:none}
+  .kpi{background:var(--blanco);border:1px solid var(--linea);border-left:3px solid var(--cta);
+    border-radius:10px;padding:13px 15px}
+  .kpi--gris{border-left-color:var(--linea)}
+  .kpi b{display:block;font-size:23px;font-weight:800}
+  .kpi span{font-size:11px;color:var(--gris);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 14px}
+  .chip{font:inherit;font-size:12.5px;padding:6px 12px;border-radius:99px;border:1px solid var(--linea);
+    background:var(--blanco);color:var(--gris);cursor:pointer}
+  .chip--on{background:var(--osc);border-color:var(--osc);color:#fff;font-weight:600}
+  .grid{display:grid;gap:12px}
+  @media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+  .card{background:var(--blanco);border:1px solid var(--linea);border-radius:12px;padding:15px;
+    display:flex;flex-direction:column;gap:6px}
+  .card.oculta{display:none}
+  .card-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .precio{font-size:21px;font-weight:800}
+  .com{font-size:11.5px;color:var(--gris)} .com b{color:var(--verde)}
+  .badges{display:flex;gap:5px;flex-wrap:wrap}
+  .b{font-size:10px;font-weight:700;letter-spacing:.4px;padding:3px 7px;border-radius:5px}
+  .b--baja{background:var(--amb-bg);color:var(--amb);border:1px solid #c8c8c8}
+  .b--chollo{background:#e9f7ee;color:var(--verde);border:1px solid var(--cta)}
+  .tit{font-size:14.5px;font-weight:600}
+  .zona{font-size:13px;color:var(--gris)}
+  .comp{font-size:12px;background:var(--crema);padding:5px 8px;border-radius:6px;align-self:flex-start}
+  .comp i{color:var(--gris);font-style:normal}
+  .ver{margin-top:auto;padding-top:9px;font-size:13px;font-weight:600;color:var(--osc);text-decoration:none}
+  .ver:hover{color:var(--verde);text-decoration:underline}
+  .nota{margin-top:26px;background:var(--blanco);border:1px solid var(--linea);border-left:3px solid var(--lima);
+    border-radius:10px;padding:18px 20px}
+  .nota h2{font-size:16px;margin-bottom:8px}
+  .nota p{font-size:13.5px;color:var(--gris);max-width:80ch;margin-bottom:7px}
+  .nota b{color:var(--tinta)}
+  footer{margin-top:22px;font-size:12px;color:var(--gris);text-align:center}
+  footer a{color:var(--verde);font-weight:600;text-decoration:none}
+</style></head><body>
+<header><div class="wrap">
+  <p class="eyebrow">Widy · Radar de particulares</p>
+  <h1>Quién vende su casa sin agencia, ahora mismo</h1>
+  <p>Propietarios que están vendiendo por su cuenta. Verificados uno a uno: solo salen
+     los que el portal marca como <b>anunciante particular</b>. Son casas que todavía
+     no tiene ninguna inmobiliaria. Elige el pueblo:</p>
+  <div class="tabs"><button class="tab tab--on" data-c="sevilla">Sevilla <span>15</span></button><button class="tab" data-c="algeciras">Algeciras <span>15</span></button><button class="tab" data-c="marchena">Marchena <span>15</span></button><button class="tab" data-c="carmona">Carmona <span>15</span></button></div>
+</div></header>
+
+<div class="wrap">
+  
+    <div class="kpis" data-ciudad="sevilla">
+      <div class="kpi"><b>15</b><span>Propietarios sin agencia</span></div>
+      <div class="kpi"><b>185.940 €</b><span>Comisión si los vendieras todos (3%)</span></div>
+      <div class="kpi"><b>3</b><span>Piden por debajo de mercado</span></div>
+      <div class="kpi kpi--gris"><b>2.902 €</b><span>Precio medio del m² aquí</span></div>
+    </div>
+    <div class="kpis oculta" data-ciudad="algeciras">
+      <div class="kpi"><b>15</b><span>Propietarios sin agencia</span></div>
+      <div class="kpi"><b>112.107 €</b><span>Comisión si los vendieras todos (3%)</span></div>
+      <div class="kpi"><b>1</b><span>Piden por debajo de mercado</span></div>
+      <div class="kpi kpi--gris"><b>1.557 €</b><span>Precio medio del m² aquí</span></div>
+    </div>
+    <div class="kpis oculta" data-ciudad="marchena">
+      <div class="kpi"><b>15</b><span>Propietarios sin agencia</span></div>
+      <div class="kpi"><b>84.087 €</b><span>Comisión si los vendieras todos (3%)</span></div>
+      <div class="kpi"><b>4</b><span>Piden por debajo de mercado</span></div>
+      <div class="kpi kpi--gris"><b>900 €</b><span>Precio medio del m² aquí</span></div>
+    </div>
+    <div class="kpis oculta" data-ciudad="carmona">
+      <div class="kpi"><b>15</b><span>Propietarios sin agencia</span></div>
+      <div class="kpi"><b>140.600 €</b><span>Comisión si los vendieras todos (3%)</span></div>
+      <div class="kpi"><b>6</b><span>Piden por debajo de mercado</span></div>
+      <div class="kpi kpi--gris"><b>1.651 €</b><span>Precio medio del m² aquí</span></div>
+    </div>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid">
+      <article class="card" data-ciudad="sevilla" data-zona="Sevilla">
+        <div class="card-h">
+          <span class="precio">420.000 €</span>
+          <span class="com">comisión ≈ <b>12.600 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Casa adosada en Calle Hockey, 12, Este - Alcosa- Torreblanca Colores - Entreparques, Sevilla Capital</p>
+        <p class="zona">Sevilla · 165 m² · 4 hab · 2 baño</p>
+        <p class="comp">2.545 €/m² <i>· -12% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-parking-terraza-patio-amueblado-piscina/190156331/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Norte Pino Montano - Consolación">
+        <div class="card-h">
+          <span class="precio">247.000 €</span>
+          <span class="com">comisión ≈ <b>7.410 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Piso en Calle Parque del Torcal de Antequera, 5, Norte Pino Montano - Consolación, Sevilla Capital</p>
+        <p class="zona">Norte Pino Montano - Consolación · 107 m² · 3 hab · 3 baño</p>
+        <p class="comp">2.308 €/m² <i>· -20% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-parking-zona-comunitaria-ascensor-patio-amueblado/190180671/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="San Pablo - Santa Justa San Pablo">
+        <div class="card-h">
+          <span class="precio">240.000 €</span>
+          <span class="com">comisión ≈ <b>7.200 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Piso en Avenida de Pedro Romero, 1, San Pablo - Santa Justa San Pablo, Sevilla Capital</p>
+        <p class="zona">San Pablo - Santa Justa San Pablo · 110 m² · 4 hab · 2 baño</p>
+        <p class="comp">2.182 €/m² <i>· -25% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-terraza-ascensor/189739235/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Nervión Barrio del Nervión">
+        <div class="card-h">
+          <span class="precio">700.000 €</span>
+          <span class="com">comisión ≈ <b>21.000 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Beatriz de Suabia, 110, Nervión Barrio del Nervión, Sevilla Capital</p>
+        <p class="zona">Nervión Barrio del Nervión · 132 m² · 4 hab · 3 baño</p>
+        <p class="comp">5.303 €/m² <i>· +83% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-parking-terraza-trastero-ascensor-patio-piscina-amueblado-parking/190243867/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Casco Antiguo San Julián">
+        <div class="card-h">
+          <span class="precio">585.000 €</span>
+          <span class="com">comisión ≈ <b>17.550 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Hiniesta, 27, Casco Antiguo San Julián, Sevilla Capital</p>
+        <p class="zona">Casco Antiguo San Julián · 109 m² · 2 hab · 2 baño</p>
+        <p class="comp">5.367 €/m² <i>· +85% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-trastero-zona-comunitaria-patio-parking/190226605/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Sevilla">
+        <div class="card-h">
+          <span class="precio">579.000 €</span>
+          <span class="com">comisión ≈ <b>17.370 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Virgen de las Montañas, 17, Los Remedios Barrio de los Remedios, Sevilla Capital</p>
+        <p class="zona">Sevilla · 158 m² · 4 hab · 2 baño</p>
+        <p class="comp">3.665 €/m² <i>· +26% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/terraza-ascensor-amueblado/190245474/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Sevilla">
+        <div class="card-h">
+          <span class="precio">550.000 €</span>
+          <span class="com">comisión ≈ <b>16.500 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Avenida de la Reina Mercedes, 29, Bellavista - La Palmera Sector Sur - La Palmera - Reina Mercedes, Sevilla Capital</p>
+        <p class="zona">Sevilla · 165 m² · 5 hab · 2 baño</p>
+        <p class="comp">3.333 €/m² <i>· +15% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-terraza-trastero-ascensor-parking/190272741/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Norte Parque Atlántico- San Matías">
+        <div class="card-h">
+          <span class="precio">409.000 €</span>
+          <span class="com">comisión ≈ <b>12.270 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Salvador Dalí, 4, Norte Parque Atlántico- San Matías, Sevilla Capital</p>
+        <p class="zona">Norte Parque Atlántico- San Matías · 109 m² · 3 hab · 2 baño</p>
+        <p class="comp">3.752 €/m² <i>· +29% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-jardin-ascensor-patio-piscina-parking/190209644/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Triana Triana Oeste">
+        <div class="card-h">
+          <span class="precio">389.000 €</span>
+          <span class="com">comisión ≈ <b>11.670 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Toledo, 1, Triana Triana Oeste, Sevilla Capital</p>
+        <p class="zona">Triana Triana Oeste · 104 m² · 4 hab · 2 baño</p>
+        <p class="comp">3.740 €/m² <i>· +29% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-terraza-zona-comunitaria-ascensor-parking/190151853/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Norte Parque Atlántico- San Matías">
+        <div class="card-h">
+          <span class="precio">389.000 €</span>
+          <span class="com">comisión ≈ <b>11.670 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Arquitecto José Gómez Millán, 3, Norte Parque Atlántico- San Matías, Sevilla Capital</p>
+        <p class="zona">Norte Parque Atlántico- San Matías · 119 m² · 4 hab · 1 baño</p>
+        <p class="comp">3.269 €/m² <i>· +13% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-parking-jardin-trastero-zona-comunitaria-ascensor-piscina-parking/190285866/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Casco Antiguo Arenal - Museo">
+        <div class="card-h">
+          <span class="precio">380.000 €</span>
+          <span class="com">comisión ≈ <b>11.400 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Radio Sevilla, 6, Casco Antiguo Arenal - Museo, Sevilla Capital</p>
+        <p class="zona">Casco Antiguo Arenal - Museo · 78 m² · 3 hab · 1 baño</p>
+        <p class="comp">4.872 €/m² <i>· +68% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-ascensor-amueblado/189860088/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Sevilla">
+        <div class="card-h">
+          <span class="precio">370.000 €</span>
+          <span class="com">comisión ≈ <b>11.100 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Vía Hercúlea, 1, Este - Alcosa- Torreblanca Torreblanca, Sevilla Capital</p>
+        <p class="zona">Sevilla · 113 m² · 3 hab · 2 baño</p>
+        <p class="comp">3.274 €/m² <i>· +13% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-trastero-zona-comunitaria-ascensor-piscina-parking/190156962/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Sevilla">
+        <div class="card-h">
+          <span class="precio">360.000 €</span>
+          <span class="com">comisión ≈ <b>10.800 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Urbión, 14, Sur El Plantinar – Avda. La Paz - El Juncal, Sevilla Capital</p>
+        <p class="zona">Sevilla · 85 m² · 4 hab · 1 baño</p>
+        <p class="comp">4.235 €/m² <i>· +46% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-terraza-ascensor-patio/190255852/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Sevilla">
+        <div class="card-h">
+          <span class="precio">320.000 €</span>
+          <span class="com">comisión ≈ <b>9.600 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Francisco González García, 3, Este - Alcosa- Torreblanca Torreblanca, Sevilla Capital</p>
+        <p class="zona">Sevilla · 90 m² · 3 hab · 2 baño</p>
+        <p class="comp">3.556 €/m² <i>· +23% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-jardin-terraza-trastero-zona-comunitaria-ascensor-piscina-amueblado-parking/190227026/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="sevilla" data-zona="Triana Triana Este">
+        <div class="card-h">
+          <span class="precio">260.000 €</span>
+          <span class="com">comisión ≈ <b>7.800 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Virgen del Buen Aire, 1, Triana Triana Este, Sevilla Capital</p>
+        <p class="zona">Triana Triana Este · 78 m² · 3 hab · 1 baño</p>
+        <p class="comp">3.333 €/m² <i>· +15% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/sevilla-capital/aire-acondicionado-calefaccion-patio-amueblado/190279583/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="La Reconquista - El Rosario">
+        <div class="card-h">
+          <span class="precio">118.000 €</span>
+          <span class="com">comisión ≈ <b>3.540 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--baja">HA BAJADO 12.000 €</span></div>
+        <p class="tit">Piso en Avenida Virgen del Carmen, 38</p>
+        <p class="zona">La Reconquista - El Rosario · 60 m² · 2 hab · 1 baño</p>
+        <p class="comp">1.967 €/m² <i>· +26% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/terraza-zona-comunitaria-ascensor/190049159/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="San García">
+        <div class="card-h">
+          <span class="precio">240.000 €</span>
+          <span class="com">comisión ≈ <b>7.200 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Casa adosada en Calle de Los Guijos, S</p>
+        <p class="zona">San García · 200 m² · 5 hab · 3 baño</p>
+        <p class="comp">1.200 €/m² <i>· -23% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/aire-acondicionado-calefaccion-parking-jardin-trastero-zona-comunitaria-patio-piscina-amueblado-television/162836914/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="San García">
+        <div class="card-h">
+          <span class="precio">895.000 €</span>
+          <span class="com">comisión ≈ <b>26.850 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Casa o chalet en Calle Centolla, 313</p>
+        <p class="zona">San García · 432 m² · 4 hab · 4 baño</p>
+        <p class="comp">2.072 €/m² <i>· +33% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/calefaccion-parking-jardin-terraza-patio-piscina/188510793/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="La Reconquista - El Rosario">
+        <div class="card-h">
+          <span class="precio">380.000 €</span>
+          <span class="com">comisión ≈ <b>11.400 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Ático en Avenida Virgen del Carmen, 77</p>
+        <p class="zona">La Reconquista - El Rosario · 209 m² · 3 hab · 2 baño</p>
+        <p class="comp">1.818 €/m² <i>· +17% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/aire-acondicionado-terraza-zona-comunitaria-ascensor-parking/183234799/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="El Rinconcillo">
+        <div class="card-h">
+          <span class="precio">249.999 €</span>
+          <span class="com">comisión ≈ <b>7.500 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Avenida del Embarcadero, 37a</p>
+        <p class="zona">El Rinconcillo · 173 m² · 3 hab · 2 baño</p>
+        <p class="comp">1.445 €/m² <i>· -7% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/terraza-zona-comunitaria-ascensor-piscina-parking/190243607/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="La Reconquista - El Rosario">
+        <div class="card-h">
+          <span class="precio">235.000 €</span>
+          <span class="com">comisión ≈ <b>7.050 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Abogados de Oficio, 1</p>
+        <p class="zona">La Reconquista - El Rosario · 106 m² · 2 hab · 1 baño</p>
+        <p class="comp">2.217 €/m² <i>· +42% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/parking-jardin-terraza-zona-comunitaria-ascensor-piscina-amueblado/190117206/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="La Reconquista - El Rosario">
+        <div class="card-h">
+          <span class="precio">205.000 €</span>
+          <span class="com">comisión ≈ <b>6.150 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Avenida España, 3</p>
+        <p class="zona">La Reconquista - El Rosario · 90 m² · 3 hab · 1 baño</p>
+        <p class="comp">2.278 €/m² <i>· +46% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/terraza-ascensor/190012869/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="La Reconquista - El Rosario">
+        <div class="card-h">
+          <span class="precio">205.000 €</span>
+          <span class="com">comisión ≈ <b>6.150 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Avenida España, 1</p>
+        <p class="zona">La Reconquista - El Rosario · 90 m² · 3 hab · 1 baño</p>
+        <p class="comp">2.278 €/m² <i>· +46% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/terraza-ascensor/189819617/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="La Reconquista - El Rosario">
+        <div class="card-h">
+          <span class="precio">205.000 €</span>
+          <span class="com">comisión ≈ <b>6.150 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Misioneras Concepcionistas, 5</p>
+        <p class="zona">La Reconquista - El Rosario · 74 m² · 2 hab · 2 baño</p>
+        <p class="comp">2.770 €/m² <i>· +78% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/parking-terraza/190178396/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="La Reconquista - El Rosario">
+        <div class="card-h">
+          <span class="precio">199.000 €</span>
+          <span class="com">comisión ≈ <b>5.970 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Avenida España, 3</p>
+        <p class="zona">La Reconquista - El Rosario · 104 m² · 3 hab · 1 baño</p>
+        <p class="comp">1.913 €/m² <i>· +23% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/aire-acondicionado-calefaccion-ascensor-amueblado/188520485/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="La Reconquista - El Rosario">
+        <div class="card-h">
+          <span class="precio">179.999 €</span>
+          <span class="com">comisión ≈ <b>5.400 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Avenida Bélgica, 6</p>
+        <p class="zona">La Reconquista - El Rosario · 91 m² · 3 hab · 1 baño</p>
+        <p class="comp">1.978 €/m² <i>· +27% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/parking-terraza-zona-comunitaria-ascensor-amueblado-parking/189505525/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="La Reconquista - El Rosario">
+        <div class="card-h">
+          <span class="precio">180.000 €</span>
+          <span class="com">comisión ≈ <b>5.400 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Avenida Bélgica, 6</p>
+        <p class="zona">La Reconquista - El Rosario · 91 m² · 3 hab · 1 baño</p>
+        <p class="comp">1.978 €/m² <i>· +27% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/parking-terraza-zona-comunitaria-ascensor-amueblado-parking/189505425/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="La Reconquista - El Rosario">
+        <div class="card-h">
+          <span class="precio">159.900 €</span>
+          <span class="com">comisión ≈ <b>4.797 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Avenida Fuerzas Armadas, 20</p>
+        <p class="zona">La Reconquista - El Rosario · 85 m² · 4 hab · 1 baño</p>
+        <p class="comp">1.881 €/m² <i>· +21% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/aire-acondicionado-trastero-ascensor-no-amueblado/189418514/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="San Bernabé">
+        <div class="card-h">
+          <span class="precio">150.000 €</span>
+          <span class="com">comisión ≈ <b>4.500 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Urbanizacion Mariana Pineda, 3</p>
+        <p class="zona">San Bernabé · 85 m² · 3 hab · 1 baño</p>
+        <p class="comp">1.765 €/m² <i>· +13% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/aire-acondicionado-calefaccion-ascensor-patio-amueblado/189957683/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="algeciras" data-zona="Casco Antiguo">
+        <div class="card-h">
+          <span class="precio">135.000 €</span>
+          <span class="com">comisión ≈ <b>4.050 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle San Nicolás, 4</p>
+        <p class="zona">Casco Antiguo · 85 m² · 3 hab · 2 baño</p>
+        <p class="comp">1.588 €/m² <i>· +2% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/algeciras/aire-acondicionado-calefaccion-trastero-zona-comunitaria-ascensor-amueblado/189658852/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">350.000 €</span>
+          <span class="com">comisión ≈ <b>10.500 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Finca rústica en Calle Santa Clara, 18t</p>
+        <p class="zona">Marchena · 500 m² · 9 hab · 3 baño</p>
+        <p class="comp">700 €/m² <i>· -22% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/piscina-amueblado/179109671/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">170.000 €</span>
+          <span class="com">comisión ≈ <b>5.100 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Piso en Calle Niño de Marchena, 14</p>
+        <p class="zona">Marchena · 220 m² · 2 baño</p>
+        <p class="comp">773 €/m² <i>· -14% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/aire-acondicionado-patio/187303072/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">128.000 €</span>
+          <span class="com">comisión ≈ <b>3.840 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Casa adosada en Calle Cristóbal Colón, 8</p>
+        <p class="zona">Marchena · 246 m² · 3 hab · 1 baño</p>
+        <p class="comp">520 €/m² <i>· -42% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/marchena/187048063/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">87.000 €</span>
+          <span class="com">comisión ≈ <b>2.610 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Casa adosada en Calle Solares, 7a</p>
+        <p class="zona">Marchena · 130 m² · 3 hab · 2 baño</p>
+        <p class="comp">669 €/m² <i>· -26% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/aire-acondicionado-terraza/190042813/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">550.000 €</span>
+          <span class="com">comisión ≈ <b>16.500 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Finca rústica en Diseminado Diseminados, 561</p>
+        <p class="zona">Marchena · 454 m² · 9 hab · 3 baño</p>
+        <p class="comp">1.211 €/m² <i>· +35% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/marchena/178268912/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">550.000 €</span>
+          <span class="com">comisión ≈ <b>16.500 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Finca rústica en Diseminado Diseminados, 561</p>
+        <p class="zona">Marchena · 454 m² · 9 hab · 3 baño</p>
+        <p class="comp">1.211 €/m² <i>· +35% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/marchena/178301302/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">160.000 €</span>
+          <span class="com">comisión ≈ <b>4.800 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle Camino Hondo, 91</p>
+        <p class="zona">Marchena · 67 m² · 2 hab · 1 baño</p>
+        <p class="comp">2.388 €/m² <i>· +165% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/aire-acondicionado-calefaccion-amueblado/189222599/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">139.900 €</span>
+          <span class="com">comisión ≈ <b>4.197 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Casa adosada en Calle Dolores Ibárruri, 10</p>
+        <p class="zona">Marchena · 168 m² · 4 hab · 2 baño</p>
+        <p class="comp">833 €/m² <i>· -7% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/aire-acondicionado-parking-terraza-trastero/176779955/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">135.000 €</span>
+          <span class="com">comisión ≈ <b>4.050 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Casa adosada en Calle Dolores Ibárruri</p>
+        <p class="zona">Marchena · 140 m² · 3 hab · 2 baño</p>
+        <p class="comp">964 €/m² <i>· +7% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/aire-acondicionado-calefaccion-parking-patio-amueblado/165433201/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">120.000 €</span>
+          <span class="com">comisión ≈ <b>3.600 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso con</p>
+        <p class="zona">Marchena · 67 m² · 2 hab · 1 baño</p>
+        <p class="comp">1.791 €/m² <i>· +99% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/marchena/190086139/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">120.000 €</span>
+          <span class="com">comisión ≈ <b>3.600 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Apartamento en Calle Camino Hondo, 91</p>
+        <p class="zona">Marchena · 67 m² · 2 hab · 1 baño</p>
+        <p class="comp">1.791 €/m² <i>· +99% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/aire-acondicionado-calefaccion-zona-comunitaria-piscina/189205972/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">110.000 €</span>
+          <span class="com">comisión ≈ <b>3.300 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Travesía de San Ignacio, 90a</p>
+        <p class="zona">Marchena · 105 m² · 3 hab · 2 baño</p>
+        <p class="comp">1.048 €/m² <i>· +16% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/aire-acondicionado-calefaccion-terraza-amueblado/164509012/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">74.000 €</span>
+          <span class="com">comisión ≈ <b>2.220 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Plaza Santa Gema, 5</p>
+        <p class="zona">Marchena · 64 m² · 2 hab · 1 baño</p>
+        <p class="comp">1.156 €/m² <i>· +28% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/aire-acondicionado-parking-trastero-zona-comunitaria-patio-amueblado/179563162/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">55.000 €</span>
+          <span class="com">comisión ≈ <b>1.650 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Casa adosada con</p>
+        <p class="zona">Marchena · 1000 m² · 1 hab · 1 baño</p>
+        <p class="comp">55 €/m² <i>· -94% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/marchena/190035725/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="marchena" data-zona="Marchena">
+        <div class="card-h">
+          <span class="precio">54.000 €</span>
+          <span class="com">comisión ≈ <b>1.620 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Finca rústica en Carretera la Puebla de Cazalla, 2, Marchena Marchena 2500 m²</p>
+        <p class="zona">Marchena · 2500 m²</p>
+        <p class="comp">22 €/m² <i>· -98% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/marchena/marchena/189639696/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">399.000 €</span>
+          <span class="com">comisión ≈ <b>11.970 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Piso en Urbanización Los Jinetes 1 Fase, 205</p>
+        <p class="zona">Carmona · 350 m² · 3 baño</p>
+        <p class="comp">1.140 €/m² <i>· -31% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/aire-acondicionado-calefaccion-parking-jardin-terraza-trastero-zona-comunitaria-patio-piscina-amueblado/187354844/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">265.000 €</span>
+          <span class="com">comisión ≈ <b>7.950 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Casa adosada en Calle Diego Navarro, 20</p>
+        <p class="zona">Carmona · 246 m² · 7 hab · 4 baño</p>
+        <p class="comp">1.077 €/m² <i>· -35% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/terraza-patio/183393449/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">223.000 €</span>
+          <span class="com">comisión ≈ <b>6.690 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Casa o chalet en Urbanización Torreplama, 172</p>
+        <p class="zona">Carmona · 215 m² · 4 hab · 3 baño</p>
+        <p class="comp">1.037 €/m² <i>· -37% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/aire-acondicionado-calefaccion-parking-jardin-terraza-trastero-patio-piscina-amueblado/164516795/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">205.000 €</span>
+          <span class="com">comisión ≈ <b>6.150 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Finca rústica en Diseminado Diseminados 2, 722</p>
+        <p class="zona">Carmona · 300 m² · 4 hab · 1 baño</p>
+        <p class="comp">683 €/m² <i>· -59% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/parking-jardin-terraza-trastero-patio-amueblado-internet/185623034/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">205.000 €</span>
+          <span class="com">comisión ≈ <b>6.150 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Casa adosada en Calle Andalucía, 36</p>
+        <p class="zona">Carmona · 206 m² · 4 hab · 2 baño</p>
+        <p class="comp">995 €/m² <i>· -40% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/parking-terraza-trastero-patio-amueblado/182837750/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">180.000 €</span>
+          <span class="com">comisión ≈ <b>5.400 €</b></span>
+        </div>
+        <div class="badges"><span class="b b--chollo">POR DEBAJO DE MERCADO</span></div>
+        <p class="tit">Piso en Plaza San Fernando, 12</p>
+        <p class="zona">Carmona · 260 m² · 5 hab · 2 baño</p>
+        <p class="comp">692 €/m² <i>· -58% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/patio/186473381/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">480.000 €</span>
+          <span class="com">comisión ≈ <b>14.400 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Urbanizacion Huerta del Soldado, 25</p>
+        <p class="zona">Carmona · 208 m² · 6 hab · 4 baño</p>
+        <p class="comp">2.308 €/m² <i>· +40% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/aire-acondicionado-calefaccion-jardin-terraza-trastero-patio-piscina-amueblado/188847318/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">475.000 €</span>
+          <span class="com">comisión ≈ <b>14.250 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Calle del Pino Carrasco, 116</p>
+        <p class="zona">Carmona · 256 m² · 4 hab · 2 baño</p>
+        <p class="comp">1.855 €/m² <i>· +12% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/aire-acondicionado-calefaccion-parking-jardin-terraza-zona-comunitaria-patio-piscina/190190885/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">460.000 €</span>
+          <span class="com">comisión ≈ <b>13.800 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Casa o chalet en Calle Trinidad, 57, Carmona Carmona 270 m²</p>
+        <p class="zona">Carmona · 270 m²</p>
+        <p class="comp">1.704 €/m² <i>· +3% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/aire-acondicionado-calefaccion-parking-jardin-terraza-trastero-zona-comunitaria-patio-amueblado/188681213/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">410.000 €</span>
+          <span class="com">comisión ≈ <b>12.300 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Casa o chalet en Calle del Pino Hermoso, 78</p>
+        <p class="zona">Carmona · 208 m² · 4 hab · 2 baño</p>
+        <p class="comp">1.971 €/m² <i>· +19% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/aire-acondicionado-parking-jardin-trastero-zona-comunitaria-piscina/188130235/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">370.000 €</span>
+          <span class="com">comisión ≈ <b>11.100 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Urbanizacion la Cierva, 353</p>
+        <p class="zona">Carmona · 157 m² · 4 hab · 2 baño</p>
+        <p class="comp">2.357 €/m² <i>· +43% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/aire-acondicionado-calefaccion-parking-jardin-terraza-zona-comunitaria-patio-piscina-amueblado-parking/190259632/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">280.000 €</span>
+          <span class="com">comisión ≈ <b>8.400 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Piso en Urbanización Los Jinetes 1 Fase, 155</p>
+        <p class="zona">Carmona · 100 m² · 3 hab · 1 baño</p>
+        <p class="comp">2.800 €/m² <i>· +70% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/aire-acondicionado-calefaccion-jardin-zona-comunitaria-piscina-amueblado/177712986/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">279.000 €</span>
+          <span class="com">comisión ≈ <b>8.370 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Casa o chalet en Urbanización Los Cortijos del Alcor</p>
+        <p class="zona">Carmona · 145 m² · 4 hab · 2 baño</p>
+        <p class="comp">1.924 €/m² <i>· +17% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/parking-jardin-trastero-patio-piscina-amueblado-television/150120527/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">260.000 €</span>
+          <span class="com">comisión ≈ <b>7.800 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Casa o chalet en Calle Capricornio, 258b</p>
+        <p class="zona">Carmona · 130 m² · 3 hab · 2 baño</p>
+        <p class="comp">2.000 €/m² <i>· +21% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/aire-acondicionado-calefaccion-jardin-terraza-patio-piscina-amueblado/190269074/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article>
+      <article class="card" data-ciudad="carmona" data-zona="Carmona">
+        <div class="card-h">
+          <span class="precio">195.650 €</span>
+          <span class="com">comisión ≈ <b>5.870 €</b></span>
+        </div>
+        <div class="badges"></div>
+        <p class="tit">Casa o chalet en Urbanización Torrelaguna, 22a</p>
+        <p class="zona">Carmona · 100 m² · 4 hab · 2 baño</p>
+        <p class="comp">1.956 €/m² <i>· +18% vs la media del pueblo</i></p>
+        <a class="ver" href="https://www.fotocasa.es/es/comprar/vivienda/carmona/aire-acondicionado-parking-jardin-terraza-trastero-patio-piscina-amueblado/181888401/d" target="_blank" rel="noopener">Ver el anuncio y llamar ↗</a>
+      </article></div>
+
+  <div class="nota">
+    <h2>Cómo leer esto</h2>
+    <p><b>Los que han bajado el precio</b> son los más interesantes: ese propietario lleva tiempo
+       intentándolo solo y se está cansando. Es el que mejor escucha a una agencia.</p>
+    <p><b>Por debajo de mercado</b> significa que pide menos €/m² que la media del pueblo. Es
+       orientativo: un chalet con parcela no vale lo mismo que un piso en el centro, por eso
+       tienes el €/m² real de cada uno a la vista.</p>
+    <p>No damos el teléfono a propósito: entras en el anuncio y llamas desde ahí, así el dato
+       lo coges tú de la fuente original.</p>
+  </div>
+
+  <footer>
+    <p>Fuente: anuncios de particulares publicados en Fotocasa · Precio medio de referencia — Sevilla: 2.902 €/m² (julio de 2026) · Algeciras: 1.557 €/m² (mayo de 2026) · Marchena: 900 €/m² (enero de 2026) · Carmona: 1.651 €/m² (junio de 2026)</p>
+    <p style="margin-top:6px">Listado generado automáticamente por el sistema de
+       <a href="https://widy.agency/inmobiliaria">Widy</a> · se actualiza cada mañana con los nuevos del día</p>
+  </footer>
+</div>
+<script>
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var chipsBox=document.getElementById('chips');
+  var estado={ciudad:'sevilla',zona:'todas'};
+
+  function zonasDe(c){
+    var z={};
+    cards.filter(function(k){return k.dataset.ciudad===c}).forEach(function(k){
+      z[k.dataset.zona]=(z[k.dataset.zona]||0)+1;
+    });
+    return z;
+  }
+  function pintaChips(){
+    var z=zonasDe(estado.ciudad), total=0;
+    Object.keys(z).forEach(function(k){total+=z[k]});
+    var h='<button class="chip chip--on" data-z="todas">Todas ('+total+')</button>';
+    Object.keys(z).sort(function(a,b){return z[b]-z[a]}).forEach(function(k){
+      h+='<button class="chip" data-z="'+k.replace(/"/g,'&quot;')+'">'+k+' ('+z[k]+')</button>';
+    });
+    chipsBox.innerHTML=h;
+    chipsBox.querySelectorAll('.chip').forEach(function(ch){
+      ch.addEventListener('click',function(){
+        chipsBox.querySelectorAll('.chip').forEach(function(x){x.classList.remove('chip--on')});
+        ch.classList.add('chip--on'); estado.zona=ch.dataset.z; aplica();
+      });
+    });
+  }
+  function aplica(){
+    cards.forEach(function(k){
+      var ok = k.dataset.ciudad===estado.ciudad && (estado.zona==='todas' || k.dataset.zona===estado.zona);
+      k.classList.toggle('oculta', !ok);
+    });
+    document.querySelectorAll('.kpis').forEach(function(k){
+      k.classList.toggle('oculta', k.dataset.ciudad!==estado.ciudad);
+    });
+  }
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('tab--on')});
+      t.classList.add('tab--on');
+      estado.ciudad=t.dataset.c; estado.zona='todas';
+      pintaChips(); aplica();
+    });
+  });
+  pintaChips(); aplica();
+</script>
+</body></html>
