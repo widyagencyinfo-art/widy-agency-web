@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Widy · Parte de llamadas</title>
+  <meta name="description" content="Tablero semanal de seguimientos de Widy: llamar, WhatsApp y marcar hecho.">
+  <meta name="theme-color" content="#EDEFF3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1218" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/calendario/calendario.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">Widy · Agencia — Parte de llamadas</div>
+    <h1>Seguimientos de la semana</h1>
+    <p class="sub" id="subDate"><b>concesionarios</b> primero · toca <b>Llamar</b> o <b>WhatsApp</b> y marca al cerrarlo — los hechos se ocultan solos</p>
+
+    <div class="progress">
+      <div class="bar"><i id="fill"></i></div>
+      <div class="pct"><b id="doneN">0</b>/<span id="totalN">30</span> hechos · <span id="leftN">30</span> por delante</div>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="chip" data-filter="all" aria-pressed="true">Todos <span class="n" id="c-all"></span></button>
+      <button class="chip" data-filter="call" aria-pressed="false">📞 Llamar <span class="n" id="c-call"></span></button>
+      <button class="chip" data-filter="wa" aria-pressed="false">💬 WhatsApp <span class="n" id="c-wa"></span></button>
+      <button class="chip" data-filter="hot" aria-pressed="false">🔥 Calientes <span class="n" id="c-hot"></span></button>
+      <button class="chip toggle sep" id="hideDone" aria-pressed="false">Ocultar hechos</button>
+    </div>
+  </header>
+
+  <section class="fact" id="facturacion" aria-label="Facturación">
+    <div class="fact-eyebrow">💶 Facturación · camino a 10.000 €</div>
+    <div class="fact-headline">
+      <span class="fact-total" id="factTotal">0 €</span>
+      <span class="fact-goal">cobrado de <b>10.000 €</b></span>
+      <span class="fact-pct" id="factPct">0 %</span>
+    </div>
+    <div class="fact-bar"><i id="factFill"></i></div>
+    <div class="fact-meta">
+      <span>Faltan <span id="factLeft">10.000 €</span></span>
+      <span id="factCount">0 cobros</span>
+    </div>
+    <ul class="fact-list" id="factList"></ul>
+  </section>
+
+  <main class="board" id="board"></main>
+
+  <section class="monthly" id="monthly">
+    <div class="sec-head">
+      <div class="eyebrow">Widy · Seguimiento mensual</div>
+      <h2 class="sec-title">Visión del mes</h2>
+      <p class="sec-sub">Resumen del mes y calendario completo — pulsa un día para ver sus contactos y llamar o escribir al momento.</p>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="cal-layout">
+      <div class="cal-card">
+        <div class="cal-head">
+          <button class="cal-nav" id="calPrev" aria-label="Mes anterior">‹</button>
+          <div class="cal-title" id="calTitle">julio 2026</div>
+          <button class="cal-nav" id="calNext" aria-label="Mes siguiente">›</button>
+          <button class="chip cal-today" id="calToday">Hoy</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-legend">
+          <span><i class="cdot call"></i> Llamada</span>
+          <span><i class="cdot wa"></i> WhatsApp</span>
+          <span><i class="cdot meet"></i> Reunión</span>
+          <span><i class="cdot hot"></i> Caliente</span>
+        </div>
+      </div>
+      <div class="day-detail" id="dayDetail"></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Generado desde tu nota <b>WIDY VIERNES MAÑANA</b>.</span>
+    <span>Lo que marques se guarda en este dispositivo.</span>
+    <span>Sincroniza con la lista <b>Widy · Seguimientos</b> de Recordatorios.</span>
+  </footer>
+</div>
+<script src="/calendario/calendario.js"></script>
+</body>
+</html>
