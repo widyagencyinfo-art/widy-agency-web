@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel de Presupuestos — Torres Bus</title>
+<meta name="description" content="Panel de seguimiento de presupuestos para Alquiler de Autocares y Microbuses Torres Bus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23E3166F'/><text x='50' y='68' font-size='46' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>TB</text></svg>">
+<link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+<div class="app">
+ <aside class="side" id="side">
+  <div class="brand">
+   <div class="tb">TB</div>
+   <div class="wm"><b>Torres Bus</b><span>ALQUILER DE AUTOCARES · DESDE 1960</span></div>
+  </div>
+  <nav class="nav" id="nav"></nav>
+  <div class="who">
+   <div class="t">Alquiler de Autocares y Microbuses Torres Bus, S.L.</div>
+   <div class="s">Madrid · Atención 24 h<br><b>607 372 252</b></div>
+  </div>
+ </aside>
+
+ <main class="main" id="main">
+  <div class="top">
+   <div>
+    <button class="burger" id="burger" aria-label="Menú">☰</button>
+    <h1 id="ttl">Resumen</h1><div class="sub" id="sub"></div>
+   </div>
+   <div class="r">
+    <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg><input id="q" placeholder="Buscar…"></div>
+    <div class="live"><span class="dot"></span>EN VIVO · <b id="ago">hace 0 s</b></div>
+   </div>
+  </div>
+  <div id="view"></div>
+ </main>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+ <div class="dh">
+  <button class="x" id="dx">✕</button>
+  <div class="dtag" id="dtag"></div><h3 id="dttl"></h3><div class="dval" id="dval"></div>
+ </div>
+ <div class="dbody"><div class="meta" id="dmeta"></div><div class="sec">Seguimiento automático</div><div class="tl" id="dtl"></div></div>
+ <div class="acts">
+  <button class="btn wa" id="bwa">Enviar recordatorio</button>
+  <button class="btn gh" id="bwon">Marcar ganado</button>
+ </div>
+</aside>
+<div class="toasts" id="toasts"></div>
+
+<script src="js/data.js"></script>
+<script src="js/panel.js"></script>
+</body>
+</html>
