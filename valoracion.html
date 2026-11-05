@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Cuánto vale tu piso en Sevilla? — Valoración gratis en 1 minuto</title>
+<meta name="description" content="Calcula gratis lo que vale tu piso en Sevilla: dinos la zona, los metros y el estado y te damos una estimación al momento. Sin compromiso.">
+<meta name="theme-color" content="#06070A">
+<meta name="robots" content="noindex">
+
+<meta property="og:title" content="¿Cuánto vale tu piso en Sevilla?">
+<meta property="og:description" content="Estimación gratis al momento. Dinos zona, metros y estado y te decimos por cuánto se está vendiendo lo tuyo.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://widy.agency/og.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800&family=Instrument+Serif:ital@1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Sora:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/valoracion/valoracion.css">
+<link rel="stylesheet" href="/css/brand.css">
+</head>
+<body class="val">
+
+<header class="v-top">
+  <div class="container v-top-inner">
+    <span class="logo">
+      <img class="logo-mark" src="/widy-logo.png" alt="" width="40" height="28">
+      <span class="logo-text" id="marcaNombre">Widy<span class="logo-dot">.</span></span>
+    </span>
+    <span class="v-top-note">Valoración gratis · Sevilla</span>
+  </div>
+</header>
+
+<main class="v-main">
+  <div class="container v-wrap">
+
+    <!-- ===== FORMULARIO ===== -->
+    <section class="v-panel" id="pasoForm">
+      <div class="v-head">
+        <p class="eyebrow">Tasación orientativa · 1 minuto</p>
+        <h1>¿Cuánto vale tu piso en <em id="zonaTitulo">Sevilla</em>?</h1>
+        <p class="v-sub">Dinos cuatro datos y te decimos ahora mismo por cuánto se están vendiendo pisos como el tuyo. Gratis y sin compromiso.</p>
+      </div>
+
+      <form id="valForm" novalidate>
+        <div class="v-grid">
+          <div class="field v-col2">
+            <label for="zona">¿En qué zona está?</label>
+            <select id="zona" name="zona" required>
+              <option value="">Elige tu zona…</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="m2">Metros cuadrados</label>
+            <input type="number" id="m2" name="m2" min="20" max="600" inputmode="numeric" placeholder="90" required>
+          </div>
+
+          <div class="field">
+            <label for="habs">Habitaciones</label>
+            <select id="habs" name="habs">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5 o más</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado">
+              <option value="reformar">Para reformar</option>
+              <option value="bien" selected>En buen estado</option>
+              <option value="reformado">Reformado o a estrenar</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="planta">Planta</label>
+            <select id="planta" name="planta">
+              <option value="bajo">Bajo o entreplanta</option>
+              <option value="media" selected>Planta intermedia</option>
+              <option value="alta">Planta alta</option>
+              <option value="atico">Ático</option>
+            </select>
+          </div>
+
+          <fieldset class="v-extras v-col2">
+            <legend>¿Tiene alguno de estos?</legend>
+            <div class="v-checks">
+              <label class="v-check"><input type="checkbox" id="ascensor" checked><span>Ascensor</span></label>
+              <label class="v-check"><input type="checkbox" id="exterior" checked><span>Exterior</span></label>
+              <label class="v-check"><input type="checkbox" id="terraza"><span>Terraza</span></label>
+              <label class="v-check"><input type="checkbox" id="garaje"><span>Garaje</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Ver lo que vale mi piso</button>
+        <p class="form-msg" id="valMsg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- ===== RESULTADO ===== -->
+    <section class="v-panel v-result" id="pasoResultado" hidden>
+      <p class="eyebrow">Tu estimación</p>
+      <h2 class="v-res-title">Un piso como el tuyo se está pidiendo por</h2>
+
+      <div class="v-figura">
+        <div class="v-rango" id="rango">—</div>
+        <p class="v-m2" id="detalleM2">—</p>
+      </div>
+
+      <div class="v-barra" aria-hidden="true">
+        <div class="v-barra-fill" id="barraFill"></div>
+        <div class="v-barra-marks">
+          <span id="marcaMin">—</span>
+          <span id="marcaMax">—</span>
+        </div>
+      </div>
+
+      <ul class="v-desglose" id="desglose"></ul>
+
+      <div class="v-cta">
+        <p class="v-cta-txt"><b>Esto es una estimación automática, no una tasación.</b> El precio real depende de la finca, la altura, la luz y de cómo esté el mercado en tu calle esta semana. Te lo afinamos gratis y sin compromiso.</p>
+        <form id="contactoForm" novalidate>
+          <div class="v-grid">
+            <div class="field">
+              <label for="cf-nombre">Tu nombre</label>
+              <input type="text" id="cf-nombre" autocomplete="name" placeholder="Nombre" required>
+            </div>
+            <div class="field">
+              <label for="cf-tel">Tu teléfono</label>
+              <input type="tel" id="cf-tel" autocomplete="tel" placeholder="600 000 000" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Quiero la valoración exacta</button>
+          <p class="form-msg" id="cfMsg" role="status" aria-live="polite"></p>
+          <p class="v-legal">Al enviarlo, <span class="marca-inline">nuestra oficina</span> te llamará para darte el precio afinado. No compartimos tus datos con nadie más.</p>
+        </form>
+      </div>
+
+      <button type="button" class="v-otra" id="otraBtn">← Calcular otro piso</button>
+    </section>
+
+  </div>
+</main>
+
+<footer class="v-foot">
+  <div class="container">
+    <p>Estimación orientativa calculada con el precio medio de oferta por distrito en Sevilla capital (índice de Fotocasa, julio de 2026): lo que se está <em>pidiendo</em> por pisos parecidos, que no es lo mismo que el precio final de cierre. No es una tasación oficial ni una oferta de compra.</p>
+    <p class="v-foot-brand">Sistema montado por <a href="/inmobiliaria">Widy</a></p>
+  </div>
+</footer>
+
+<script src="/valoracion/valoracion.js" defer></script>
+</body>
+</html>
