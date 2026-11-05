@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Panel del negocio</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#14110E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/ejemplos/reservas-jyc-widy/css/theme.css">
+<link rel="stylesheet" href="/ejemplos/reservas-jyc-widy/css/app.css">
+<link rel="stylesheet" href="/ejemplos/reservas-jyc-widy/css/panel.css">
+<link rel="stylesheet" href="/ejemplos/reservas-jyc-widy/css/editor.css">
+<link rel="manifest" href="/ejemplos/reservas-jyc-widy/panel/manifest.webmanifest">
+<link rel="icon" href="/ejemplos/reservas-jyc-widy/img/icono-192.png">
+<link rel="apple-touch-icon" href="/ejemplos/reservas-jyc-widy/img/icono-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mi agenda">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="gbox">
+    <div class="lock">🔒</div>
+    <h1>Panel del negocio</h1>
+    <p>Tus citas, tu disponibilidad y tu web, en un solo sitio.</p>
+    <div class="gpass">
+      <input id="pin" type="password" placeholder="Contraseña" autocomplete="current-password" autocapitalize="off">
+      <button id="verClave" type="button" aria-label="Ver contraseña">👁</button>
+    </div>
+    <button id="pinBtn" type="button">Entrar</button>
+    <p class="gerr" id="pinErr"></p>
+  </div>
+</div>
+
+<header class="p-top">
+  <div class="in">
+    <div class="p-badge">W</div>
+    <div class="p-ttl"><b id="bizName"></b><span><i class="live"></i> Agenda en vivo</span></div>
+    <div class="badge" id="badge">0</div>
+  </div>
+  <div class="tabs">
+    <button class="tab on" data-tab="agenda" type="button">Agenda del día</button>
+    <button class="tab" data-tab="list" type="button">Próximas citas</button>
+    <button class="tab" data-tab="clientes" type="button">Clientes</button>
+    <button class="tab" data-tab="avail" type="button">Disponibilidad</button>
+    <button class="tab" data-tab="stats" type="button">Resumen</button>
+    <button class="tab" data-tab="servicios" type="button">✂️ Servicios</button>
+    <button class="tab" data-tab="web" type="button">✏️ Mi web</button>
+    <button class="tab" data-tab="ajustes" type="button">⚙️ Ajustes</button>
+  </div>
+</header>
+
+<main class="p-wrap">
+  <!-- agenda -->
+  <section class="pane show" id="pane-agenda">
+    <div class="p-card">
+      <div class="p-h"><b>Calendario</b></div>
+      <div class="stf-filter" id="agStaffFilter"></div>
+      <div class="cal-top">
+        <button class="cal-nav" id="agCalPrev" type="button" aria-label="Mes anterior"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <b id="agCalTitle"></b>
+        <button class="cal-nav" id="agCalNext" type="button" aria-label="Mes siguiente"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+      <div class="cal" id="agCalGrid"></div>
+      <div class="cal-leg"><span><i class="g"></i>Con huecos</span><span><i class="a"></i>Casi lleno</span></div>
+    </div>
+    <div class="p-card">
+      <div class="p-h">
+        <b id="agDate"></b>
+        <span class="cnt" id="agCount"></span>
+      </div>
+      <div class="daynav">
+        <button id="agPrev" type="button">← Día anterior</button>
+        <button id="agToday" type="button">Hoy</button>
+        <button id="agNext" type="button">Día siguiente →</button>
+      </div>
+      <div id="agenda" style="margin-top:12px"></div>
+    </div>
+  </section>
+
+  <!-- próximas -->
+  <section class="pane" id="pane-list">
+    <div class="p-card">
+      <div class="p-h"><b>Próximas citas</b></div>
+      <div id="list"></div>
+    </div>
+  </section>
+
+  <!-- disponibilidad -->
+  <section class="pane" id="pane-avail">
+    <div class="p-card" id="avStaffCard">
+      <div class="p-h"><b>¿De quién?</b></div>
+      <p class="sub" style="color:var(--muted);font-size:12.5px;margin-bottom:12px">
+        Elige el negocio entero o una peluquera para tocar solo su horario.
+      </p>
+      <div class="stf-filter" id="avStaffFilter"></div>
+    </div>
+    <div class="p-card">
+      <div class="p-h"><b>Abrir o cerrar horas</b></div>
+      <p class="sub" style="color:var(--muted);font-size:12.5px;margin-bottom:12px">
+        Toca una hora para bloquearla: desaparece de la web al instante. Vuelve a tocarla para liberarla.
+      </p>
+      <div class="av-top">
+        <input type="date" id="avDate">
+        <button class="av-btn warn" id="avClose" type="button">Cerrar todo el día</button>
+      </div>
+      <div class="av-grid" id="avSlots"></div>
+    </div>
+    <div class="p-card">
+      <div class="p-h"><b id="avHoursTtl">Horario del negocio</b></div>
+      <p class="sub" style="color:var(--muted);font-size:12.5px;margin-bottom:6px">
+        Cambia las horas de apertura y la web se actualiza sola.
+      </p>
+      <div id="avHours"></div>
+    </div>
+  </section>
+
+  <!-- clientes -->
+  <section class="pane" id="pane-clientes"><div id="clientes"></div></section>
+
+  <!-- servicios y equipo -->
+  <section class="pane" id="pane-servicios"><div id="servicios"></div></section>
+
+  <!-- mi web -->
+  <section class="pane" id="pane-web"><div id="editor"></div></section>
+
+  <!-- ajustes -->
+  <section class="pane" id="pane-ajustes"><div id="ajustes"></div></section>
+
+  <!-- resumen -->
+  <section class="pane" id="pane-stats">
+    <div class="p-card">
+      <div class="p-h"><b>Tu semana</b></div>
+      <div class="stats" id="stats"></div>
+    </div>
+  </section>
+
+  <div class="p-foot">
+    <a class="kit-link" href="/ejemplos/reservas-jyc-widy/kit">📣 Kit para llenar la agenda — cartel con QR y textos listos</a>
+    <a class="kit-link ver" href="/ejemplos/reservas-jyc-widy/" target="_blank">🌐 Ver mi web tal y como la ven los clientes</a>
+    <p>Panel de <b>Widy</b> · las reservas de la web entran aquí solas</p>
+  </div>
+</main>
+
+<!-- cita manual -->
+<div class="modal" id="manual">
+  <div class="mbox">
+    <h3>Apuntar una cita</h3>
+    <p class="mw" id="mWhen"></p>
+    <input id="mName" type="text" placeholder="Nombre del cliente" list="mClientes" autocomplete="off">
+    <datalist id="mClientes"></datalist>
+    <div class="mrow">
+      <select id="mTime" aria-label="Hora"></select>
+      <input id="mPhone" type="text" inputmode="tel" placeholder="Teléfono (opcional)">
+    </div>
+    <div id="mStaffBox">
+      <p class="mlbl">¿Con quién? <span>(opcional)</span></p>
+      <select id="mStaff" aria-label="Peluquera"></select>
+    </div>
+    <p class="mlbl">Servicio <span>(opcional)</span></p>
+    <div class="msvs" id="mSvcs"></div>
+    <div class="merr" id="mErr"></div>
+    <div class="mbtns">
+      <button type="button" id="mClose">Cancelar</button>
+      <button type="button" class="prim" id="mSave">Guardar cita</button>
+    </div>
+  </div>
+</div>
+
+<button class="fab" id="fab" type="button">
+  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+  Apuntar cita
+</button>
+
+<div class="pop" id="pop"></div>
+
+<script src="/ejemplos/reservas-jyc-widy/js/motor.js"></script>
+<script src="/ejemplos/reservas-jyc-widy/api/datos?formato=js&amp;panel=1"></script>
+<script src="/ejemplos/reservas-jyc-widy/js/store.js"></script>
+<script src="/ejemplos/reservas-jyc-widy/js/panel.js"></script>
+<script src="/ejemplos/reservas-jyc-widy/js/clientes.js"></script>
+<script src="/ejemplos/reservas-jyc-widy/js/editor.js"></script>
+<script src="/ejemplos/reservas-jyc-widy/js/ajustes.js"></script>
+</body>
+</html>

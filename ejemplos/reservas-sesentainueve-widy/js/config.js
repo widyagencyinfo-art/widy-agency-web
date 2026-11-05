@@ -7,7 +7,7 @@ window.BIZ = {
   phonePretty: '605 24 24 73',
   whatsapp: '34605242473',
   address: 'C. Arjona, 10 · Casco Antiguo, Sevilla',
-  url: 'https://reservas-sesentainueve.vercel.app',
+  url: 'https://widy.agency/ejemplos/reservas-sesentainueve-widy/',
   rating: '4,7',
   reviews: 201,
   pin: '1234',

@@ -1,0 +1,30 @@
+/* J&C Peluqueros · tema oro champán sobre negro cálido */
+:root{
+  --bg:#14110E;
+  --bg-img:radial-gradient(1100px 560px at 50% -12%, #2a2116 0%, transparent 62%);
+  --surface:#1c1710;
+  --surface2:#241d15;
+  --surface-dim:#191410;
+  --line:#332b21;
+  --accent:#D9A85C;
+  --accent2:#EBC98D;
+  --accent-soft:#5b4728;
+  --accent-bg:#241c11;
+  --accent-ink:#1d1508;
+  --glow:radial-gradient(circle at 50% 30%, rgba(217,168,92,.18), transparent 62%);
+  --text:#F4EEE4;
+  --muted:#A99C8A;
+  --muted2:#7a6f61;
+  --ok:#3ec26a;
+  --warn:#e0a33c;
+  --danger:#e05b4c;
+  --r:20px;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Playfair Display',Georgia,serif;
+  --display:'Playfair Display',Georgia,serif;
+  --display2:'Playfair Display',Georgia,serif;
+  --lg-nav:21px;
+  --lg-ls:-.015em;
+  --lg-lh:1.02;
+}
+.nav .lg b{color:var(--accent)}
