@@ -2,7 +2,8 @@
 (function () {
   'use strict';
   var q = new URLSearchParams(location.search);
-  var S = q.get('s') === 'gestoria' ? 'gestoria' : 'conce';
+  // moda y pelu: enlace que manda el respondedor de WhatsApp (19-nov-2026)
+  var S = ['gestoria', 'moda', 'pelu'].indexOf(q.get('s')) >= 0 ? q.get('s') : 'conce';
   var N = (q.get('n') || '').slice(0, 120);
   var C = (q.get('c') || '').slice(0, 400);
   var $ = function (id) { return document.getElementById(id); };
@@ -18,6 +19,18 @@
       t1: 'Las preguntas de siempre,', t2: 'contestadas <em>solas</em>.', para: 'Para gestorías y asesorías',
       paso1: 'Cómo os llegan las consultas de los clientes y quién las contesta.',
       video: '/agenda/media/gestoria.mp4', poster: '/agenda/media/gestoria.jpg', regalo: false, trabajos: false,
+    },
+    moda: {
+      t1: 'Tu tienda,', t2: 'abierta <em>las 24 horas</em>.', para: 'Para tiendas de moda',
+      paso1: 'Cómo te llegan hoy las clientas y cómo te compran.',
+      video: null, regalo: false, trabajos: false,
+      sub: 'Elige hora y te llamo yo. <strong>20 minutos</strong> para enseñarte cómo quedaría tu tienda online, sin compromiso.',
+    },
+    pelu: {
+      t1: 'Las citas,', t2: 'cogidas <em>solas</em>.', para: 'Para peluquerías, barberías y estética',
+      paso1: 'Cómo te piden hoy las citas y quién contesta al WhatsApp.',
+      video: null, regalo: false, trabajos: false,
+      sub: 'Elige hora y te llamo yo. <strong>20 minutos</strong> para enseñarte cómo contestaría y daría citas por ti, sin compromiso.',
     },
   }[S];
   // ?o=resumen → misma reserva que gestoría (s=gestoria), pero con la oferta del «resumen de las 8» (22-oct-2026)
@@ -40,9 +53,14 @@
   if (!T.trabajos) $('trabajos').hidden = true;
   if (T.regalo) $('regalo').hidden = false;
   var v = $('video');
-  v.poster = T.poster; $('video-src').src = T.video; v.load();
-  var p = v.play(); if (p && p.catch) p.catch(function () {});
-  $('replay').addEventListener('click', function () { v.currentTime = 0; v.play(); });
+  if (T.video) {
+    v.poster = T.poster; $('video-src').src = T.video; v.load();
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    $('replay').addEventListener('click', function () { v.currentTime = 0; v.play(); });
+  } else {
+    var win = v.closest('.win'); if (win) win.hidden = true;   // sin vídeo para este tipo
+    try { v.pause(); v.removeAttribute('autoplay'); $('video-src').removeAttribute('src'); v.load(); } catch (e) {}
+  }
 
   if (N) $('cita-empresa').value = N;
   var correoEnlace = '';
