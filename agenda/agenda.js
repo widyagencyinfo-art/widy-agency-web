@@ -3,7 +3,7 @@
   'use strict';
   var q = new URLSearchParams(location.search);
   // moda y pelu: enlace que manda el respondedor de WhatsApp (19-nov-2026)
-  var S = ['gestoria', 'moda', 'pelu'].indexOf(q.get('s')) >= 0 ? q.get('s') : 'conce';
+  var S = ['gestoria', 'moda', 'pelu', 'belleza', 'restaurante'].indexOf(q.get('s')) >= 0 ? q.get('s') : 'conce';
   var N = (q.get('n') || '').slice(0, 120);
   var C = (q.get('c') || '').slice(0, 400);
   var $ = function (id) { return document.getElementById(id); };
@@ -35,6 +35,20 @@
       sub: 'Mira el vídeo (45 segundos) y elige hora. <strong>20 minutos</strong> para enseñarte cómo contestaría y daría citas por ti, sin compromiso.',
       win: 'Darío · Widy · peluquerías',
     },
+    belleza: {
+      t1: 'Tu agenda,', t2: 'llena <em>sin coger el teléfono</em>.', para: 'Para centros de belleza y estética',
+      paso1: 'Cómo te piden hoy las citas y quién contesta al WhatsApp.',
+      video: '/agenda/media/belleza.mp4', poster: '/agenda/media/belleza.jpg', horizontal: true, regalo: false, trabajos: false,
+      sub: 'Mira el vídeo (50 segundos) y elige hora. <strong>20 minutos</strong> para enseñarte cómo contestaría y daría citas por ti, sin compromiso.',
+      win: 'Darío · Widy · centros de belleza',
+    },
+    restaurante: {
+      t1: 'Más mesas,', t2: 'sin <em>estar pendiente del móvil</em>.', para: 'Para restaurantes',
+      paso1: 'Cómo os llegan hoy las reservas y quién las contesta.',
+      video: '/agenda/media/restaurante.mp4', poster: '/agenda/media/restaurante.jpg', horizontal: true, regalo: false, trabajos: false,
+      sub: 'Mira el vídeo (1 minuto y medio) y elige hora. <strong>20 minutos</strong> para enseñarte cómo quedaría lo vuestro, sin compromiso.',
+      win: 'Darío · Widy · restaurantes',
+    },
   }[S];
   // ?o=resumen → misma reserva que gestoría (s=gestoria), pero con la oferta del «resumen de las 8» (22-oct-2026)
   if (q.get('o') === 'resumen') {
@@ -54,7 +68,7 @@
   if (T.sub) $('sub').innerHTML = T.sub;
   if (T.win) $('win-t').textContent = T.win;
   if (!T.trabajos) $('trabajos').hidden = true;
-  if (S === 'moda' || S === 'pelu') {   // las llamadas del respondedor son de 20 minutos
+  if (S !== 'conce' && S !== 'gestoria') {   // las llamadas del respondedor son de 20 minutos
     [].forEach.call(document.querySelectorAll('li'), function (el) {   // <li><svg …/>10 minutos por teléfono</li>
       [].forEach.call(el.childNodes, function (n) {
         if (n.nodeType === 3 && /10 minutos por teléfono/.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace('10 minutos', '20 minutos');
