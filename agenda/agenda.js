@@ -23,8 +23,10 @@
     moda: {
       t1: 'Tu tienda,', t2: 'abierta <em>las 24 horas</em>.', para: 'Para tiendas de moda',
       paso1: 'Cómo te llegan hoy las clientas y cómo te compran.',
-      video: null, regalo: false, trabajos: false,
-      sub: 'Elige hora y te llamo yo. <strong>20 minutos</strong> para enseñarte cómo quedaría tu tienda online, sin compromiso.',
+      // Vídeo de Darío hablando (Drive «Widy · Vídeos de venta por nicho», 19-nov): horizontal, con sonido y subtítulos
+      video: '/agenda/media/moda.mp4', poster: '/agenda/media/moda.jpg', horizontal: true, regalo: false, trabajos: false,
+      sub: 'Mira el vídeo (1 minuto y medio) y elige hora. <strong>20 minutos</strong> para enseñarte cómo quedaría tu tienda online, sin compromiso.',
+      win: 'Darío · Widy · tiendas de moda',
     },
     pelu: {
       t1: 'Las citas,', t2: 'cogidas <em>solas</em>.', para: 'Para peluquerías, barberías y estética',
@@ -51,9 +53,22 @@
   if (T.sub) $('sub').innerHTML = T.sub;
   if (T.win) $('win-t').textContent = T.win;
   if (!T.trabajos) $('trabajos').hidden = true;
+  if (S === 'moda' || S === 'pelu') {   // las llamadas del respondedor son de 20 minutos
+    [].forEach.call(document.querySelectorAll('li'), function (el) {   // <li><svg …/>10 minutos por teléfono</li>
+      [].forEach.call(el.childNodes, function (n) {
+        if (n.nodeType === 3 && /10 minutos por teléfono/.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace('10 minutos', '20 minutos');
+      });
+    });
+    var comoT = $('como-t'); if (comoT) comoT.innerHTML = comoT.innerHTML.replace('10 minutos', '20 minutos');
+  }
   if (T.regalo) $('regalo').hidden = false;
   var v = $('video');
   if (T.video) {
+    if (T.horizontal) {   // vídeo de Darío hablando: 16:9 entero (sin recortar los titulares) y con controles para el sonido
+      v.style.aspectRatio = '16 / 9'; v.style.objectFit = 'contain'; v.loop = false; v.controls = true;
+      var w = v.closest('.win'); if (w) w.style.maxWidth = '640px';
+      $('replay').hidden = true;
+    }
     v.poster = T.poster; $('video-src').src = T.video; v.load();
     var p = v.play(); if (p && p.catch) p.catch(function () {});
     $('replay').addEventListener('click', function () { v.currentTime = 0; v.play(); });
