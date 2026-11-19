@@ -31,8 +31,9 @@
     pelu: {
       t1: 'Las citas,', t2: 'cogidas <em>solas</em>.', para: 'Para peluquerías, barberías y estética',
       paso1: 'Cómo te piden hoy las citas y quién contesta al WhatsApp.',
-      video: null, regalo: false, trabajos: false,
-      sub: 'Elige hora y te llamo yo. <strong>20 minutos</strong> para enseñarte cómo contestaría y daría citas por ti, sin compromiso.',
+      video: '/agenda/media/pelu.mp4', poster: '/agenda/media/pelu.jpg', horizontal: true, regalo: false, trabajos: false,
+      sub: 'Mira el vídeo (45 segundos) y elige hora. <strong>20 minutos</strong> para enseñarte cómo contestaría y daría citas por ti, sin compromiso.',
+      win: 'Darío · Widy · peluquerías',
     },
   }[S];
   // ?o=resumen → misma reserva que gestoría (s=gestoria), pero con la oferta del «resumen de las 8» (22-oct-2026)
