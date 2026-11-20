@@ -136,8 +136,8 @@
   // ---- visita (una vez por navegador y día) ----
   try {
     var k = 'widy-agenda-visita-' + C + '-' + new Date().toISOString().slice(0, 10);
-    if (C && !localStorage.getItem(k)) { localStorage.setItem(k, '1'); api({ accion: 'visita' }); }
-  } catch (e) { if (C) api({ accion: 'visita' }); }
+    if (!localStorage.getItem(k)) { localStorage.setItem(k, '1'); api({ accion: 'visita' }); }
+  } catch (e) { api({ accion: 'visita' }); }
 
   // ---- días y horas ----
   var libres = {};            // 'YYYY-MM-DD' → ['10:00', …]
