@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZAZPI HARRI · Boceto de web</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul:#2F7BF5; --azul-osc:#1F5FD6; --negro:#0B0E13; --noche:#12161C; --gris:#8A93A1;
+    --linea:rgba(255,255,255,.10); --claro:#F3F5F8; --texto:#4A5361;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--negro);background:#fff;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+  h1,h2,h3,.btn,.eyebrow,nav a,.num{font-family:Montserrat,sans-serif}
+  .eyebrow{font-size:12px;letter-spacing:.24em;font-weight:700;text-transform:uppercase;color:var(--azul)}
+  h2{font-weight:800;font-size:42px;line-height:1.08;letter-spacing:-.015em;margin-top:14px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:14px;border-radius:6px;padding:15px 24px;text-decoration:none;white-space:nowrap}
+  .btn-azul{background:var(--azul);color:#fff}
+  .btn-borde{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+
+  /* barra superior */
+  .barra{background:var(--negro);color:#B9C1CC;font-size:12.5px}
+  .barra .wrap{display:flex;justify-content:space-between;height:38px;align-items:center}
+  .barra b{color:#fff;font-weight:600}
+  /* cabecera */
+  header{background:#fff;border-bottom:1px solid #E8ECF1}
+  header .wrap{display:flex;align-items:center;height:84px;gap:40px}
+  header img{height:46px}
+  nav{display:flex;gap:34px;margin:0 auto}
+  nav a{font-size:14px;font-weight:600;color:var(--negro);text-decoration:none;padding:8px 0;position:relative}
+  nav a.on::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;border-radius:2px;background:var(--azul)}
+  .burger{display:none}
+
+  /* portada */
+  .hero{position:relative;color:#fff;min-height:680px;display:flex;align-items:flex-end;overflow:hidden;background:var(--negro)}
+  .hero .foto{position:absolute;inset:0;background:url(furgonetas.jpg) 72% 62%/cover no-repeat;transform:scale(1.02)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;
+     background:linear-gradient(90deg,rgba(11,14,19,.96) 0%,rgba(11,14,19,.88) 34%,rgba(11,14,19,.35) 64%,rgba(11,14,19,.1) 100%),
+                linear-gradient(0deg,rgba(11,14,19,.9) 0%,transparent 40%)}
+  .hero .wrap{position:relative;z-index:2;width:100%;padding-top:90px;padding-bottom:64px}
+  .hero .eyebrow{color:#9CC0FF}
+  .raya{width:46px;height:3px;background:var(--azul);border-radius:2px;margin:16px 0 22px}
+  h1{font-weight:900;font-size:66px;line-height:1;letter-spacing:-.02em;text-transform:uppercase;max-width:700px}
+  h1 span{color:var(--azul);display:block}
+  .hero p.sub{font-size:18px;line-height:1.55;color:#D3D9E2;max-width:480px;margin:24px 0 34px}
+  .botones{display:flex;gap:14px;flex-wrap:wrap}
+  .datos{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;margin-top:56px;border-top:1px solid var(--linea);padding-top:26px}
+  .datos div{padding-right:44px;margin-right:44px;border-right:1px solid var(--linea)}
+  .datos div:last-child{border:0}
+  .datos .num{font-size:15px;font-weight:800;color:#fff}
+  .datos small{display:block;font-size:13px;color:#9AA3B0;margin-top:4px}
+
+  /* servicios */
+  section.serv-sec{padding:100px 0;background:#fff}
+  .cab{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:44px}
+  .cab p{max-width:380px;color:var(--texto);font-size:16px;line-height:1.6}
+  .servs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .serv{border:1px solid #E3E7ED;border-radius:12px;padding:30px 26px 28px;display:flex;flex-direction:column;min-height:270px;transition:.2s}
+  .serv.on,.serv:hover{background:var(--negro);color:#fff;border-color:var(--negro)}
+  .serv .num{font-size:13px;font-weight:800;color:var(--azul)}
+  .serv svg{width:42px;height:42px;stroke:var(--azul);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin:22px 0 18px}
+  .serv h3{font-size:19px;font-weight:700;line-height:1.25}
+  .serv p{font-size:14px;line-height:1.55;color:#5B6472;margin-top:10px}
+  .serv.on p,.serv:hover p{color:#AEB6C2}
+  .serv .mas{margin-top:auto;padding-top:18px;font-family:Montserrat;font-weight:700;font-size:13px;color:var(--azul)}
+
+  /* antes / después */
+  section.obras-sec{background:var(--noche);color:#fff;padding:100px 0}
+  .obras-sec .cab p{color:#AEB6C2}
+  .ad{position:relative;border-radius:14px;overflow:hidden;height:460px;cursor:ew-resize;user-select:none;touch-action:pan-y}
+  .ad .lado{position:absolute!important;inset:0}
+  .ad .lado.a{clip-path:inset(0 50% 0 0)}
+  .ad .lado{position:relative;background:#1B2027;
+        background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+        background-size:30px 30px;display:grid;place-items:center;color:#6F7987;font-size:14px;text-align:center}
+  .ad .lado.d{background-color:#222935}
+  .ad .lado svg{width:42px;height:42px;stroke:#4B5563;fill:none;stroke-width:1.5;display:block;margin:0 auto 10px}
+  .ad .et{position:absolute;top:20px;font-family:Montserrat;font-weight:800;font-size:12px;letter-spacing:.2em;text-transform:uppercase;background:rgba(11,14,19,.75);padding:8px 14px;border-radius:30px;color:#fff}
+  .ad .lado.a .et{left:20px} .ad .lado.d .et{right:20px;background:var(--azul)}
+  .ad .barra-ad{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%)}
+  .ad .tirador{position:absolute;top:50%;left:50%;width:52px;height:52px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+  .ad .tirador svg{width:24px;height:24px;stroke:var(--negro);fill:none;stroke-width:2.2}
+  .ad-pie{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:20px}
+  .ad-pie h3{font-size:20px;font-weight:700}
+  .ad-pie small{color:#9AA3B0;font-size:14px}
+  .miniaturas{display:flex;gap:10px}
+  .miniaturas i{width:64px;height:46px;border-radius:6px;background:#1B2027;border:1px solid var(--linea)}
+  .miniaturas i.f{background:url(furgonetas.jpg) 70% 60%/cover;border:2px solid var(--azul)}
+
+  /* zona */
+  section.zona{padding:100px 0;background:var(--claro)}
+  .zona .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center}
+  .zona p.t{font-size:17px;line-height:1.65;color:var(--texto);margin-top:18px}
+  .pueblos{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .pueblos span{background:#fff;border:1px solid #E1E6ED;border-radius:30px;padding:9px 16px;font-size:14px;font-weight:500}
+  .pueblos span.on{background:var(--azul);border-color:var(--azul);color:#fff;font-weight:600}
+  .mapa{position:relative;background:#fff;border:1px solid #E1E6ED;border-radius:14px;height:380px;overflow:hidden}
+  .mapa svg{position:absolute;inset:0;width:100%;height:100%}
+
+  /* formulario */
+  section.contacto{background:var(--negro);color:#fff;padding:100px 0}
+  .contacto .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:start}
+  .contacto .eyebrow{color:#9CC0FF}
+  .contacto p.t{font-size:17px;line-height:1.65;color:#AEB6C2;margin-top:18px;max-width:420px}
+  .vias{margin-top:34px;display:grid;gap:14px}
+  .via{display:flex;gap:16px;align-items:center;border:1px solid var(--linea);border-radius:10px;padding:18px 20px}
+  .via .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(47,123,245,.14);flex:none}
+  .via .ic.wa{background:rgba(37,211,102,.15)}
+  .via .ic svg{width:22px;height:22px}
+  .via b{font-family:Montserrat;font-size:15px;display:block}
+  .via small{color:#9AA3B0;font-size:13.5px}
+  form{background:#fff;color:var(--negro);border-radius:14px;padding:36px}
+  form h3{font-size:22px;font-weight:800}
+  form .f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form label{display:block;font-size:13px;font-weight:600;margin:18px 0 7px;color:#3A4250}
+  form .in{width:100%;border:1px solid #D9DEE6;border-radius:8px;height:48px;padding:0 14px;font:inherit;font-size:15px;color:var(--negro);background:#fff;outline:none}
+  form .in:focus{border-color:var(--azul);box-shadow:0 0 0 3px rgba(47,123,245,.15)}
+  form .in::placeholder{color:#9AA3B0}
+  form textarea.in{resize:vertical}
+  form button.btn{border:0;cursor:pointer;font-size:15px}
+  .chips span{cursor:pointer}
+  .aviso{display:none;margin-top:14px;font-size:14px;color:#1F5FD6;background:#EEF4FF;border-radius:8px;padding:12px 14px;line-height:1.5}
+  .aviso.si{display:block}
+  form .in.area{height:110px;padding-top:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips span{border:1px solid #D9DEE6;border-radius:30px;padding:9px 14px;font-size:13.5px;font-weight:500}
+  .chips span.on{border-color:var(--azul);background:#EEF4FF;color:var(--azul-osc);font-weight:600}
+  form .btn{width:100%;justify-content:center;margin-top:24px;padding:17px}
+
+  footer{background:var(--negro);color:#AEB6C2;padding:0 0 30px;font-size:14px}
+  footer .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;border-top:1px solid var(--linea);padding-top:56px}
+  footer .logo{background:#fff;display:inline-block;padding:10px 14px;border-radius:8px}
+  footer .logo img{height:40px;display:block}
+  footer h4{font-family:Montserrat;color:#fff;font-size:14px;margin-bottom:14px}
+  footer li{list-style:none;margin:8px 0}
+  footer .legal{border-top:1px solid var(--linea);margin-top:44px;padding-top:22px;display:flex;justify-content:space-between;font-size:12.5px;color:#7C8593}
+
+  .wa-flot{position:fixed;right:26px;bottom:26px;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:9}
+  .wa-flot svg{width:30px;height:30px;fill:#fff}
+
+  html{scroll-behavior:smooth}
+  section[id]{scroll-margin-top:20px}
+  .marca-widy{position:fixed;left:18px;bottom:18px;z-index:9;background:rgba(11,14,19,.85);color:#C9D1DC;font-size:12px;padding:8px 12px;border-radius:30px;text-decoration:none;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12)}
+  .marca-widy b{color:#fff}
+
+  /* móvil */
+  @media (max-width:760px){
+    .wrap{padding:0 20px}
+    .barra .wrap span:last-child{display:none}
+    header .wrap{height:68px}
+    header img{height:36px}
+    nav, header .btn{display:none}
+    .burger{display:block;margin-left:auto;width:26px;cursor:pointer}
+    header{position:relative;z-index:8}
+    body.abierto nav{display:flex;flex-direction:column;gap:0;position:absolute;top:68px;left:0;right:0;background:#fff;padding:8px 20px 18px;border-bottom:1px solid #E8ECF1;box-shadow:0 12px 24px rgba(0,0,0,.08)}
+    body.abierto nav a{padding:14px 0;border-bottom:1px solid #EEF1F5;font-size:16px}
+    body.abierto nav a.on::after{display:none}
+    .burger i{display:block;height:2.5px;background:var(--negro);border-radius:2px;margin:5px 0}
+    .hero{min-height:0;display:block}
+    .hero .foto{position:relative;inset:auto;height:250px;background-position:64% 62%;transform:none}
+    .hero .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#0B0E13 0%,rgba(11,14,19,0) 50%)}
+    .hero::before{display:none}
+    .hero .wrap{padding-top:4px;padding-bottom:40px}
+    h1{font-size:35px}
+    .hero .eyebrow{letter-spacing:.14em;font-size:11px}
+    .hero p.sub{font-size:16px;margin:18px 0 26px}
+    .botones .btn{flex:1;justify-content:center;padding:15px 12px}
+    .datos{grid-template-columns:1fr 1fr 1fr;margin-top:34px;padding-top:20px}
+    .datos div{padding-right:10px;margin-right:10px}
+    .datos .num{font-size:13px}
+    .datos small{font-size:11.5px}
+    h2{font-size:30px}
+    section.serv-sec,section.obras-sec,section.zona,section.contacto{padding:64px 0}
+    .cab{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:28px}
+    .servs{grid-template-columns:1fr 1fr;gap:12px}
+    .serv{min-height:0;padding:22px 18px}
+    .serv svg{width:34px;height:34px;margin:14px 0 12px}
+    .serv h3{font-size:16px}
+    .serv p{font-size:13px}
+    .serv .mas{display:none}
+    .ad{height:300px}
+    .ad .lado{font-size:12px}
+    .ad .et{top:14px;font-size:10px;padding:6px 10px}
+    .ad .lado.a .et{left:12px} .ad .lado.d .et{right:12px}
+    .ad-pie{flex-direction:column;align-items:flex-start}
+    .zona .grid,.contacto .grid{grid-template-columns:1fr;gap:34px}
+    .mapa{height:260px}
+    form{padding:24px 20px}
+    form .f2{grid-template-columns:1fr;gap:0}
+    footer .grid{grid-template-columns:1fr 1fr;gap:28px}
+    footer .grid > div:first-child{grid-column:1/-1}
+    footer .legal{flex-direction:column;gap:8px}
+    .wa-flot{right:18px;bottom:18px;width:54px;height:54px}
+  }
+</style>
+</head>
+<body>
+
+<div class="barra"><div class="wrap"><span><b>Ordizia</b> · Goierri, Gipuzkoa</span><span>info@zazpiharri.es · Teléfono y WhatsApp</span></div></div>
+
+<header>
+  <div class="wrap">
+    <img src="logo.png" alt="ZAZPI HARRI">
+    <nav id="menu"><a class="on" href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#proyectos">Proyectos</a><a href="#zona">Dónde trabajamos</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn-azul" href="#contacto">Solicitar presupuesto →</a>
+    <div class="burger" onclick="document.body.classList.toggle('abierto')"><i></i><i></i><i></i></div>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="foto"></div>
+  <div class="wrap">
+    <div class="eyebrow">Construcción y rehabilitación en Gipuzkoa</div>
+    <div class="raya"></div>
+    <h1>Transformamos edificios. <span>Construimos confianza.</span></h1>
+    <p class="sub">Especialistas en rehabilitación de edificios, reformas integrales y proyectos de construcción en Gipuzkoa.</p>
+    <div class="botones">
+      <a class="btn btn-azul" href="#contacto">Solicitar presupuesto →</a>
+      <a class="btn btn-borde" href="#proyectos">Ver proyectos</a>
+    </div>
+    <div class="datos">
+      <div><span class="num">Presupuesto</span><small>por escrito, sin compromiso</small></div>
+      <div><span class="num">Equipo propio</span><small>de principio a fin</small></div>
+      <div><span class="num">Gipuzkoa</span><small>desde Ordizia</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="serv-sec" id="servicios">
+  <div class="wrap">
+    <div class="cab">
+      <div><div class="eyebrow">Servicios</div><h2>Lo que hacemos</h2></div>
+      <p>Cuatro servicios, cada uno con su propia página para que quien busque en Google encuentre justo lo que necesita.</p>
+    </div>
+    <div class="servs">
+      <div class="serv on"><span class="num">01</span>
+        <svg viewBox="0 0 40 40"><path d="M6 19 20 7l14 12"/><path d="M10 16v17h20V16"/><path d="M17 33v-9h6v9"/></svg>
+        <h3>Reformas integrales</h3><p>Renovamos espacios con soluciones a medida.</p><span class="mas">Ver más →</span></div>
+      <div class="serv"><span class="num">02</span>
+        <svg viewBox="0 0 40 40"><rect x="7" y="9" width="14" height="24"/><rect x="21" y="15" width="12" height="18"/><path d="M11 14h2M15 14h2M11 19h2M15 19h2M11 24h2M15 24h2M25 20h4M25 25h4"/></svg>
+        <h3>Apartamentos y viviendas</h3><p>Creamos hogares más funcionales y eficientes.</p><span class="mas">Ver más →</span></div>
+      <div class="serv"><span class="num">03</span>
+        <svg viewBox="0 0 40 40"><rect x="10" y="6" width="20" height="27"/><path d="M14 11h3M23 11h3M14 16h3M23 16h3M14 21h3M23 21h3M18 33v-6h4v6"/><path d="M6 33h28"/></svg>
+        <h3>Rehabilitación de edificios</h3><p>Recuperamos el valor de cada inmueble.</p><span class="mas">Ver más →</span></div>
+      <div class="serv"><span class="num">04</span>
+        <svg viewBox="0 0 40 40"><path d="M14 34V8M14 8h20M14 8 8 12h6M14 12l6-4M20 12l6-4M26 12l6-4M30 8v10M28 18h4v4h-4zM10 34h8"/></svg>
+        <h3>Obra nueva</h3><p>Proyectos sólidos desde el inicio.</p><span class="mas">Ver más →</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="obras-sec" id="proyectos">
+  <div class="wrap">
+    <div class="cab">
+      <div><div class="eyebrow" style="color:#9CC0FF">Proyectos</div><h2>Antes y después</h2></div>
+      <p>Cada obra con su antes y su después: se arrastra la barra y se ve el cambio. Es lo que más convence a quien está pensando en reformar.</p>
+    </div>
+    <div class="ad" id="ad">
+      <div class="lado d"><span class="et">Después</span><div><svg viewBox="0 0 40 40"><rect x="5" y="9" width="30" height="22" rx="2"/><circle cx="14" cy="17" r="3"/><path d="m6 29 10-9 7 6 4-3 8 6"/></svg>Foto de la obra terminada</div></div>
+      <div class="lado a" id="antes"><span class="et">Antes</span><div><svg viewBox="0 0 40 40"><rect x="5" y="9" width="30" height="22" rx="2"/><circle cx="14" cy="17" r="3"/><path d="m6 29 10-9 7 6 4-3 8 6"/></svg>Foto del inicio de la obra</div></div>
+      <div class="barra-ad" id="barra"></div>
+      <div class="tirador" id="tirador"><svg viewBox="0 0 24 24"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg></div>
+    </div>
+    <div class="ad-pie">
+      <div><h3>Vuestra obra aquí</h3><small>Rehabilitación · Goierri</small></div>
+      <div class="miniaturas"><i class="f"></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<section class="zona" id="zona">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Dónde trabajamos</div>
+      <h2>Desde Ordizia, en toda Gipuzkoa</h2>
+      <p class="t">Una página para la zona ayuda a salir en Google cuando alguien busca «reformas en Beasain» o «rehabilitación de edificios en Tolosa».</p>
+      <div class="pueblos"><span class="on">Ordizia</span><span>Beasain</span><span>Lazkao</span><span>Zumarraga</span><span>Tolosa</span><span>Azpeitia</span><span>Donostia</span></div>
+    </div>
+    <div class="mapa">
+      <svg viewBox="0 0 560 380" preserveAspectRatio="xMidYMid slice">
+        <defs><pattern id="g" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#EDF0F4"/></pattern></defs>
+        <rect width="560" height="380" fill="url(#g)"/>
+        <path d="M60 90 C140 40 260 60 340 50 C420 40 480 80 510 140 C530 200 500 280 430 320 C350 360 240 350 160 320 C90 295 40 230 45 160 Z" fill="#EEF4FF" stroke="#C9DAFB" stroke-width="2"/>
+        <circle cx="270" cy="230" r="70" fill="rgba(47,123,245,.10)"/>
+        <circle cx="270" cy="230" r="38" fill="rgba(47,123,245,.16)"/>
+        <circle cx="270" cy="230" r="9" fill="#2F7BF5"/>
+        <text x="286" y="226" font-family="Montserrat" font-weight="800" font-size="15" fill="#0B0E13">Ordizia</text>
+        <g font-family="Inter" font-size="12.5" fill="#5B6472">
+          <circle cx="245" cy="250" r="4" fill="#8FB3F5"/><text x="180" y="270">Beasain</text>
+          <circle cx="300" cy="200" r="4" fill="#8FB3F5"/><text x="310" y="196">Tolosa</text>
+          <circle cx="215" cy="200" r="4" fill="#8FB3F5"/><text x="150" y="196">Zumarraga</text>
+          <circle cx="345" cy="95" r="4" fill="#8FB3F5"/><text x="355" y="99">Donostia</text>
+          <circle cx="215" cy="130" r="4" fill="#8FB3F5"/><text x="150" y="126">Azpeitia</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Contacto</div>
+      <h2>¿Tienes una obra en mente?</h2>
+      <p class="t">Cuéntanos qué necesitas y te preparamos el presupuesto. Las peticiones llegan directas a vuestro correo y al WhatsApp.</p>
+      <div class="vias">
+        <div class="via"><div class="ic wa"><svg viewBox="0 0 32 32" fill="#25D366"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6Z"/></svg></div><div><b>WhatsApp</b><small>Escríbenos y te contestamos</small></div></div>
+        <div class="via"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6FA2FF" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div><b>info@zazpiharri.es</b><small>Correo con vuestro dominio</small></div></div>
+      </div>
+    </div>
+    <form id="form">
+      <h3>Pide tu presupuesto</h3>
+      <label>Tipo de obra</label>
+      <div class="chips" id="chips"><span class="on">Reforma integral</span><span>Vivienda</span><span>Rehabilitación</span><span>Obra nueva</span></div>
+      <div class="f2">
+        <div><label for="n">Nombre</label><input class="in" id="n" placeholder="Tu nombre"></div>
+        <div><label for="t">Teléfono</label><input class="in" id="t" type="tel" placeholder="6XX XXX XXX"></div>
+      </div>
+      <label for="m">Municipio</label><input class="in" id="m" placeholder="Ej.: Beasain">
+      <label for="c">Cuéntanos la obra</label><textarea class="in area" id="c" placeholder="Qué quieres hacer, metros aproximados…"></textarea>
+      <button class="btn btn-azul" type="submit">Enviar petición →</button>
+      <p class="aviso" id="aviso">Esto es un boceto: en la web real, la petición os llega al correo y al WhatsApp.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div><span class="logo"><img src="logo.png" alt="ZAZPI HARRI"></span><p style="margin-top:16px;max-width:280px;line-height:1.6">Construcción y rehabilitación en Gipuzkoa.</p></div>
+      <div><h4>Servicios</h4><ul><li>Reformas integrales</li><li>Apartamentos y viviendas</li><li>Rehabilitación de edificios</li><li>Obra nueva</li></ul></div>
+      <div><h4>Empresa</h4><ul><li>Nosotros</li><li>Proyectos</li><li>Contacto</li></ul></div>
+      <div><h4>Contacto</h4><ul><li>Ordizia, Gipuzkoa</li><li>info@zazpiharri.es</li><li>Teléfono y WhatsApp</li></ul></div>
+    </div>
+    <div class="legal"><span>© ZAZPI HARRI S.L.</span><span>Aviso legal · Privacidad · Cookies</span></div>
+  </div>
+</footer>
+
+<a class="wa-flot" href="#contacto" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-1.9-1-3.2-1.7-4.4-3.8-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z"/></svg></a>
+
+<a class="marca-widy" href="https://widy.agency" target="_blank" rel="noopener">Boceto · <b>Widy</b></a>
+
+<script>
+(function(){
+  var ad=document.getElementById("ad"),a=document.getElementById("antes"),b=document.getElementById("barra"),t=document.getElementById("tirador"),drag=false;
+  function mover(x){var r=ad.getBoundingClientRect();var p=Math.min(97,Math.max(3,(x-r.left)/r.width*100));a.style.clipPath="inset(0 "+(100-p)+"% 0 0)";b.style.left=t.style.left=p+"%";}
+  ad.addEventListener("pointerdown",function(e){drag=true;mover(e.clientX);});
+  addEventListener("pointermove",function(e){if(drag)mover(e.clientX);});
+  addEventListener("pointerup",function(){drag=false;});
+  document.querySelectorAll("#chips span").forEach(function(c){c.onclick=function(){document.querySelectorAll("#chips span").forEach(function(x){x.classList.remove("on")});c.classList.add("on");};});
+  document.getElementById("form").onsubmit=function(e){e.preventDefault();document.getElementById("aviso").classList.add("si");};
+  document.querySelectorAll("#menu a").forEach(function(l){l.onclick=function(){document.body.classList.remove("abierto");};});
+})();
+</script>
+
+</body>
+</html>
