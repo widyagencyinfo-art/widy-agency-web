@@ -70,11 +70,39 @@
   </div>
 </div>
 <main id="contenido" class="tp" data-wa="https://wa.me/34624869847?text=Hola%20Widy%2C%20te%20escribo%20desde%20widy.agency.%20Quiero%20el%20boceto%20gratis%20de%20mi%20web.">
-  <div class="tp-intro" aria-hidden="true"><span class="tp-intro-w">Widy<i>.</i></span><span class="tp-intro-n">0</span><span class="tp-intro-bar"><i></i></span></div>
-  <script>try{if(!sessionStorage.getItem("tpIntro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("tp-intro-on")}catch(e){}</script>
+  <div class="wv-intro" aria-hidden="true">
+    <video class="wv-intro-v" data-pc="/home/video/widy-intro.mp4" data-movil="/home/video/widy-intro-movil.mp4" muted playsinline autoplay preload="auto"></video>
+    <button type="button" class="wv-skip">Saltar</button>
+    <span class="wv-bar"><i></i></span>
+  </div>
+  <style>
+  .wv-intro{display:none}
+  .wv-on .wv-intro{position:fixed;inset:0;z-index:5000;display:block;background:#071230;transition:opacity .7s cubic-bezier(.65,0,.35,1),transform .9s cubic-bezier(.65,0,.35,1)}
+  .wv-intro.out{opacity:0;transform:scale(1.06);pointer-events:none}
+  .wv-intro-v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .wv-skip{position:absolute;right:20px;bottom:22px;padding:8px 14px;border-radius:999px;border:1px solid rgba(156,198,255,.3);background:rgba(7,18,48,.4);color:#CFE0FF;font:500 .8rem/1 var(--mono,monospace);letter-spacing:.08em;cursor:pointer;backdrop-filter:blur(6px)}
+  .wv-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(156,198,255,.14)}
+  .wv-bar i{display:block;height:100%;background:linear-gradient(90deg,#3A46DC,#1F5FF0,#9CC6FF);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+  .wv-on body{overflow:hidden}
+  .tp-hero-bg .wv-bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+  .tp-hero-bg .wv-bgv-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,10,28,.92) 0%,rgba(4,10,28,.7) 45%,rgba(4,10,28,.25) 100%),linear-gradient(0deg,rgba(4,10,28,.9),transparent 35%)}
+  @media(max-width:899px){.tp-hero-bg .wv-bgv{opacity:.35}.tp-hero-bg .wv-bgv-shade{background:linear-gradient(0deg,rgba(4,10,28,.85),rgba(4,10,28,.55))}}
+  @media(prefers-reduced-motion:reduce){.wv-intro{display:none!important}.tp-hero-bg .wv-bgv{display:none}}
+  </style>
+  <script>
+  (function(){var d=document.documentElement;try{if(new URLSearchParams(location.search).has("intro"))sessionStorage.removeItem("wvIntro");if(sessionStorage.getItem("wvIntro")||matchMedia("(prefers-reduced-motion: reduce)").matches)return;sessionStorage.setItem("wvIntro","1")}catch(e){}
+  d.classList.add("wv-on");
+  document.addEventListener("DOMContentLoaded",function(){var el=document.querySelector(".wv-intro"),v=el.querySelector("video"),bar=el.querySelector(".wv-bar i"),hecho=false;
+   function fin(){if(hecho)return;hecho=true;el.classList.add("out");setTimeout(function(){d.classList.remove("wv-on")},750)}
+   el.querySelector(".wv-skip").addEventListener("click",fin);el.addEventListener("click",fin);
+   v.addEventListener("timeupdate",function(){if(v.duration)bar.style.setProperty("--p",(v.currentTime/v.duration).toFixed(3))});
+   v.addEventListener("ended",function(){setTimeout(fin,250)});
+   setTimeout(fin,8000);/* por si el vídeo no carga */
+   var p=v.play();if(p&&p.catch)p.catch(fin)})})();
+  </script>
 
   <section class="tp-hero" aria-labelledby="h-title">
-    <div class="tp-hero-bg" aria-hidden="true"></div>
+    <div class="tp-hero-bg" aria-hidden="true"><video class="wv-bgv" data-pc="/home/video/widy-cintas.mp4" data-movil="/home/video/widy-cintas-movil.mp4" data-poster-pc="/home/video/widy-cintas.jpg" data-poster-movil="/home/video/widy-cintas-movil.jpg" muted playsinline autoplay loop preload="metadata"></video><div class="wv-bgv-shade"></div></div>
     <div class="tp-wrap tp-hero-in">
       <div class="tp-copy">
         <p class="tp-pill" data-r><i></i>Boceto gratis en 48 h</p>
@@ -441,5 +469,6 @@
 <script src="/home/portada.js" defer></script>
 <script src="/home/top.js" defer></script>
 <script src="/js/newsletter.js" defer></script>
+<script>(function(){var m=matchMedia("(max-aspect-ratio: 1/1)").matches;document.querySelectorAll("video[data-pc]").forEach(function(v){var pp=v.getAttribute(m?"data-poster-movil":"data-poster-pc");if(pp)v.poster=pp;v.src=v.getAttribute(m?"data-movil":"data-pc");v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})})})();</script>
 </body>
 </html>
