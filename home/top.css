@@ -952,3 +952,8 @@ a.tp-br{display:block;text-decoration:none;cursor:pointer}
 }
 @media(prefers-reduced-motion:reduce){.tp-emb li::before{transform:scaleX(1);transition:none}}
 .tp-res-q{margin-top:28px}
+
+/* páginas de caso: la captura grande baja por encima de la sección blanca (antes la cabecera la recortaba) */
+.tp-cs-hero{overflow-x:clip;overflow-y:visible;z-index:2}
+.tp-cs-hero .tp-hero-bg{overflow:hidden}
+.tp-cs-body{z-index:1}
