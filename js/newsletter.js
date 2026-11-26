@@ -111,6 +111,14 @@
     });
   }
 
-  var reloj = setTimeout(abre, 2000);
-  function quitaDisparadores() { clearTimeout(reloj); }
+  // Borrador 26-nov: ya no salta a los 2 s. Sale cuando han leído más de media página o a los 45 s.
+  var abierto = false;
+  function abreUnaVez() { if (abierto) return; abierto = true; quitaDisparadores(); abre(); }
+  function alBajar() {
+    var max = document.documentElement.scrollHeight - innerHeight;
+    if (max > 0 && scrollY / max > 0.55) abreUnaVez();
+  }
+  var reloj = setTimeout(abreUnaVez, 45000);
+  addEventListener('scroll', alBajar, { passive: true });
+  function quitaDisparadores() { clearTimeout(reloj); removeEventListener('scroll', alBajar); }
 })();

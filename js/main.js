@@ -19,6 +19,27 @@
     if (el) { el.href = waBase; el.target = '_blank'; el.rel = 'noopener'; }
   });
 
+  /* Botones de boceto: directos a WhatsApp (26-nov). En la portada nueva ya vienen así en el HTML. */
+  var titulo = (document.querySelector('h1') || {}).textContent || '';
+  titulo = titulo.replace(/\s+/g, ' ').trim().slice(0, 70);
+  var waBoceto = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(
+    'Hola Widy, te escribo desde widy.agency' + (location.pathname === '/' ? '' : location.pathname.replace(/\/$/, '').replace(/\.html$/, '')) +
+    '. Quiero el boceto gratis' + (titulo && location.pathname !== '/' ? ' (' + titulo + ')' : '') + '.');
+  Array.prototype.forEach.call(document.querySelectorAll('a.btn-primary[href="#boceto"], a.btn-primary[href="/#boceto"]'), function (a) {
+    a.href = waBoceto; a.target = '_blank'; a.rel = 'noopener';
+  });
+
+  /* Páginas interiores: el menú flota transparente sobre la cabecera noche y se vuelve blanco al bajar (26-nov) */
+  (function () {
+    var b = document.body, hdr = document.querySelector('.hdr');
+    if (!hdr || !b.classList.contains('web') || b.classList.contains('portada')) return;
+    if (!document.querySelector('main > .hero, main > .h-casos-hero, main > .cs-hero')) return;
+    b.classList.add('tp-int');
+    function alBajar() { hdr.classList.toggle('is-scrolled', (window.scrollY || 0) > 24); }
+    alBajar();
+    window.addEventListener('scroll', alBajar, { passive: true });
+  })();
+
   /* Menú móvil */
   var toggle = document.getElementById('navToggle');
   var nav = document.getElementById('nav');
