@@ -1,0 +1,4 @@
+
+# Páginas «Empezamos»: el generador y la lista de clientes NO se publican
+empezamos/_*
+empezamos/clientes/
