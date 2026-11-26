@@ -894,3 +894,61 @@ a.tp-br{display:block;text-decoration:none;cursor:pointer}
   .tp-cs-ph2{width:100%}
   .tp-cs-gal + .tp-end,.tp-cs-body + .tp-end{border-radius:0}
 }
+
+/* ================= logos de clientes: en blanco y sin tarjeta (26-nov) ================= */
+.tp-logos{padding:26px 0 30px}
+.tp-logos p{margin-bottom:22px}
+.tp-mq-t{gap:0}
+.tp-logos .tp-mq-t{gap:0;animation-duration:44s}
+.tp-logo{height:64px;padding:0 30px;background:none;border-radius:0}
+.tp-logo img{height:36px;max-width:210px;opacity:.74;transition:opacity .3s}
+.tp-logo img.f{filter:brightness(0) invert(1)}
+.tp-logo.l-trattoria img{height:62px}
+.tp-logo.l-carmela img{height:46px}
+.tp-logo.l-boutique img{height:42px}
+.tp-logo.l-motovatio img{height:34px}
+@media(hover:hover){.tp-logo:hover img{opacity:1}}
+@media(min-width:900px){
+  .tp-logos{padding:34px 0 40px}
+  .tp-logo{height:76px;padding:0 44px}
+  .tp-logo img{height:42px;max-width:240px}
+  .tp-logo.l-trattoria img{height:74px}
+  .tp-logo.l-carmela img{height:54px}
+  .tp-logo.l-boutique img{height:50px}
+  .tp-logo.l-motovatio img{height:40px}
+}
+
+/* ================= resultados de Motovatio, contados como una historia (26-nov) ================= */
+.tp .tp-res-h{font-family:var(--head);font-weight:800;font-size:clamp(2.3rem,8.4vw,4.4rem);line-height:1;letter-spacing:-.045em;color:#fff;margin:0;text-wrap:balance}
+.tp .tp-res-h .tp-ser{color:#3DDC84}
+.tp-res-q{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px;counter-reset:q}
+.tp-res-q li{counter-increment:q;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:14px 16px;border-radius:16px;background:rgba(156,198,255,.06);border:1px solid rgba(156,198,255,.14)}
+.tp-res-q li::before{content:counter(q);flex:0 0 26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--mono);font-size:.76rem;display:grid;place-items:center;align-self:center}
+.tp-res-q b{font-family:var(--head);font-weight:700;font-size:1.06rem;color:#fff}
+.tp-res-q span{color:#A9BBEA;font-size:.96rem}
+.tp-res-f{border-radius:28px;padding:26px 22px;background:linear-gradient(170deg,#0E1B45,#081029);border:1px solid rgba(156,198,255,.16);box-shadow:0 50px 110px -60px #3DDC84,inset 0 1px 0 rgba(255,255,255,.06)}
+.tp-res-ft{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#3DDC84;margin:0 0 18px}
+.tp-emb{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.tp-emb li{position:relative;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:4px 16px;padding:16px 18px;border-radius:18px;overflow:hidden;isolation:isolate;background:rgba(255,255,255,.04)}
+.tp-emb li::before{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);z-index:-1;border-radius:18px;background:linear-gradient(90deg,rgba(61,220,132,.42),rgba(61,220,132,.14));transform-origin:0 50%;transform:scaleX(0);transition:transform 1.3s var(--ease) .2s}
+.tp-res-f.on .tp-emb li::before{transform:scaleX(1)}
+.tp-emb li:nth-child(2)::before{transition-delay:.45s}.tp-emb li:nth-child(3)::before{transition-delay:.7s}
+.tp .tp-emb b{font-family:var(--head);font-weight:800;font-size:clamp(2.3rem,9vw,3.4rem);line-height:1;letter-spacing:-.045em;color:#fff;font-variant-numeric:tabular-nums;min-width:2.1em}
+.tp .tp-emb b span{font:inherit;letter-spacing:inherit;color:inherit;display:inline}
+.tp-emb li>span{color:#DCE8FF;font-size:1rem;line-height:1.35}
+.tp-emb li+li::after{content:"";position:absolute;left:34px;top:-12px;width:2px;height:12px;background:rgba(61,220,132,.5)}
+.tp-res-x{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.tp-res-x>div{padding:16px 16px;border-radius:18px;border:1px solid rgba(156,198,255,.14)}
+.tp .tp-res-x b{display:block;font-family:var(--head);font-weight:800;font-size:1.9rem;line-height:1;letter-spacing:-.04em;color:#fff}
+.tp .tp-res-x b span{font:inherit;letter-spacing:inherit;color:inherit;display:inline}
+.tp .tp-res-x b small{font-size:.55em;margin-left:3px;color:#3DDC84;display:inline}
+.tp-res-x span{display:block;margin-top:8px;font-size:.88rem;line-height:1.35;color:#A9BBEA}
+.tp-res-n2{margin:16px 0 0;font-size:.8rem;line-height:1.5;color:#8FA3D6}
+@media(min-width:900px){
+  .tp-res{align-items:center}
+  .tp-res-f{padding:36px 34px}
+  .tp-emb li{padding:20px 24px;gap:4px 22px}
+  .tp-emb li>span{font-size:1.08rem}
+}
+@media(prefers-reduced-motion:reduce){.tp-emb li::before{transform:scaleX(1);transition:none}}
+.tp-res-q{margin-top:28px}

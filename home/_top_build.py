@@ -125,7 +125,17 @@ for srcl, alt in re.findall(r'<li class="pv-logo"[^>]*>\s*<img[^>]*src="([^"]+)"
     if alt and (srcl, alt) not in logos:
         logos.append((srcl, alt))
 def tira_logos(oculta):
-    return "".join(f'<span class="tp-logo"><img src="{s}" alt="{"" if oculta else html.escape(a)}" loading="lazy" decoding="async"></span>' for s, a in logos)
+    # Logos en blanco y sin tarjeta, sobre el fondo noche. Los .webp tienen su versión blanca (b-nombre.webp);
+    # los .svg se pasan a blanco con un filtro de CSS (clase f).
+    def uno(s, a):
+        clase = ""
+        if s.endswith(".webp"):
+            s = s.replace("/clientes/", "/clientes/b-")
+        else:
+            clase = ' class="f"'
+        nombre = s.rsplit("/", 1)[-1].split(".")[0].replace("b-", "")
+        return f'<span class="tp-logo l-{nombre}"><img{clase} src="{s}" alt="{"" if oculta else html.escape(a)}" loading="lazy" decoding="async"></span>'
+    return "".join(uno(s, a) for s, a in logos)
 
 faq = re.findall(r'<details class="pv-faq-item"><summary>(.*?)<span class="pv-plus"[^>]*></span></summary><div class="pv-faq-a">(.*?)</div></details>', src, flags=re.S)
 faq_html = "\n          ".join(f'<details{" open" if i == 0 else ""}><summary>{q.strip()}</summary><div class="tp-an">{a.strip()}</div></details>' for i, (q, a) in enumerate(faq))
@@ -294,18 +304,29 @@ main = f'''<main id="contenido" class="tp" data-wa="{WA_BOCETO}">
 
   <section class="tp-nums" id="resultados" aria-label="Resultados">
     <div class="tp-wrap">
-      <div class="tp-res" data-r>
+      <div class="tp-res">
         <div class="tp-res-tx">
-          <p class="tp-k">Resultados · Motovatio</p>
-          <p class="tp-res-n"><b><span data-tpn="230">230</span></b><span>contactos en 12 días</span></p>
-          <p class="tp-lead">Motos eléctricas en Dos Hermanas, de Grupo PlusAuto. Les hicimos la web, los anuncios en Instagram y Facebook y un asistente de WhatsApp que contesta al momento y agenda la visita. Datos del 12 al 23 de noviembre de 2026.</p>
-          <div class="tp-res-ln"><a class="tp-case-wa" href="{wa("Quiero algo como lo de Motovatio para mi negocio.")}" target="_blank" rel="noopener">{WAI}Quiero esto para mi negocio</a><a class="tp-link" href="/trabajos/motovatio">Leer el caso {ARROW}</a></div>
+          <p class="tp-k">Caso real · Motovatio</p>
+          <h2 class="tp-res-h" data-split>En 12 días, <em class="tp-ser">230 personas</em> preguntaron por una moto.</h2>
+          <ul class="tp-res-q" data-r>
+            <li><b>La web</b><span>con todas sus motos</span></li>
+            <li><b>Los anuncios</b><span>en Instagram y Facebook</span></li>
+            <li><b>Un asistente de WhatsApp</b><span>que contesta al momento y da cita</span></li>
+          </ul>
+          <div class="tp-res-ln" data-r><a class="tp-case-wa" href="{wa("Quiero algo como lo de Motovatio para mi negocio.")}" target="_blank" rel="noopener">{WAI}Quiero esto para mi negocio</a><a class="tp-link" href="/trabajos/motovatio">Leer el caso {ARROW}</a></div>
         </div>
-        <div class="tp-res-g">
-          <div><b><span data-tpn="29">29</span></b><span>contactos el primer día</span></div>
-          <div><b><span data-tpn="142">142</span></b><span>conversaciones por WhatsApp</span></div>
-          <div><b><span data-tpn="13">13</span></b><span>visitas agendadas en la tienda</span></div>
-          <div><b>0,96<small>€</small></b><span>por contacto en el arranque</span></div>
+        <div class="tp-res-f" data-r>
+          <p class="tp-res-ft">Y esto es lo que pasó</p>
+          <ol class="tp-emb">
+            <li style="--w:100%"><b><span data-tpn="230">230</span></b><span>personas pidieron información al ver el anuncio</span></li>
+            <li style="--w:62%"><b><span data-tpn="142">142</span></b><span>hablaron por WhatsApp con el asistente</span></li>
+            <li style="--w:24%"><b><span data-tpn="13">13</span></b><span>quedaron en ir a la tienda a probar la moto</span></li>
+          </ol>
+          <div class="tp-res-x">
+            <div><b><span data-tpn="29">29</span></b><span>escribieron el primer día</span></div>
+            <div><b>0,96<small>€</small></b><span>costó cada persona interesada al arrancar</span></div>
+          </div>
+          <p class="tp-res-n2">Datos del 12 al 23 de noviembre de 2026, del panel de Motovatio y de su cuenta de anuncios.</p>
         </div>
       </div>
       <div class="tp-nums-g" data-r>
@@ -396,6 +417,7 @@ nuevo = re.sub(r'<a href="#boceto" class="(btn btn-primary[^"]*)"', lambda m: f'
 nuevo = nuevo.replace('<link rel="stylesheet" href="/home/portada.css">', '<link rel="stylesheet" href="/home/portada.css">\n<link rel="stylesheet" href="/home/top.css">', 1)
 nuevo = nuevo.replace('<script src="/home/portada.js" defer></script>', '<script src="/home/portada.js" defer></script>\n<script src="/home/top.js" defer></script>', 1)
 assert "/home/top.css" in nuevo and "/home/top.js" in nuevo
+sys.path.insert(0, "home"); import _wv_intro; nuevo = _wv_intro.aplicar(nuevo)  # intro en vídeo (26-nov)
 open("index.html", "w").write(nuevo)
 print("portada montada:", len(trabajos), "trabajos,", len(logos), "logos,", len(faq), "preguntas,", len(opts), "opciones de WhatsApp")
 
@@ -413,7 +435,7 @@ CASOS = {
                ("Los anuncios", "Campaña en Instagram y Facebook para Sevilla, Cádiz y Huelva, con un formulario de una sola pregunta para que escribir cueste lo mínimo."),
                ("El asistente de WhatsApp", "Contesta en un par de minutos a cada persona, resuelve las dudas de siempre (carnet, ayudas, carga) y propone día y hora para ir a probar la moto."),
                ("El panel del equipo", "Todas las conversaciones, las visitas apuntadas y los avisos de a quién hay que llamar hoy, en una sola pantalla.")],
-        cifras=[("230", "contactos en 12 días"), ("29", "contactos el primer día"), ("142", "conversaciones por WhatsApp"), ("13", "visitas agendadas en la tienda"), ("0,96 €", "por contacto en el arranque")],
+        cifras=[("230", "personas pidieron información en 12 días"), ("29", "escribieron el primer día"), ("142", "hablaron por WhatsApp con el asistente"), ("13", "quedaron en ir a la tienda a probar la moto"), ("0,96 €", "costó cada persona interesada al arrancar")],
         nota="Datos del 12 al 23 de noviembre de 2026, sacados del panel del cliente y de la cuenta de anuncios. El coste por contacto es el de las primeras horas de campaña."),
     "la-fleury": dict(
         nombre="La Fleury", titulo="La Fleury: tienda online de moda bordada a mano · Widy",

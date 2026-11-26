@@ -161,5 +161,6 @@
 <script src="/home/home.js" defer></script>
 <script src="/home/portada.js" defer></script>
 <script src="/home/top.js" defer></script>
+<script>(function(){var m=matchMedia("(max-aspect-ratio: 1/1)").matches;document.querySelectorAll("video[data-pc]").forEach(function(v){var pp=v.getAttribute(m?"data-poster-movil":"data-poster-pc");if(pp)v.poster=pp;v.src=v.getAttribute(m?"data-movil":"data-pc");v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})})})();</script>
 </body>
 </html>
