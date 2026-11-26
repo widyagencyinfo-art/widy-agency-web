@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """Monta la portada «top» (borrador 26-nov-2026) a partir de la portada publicada.
-   Lee la versión de git (HEAD) de index.html, conserva cabecera, pie, metadatos, preguntas,
+   Lee de git la portada publicada antes del rediseño (etiqueta portada-antes-26nov), conserva cabecera, pie, metadatos, preguntas,
    opciones de WhatsApp y la franja de fotos con IA, y cambia el resto del <main>.
    Uso (desde la raíz del sitio):  python3 home/_top_build.py
 """
 import html, re, subprocess
 
-src = subprocess.run(["git", "show", "HEAD:index.html"], capture_output=True, text=True, check=True).stdout
+# La portada y el portafolio de partida son los que había publicados ANTES del rediseño (etiqueta de git).
+# No leer de HEAD: HEAD ya contiene la portada nueva.
+ORIGEN = "portada-antes-26nov"
+src = subprocess.run(["git", "show", ORIGEN + ":index.html"], capture_output=True, text=True, check=True).stdout
 ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>'
 OUT = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>'
 CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>'
@@ -545,7 +548,7 @@ print("casos:", ", ".join(slugs))
 # ================= portafolio (/trabajos): los 4 casos nuevos van los primeros =================
 RES = {"motovatio": "Web, anuncios y WhatsApp con IA · 230 contactos en 12 días", "la-fleury": "Tienda online a medida y fotos de producto",
        "la-trattoria": "Web con carta, pedidos y reservas", "neza-studios": "Marca, anuncios, redes y web"}
-tr = subprocess.run(["git", "show", "HEAD:trabajos.html"], capture_output=True, text=True, check=True).stdout
+tr = subprocess.run(["git", "show", ORIGEN + ":trabajos.html"], capture_output=True, text=True, check=True).stdout
 tarjetas = ""
 for sl, c in CASOS.items():
     tarjetas += f'''<a class="cs-card reveal" href="/trabajos/{sl}">

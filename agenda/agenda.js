@@ -2,7 +2,8 @@
 (function () {
   'use strict';
   var q = new URLSearchParams(location.search);
-  var S = q.get('s') === 'gestoria' ? 'gestoria' : 'conce';
+  // moda y pelu: enlace que manda el respondedor de WhatsApp (19-nov-2026)
+  var S = ['gestoria', 'moda', 'pelu', 'belleza', 'restaurante'].indexOf(q.get('s')) >= 0 ? q.get('s') : 'conce';
   var N = (q.get('n') || '').slice(0, 120);
   var C = (q.get('c') || '').slice(0, 400);
   var $ = function (id) { return document.getElementById(id); };
@@ -18,6 +19,35 @@
       t1: 'Las preguntas de siempre,', t2: 'contestadas <em>solas</em>.', para: 'Para gestorías y asesorías',
       paso1: 'Cómo os llegan las consultas de los clientes y quién las contesta.',
       video: '/agenda/media/gestoria.mp4', poster: '/agenda/media/gestoria.jpg', regalo: false, trabajos: false,
+    },
+    moda: {
+      t1: 'Tu tienda,', t2: 'abierta <em>las 24 horas</em>.', para: 'Para tiendas de moda',
+      paso1: 'Cómo te llegan hoy las clientas y cómo te compran.',
+      // Vídeo de Darío hablando (Drive «Widy · Vídeos de venta por nicho», 19-nov): horizontal, con sonido y subtítulos
+      video: '/agenda/media/moda.mp4', poster: '/agenda/media/moda.jpg', horizontal: true, regalo: false, trabajos: false,
+      sub: 'Mira el vídeo (1 minuto y medio) y elige hora. <strong>20 minutos</strong> para enseñarte cómo quedaría tu tienda online, sin compromiso.',
+      win: 'Darío · Widy · tiendas de moda',
+    },
+    pelu: {
+      t1: 'Las citas,', t2: 'cogidas <em>solas</em>.', para: 'Para peluquerías, barberías y estética',
+      paso1: 'Cómo te piden hoy las citas y quién contesta al WhatsApp.',
+      video: '/agenda/media/pelu.mp4', poster: '/agenda/media/pelu.jpg', horizontal: true, regalo: false, trabajos: false,
+      sub: 'Mira el vídeo (45 segundos) y elige hora. <strong>20 minutos</strong> para enseñarte cómo contestaría y daría citas por ti, sin compromiso.',
+      win: 'Darío · Widy · peluquerías',
+    },
+    belleza: {
+      t1: 'Tu agenda,', t2: 'llena <em>sin coger el teléfono</em>.', para: 'Para centros de belleza y estética',
+      paso1: 'Cómo te piden hoy las citas y quién contesta al WhatsApp.',
+      video: '/agenda/media/belleza.mp4', poster: '/agenda/media/belleza.jpg', horizontal: true, regalo: false, trabajos: false,
+      sub: 'Mira el vídeo (50 segundos) y elige hora. <strong>20 minutos</strong> para enseñarte cómo contestaría y daría citas por ti, sin compromiso.',
+      win: 'Darío · Widy · centros de belleza',
+    },
+    restaurante: {
+      t1: 'Más mesas,', t2: 'sin <em>estar pendiente del móvil</em>.', para: 'Para restaurantes',
+      paso1: 'Cómo os llegan hoy las reservas y quién las contesta.',
+      video: '/agenda/media/restaurante.mp4', poster: '/agenda/media/restaurante.jpg', horizontal: true, regalo: false, trabajos: false,
+      sub: 'Mira el vídeo (1 minuto y medio) y elige hora. <strong>20 minutos</strong> para enseñarte cómo quedaría lo vuestro, sin compromiso.',
+      win: 'Darío · Widy · restaurantes',
     },
   }[S];
   // ?o=resumen → misma reserva que gestoría (s=gestoria), pero con la oferta del «resumen de las 8» (22-oct-2026)
@@ -38,11 +68,29 @@
   if (T.sub) $('sub').innerHTML = T.sub;
   if (T.win) $('win-t').textContent = T.win;
   if (!T.trabajos) $('trabajos').hidden = true;
+  if (S !== 'conce' && S !== 'gestoria') {   // las llamadas del respondedor son de 20 minutos
+    [].forEach.call(document.querySelectorAll('li'), function (el) {   // <li><svg …/>10 minutos por teléfono</li>
+      [].forEach.call(el.childNodes, function (n) {
+        if (n.nodeType === 3 && /10 minutos por teléfono/.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace('10 minutos', '20 minutos');
+      });
+    });
+    var comoT = $('como-t'); if (comoT) comoT.innerHTML = comoT.innerHTML.replace('10 minutos', '20 minutos');
+  }
   if (T.regalo) $('regalo').hidden = false;
   var v = $('video');
-  v.poster = T.poster; $('video-src').src = T.video; v.load();
-  var p = v.play(); if (p && p.catch) p.catch(function () {});
-  $('replay').addEventListener('click', function () { v.currentTime = 0; v.play(); });
+  if (T.video) {
+    if (T.horizontal) {   // vídeo de Darío hablando: 16:9 entero (sin recortar los titulares) y con controles para el sonido
+      v.style.aspectRatio = '16 / 9'; v.style.objectFit = 'contain'; v.loop = false; v.controls = true;
+      var w = v.closest('.win'); if (w) w.style.maxWidth = '640px';
+      $('replay').hidden = true;
+    }
+    v.poster = T.poster; $('video-src').src = T.video; v.load();
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    $('replay').addEventListener('click', function () { v.currentTime = 0; v.play(); });
+  } else {
+    var win = v.closest('.win'); if (win) win.hidden = true;   // sin vídeo para este tipo
+    try { v.pause(); v.removeAttribute('autoplay'); $('video-src').removeAttribute('src'); v.load(); } catch (e) {}
+  }
 
   if (N) $('cita-empresa').value = N;
   var correoEnlace = '';
@@ -88,8 +136,8 @@
   // ---- visita (una vez por navegador y día) ----
   try {
     var k = 'widy-agenda-visita-' + C + '-' + new Date().toISOString().slice(0, 10);
-    if (C && !localStorage.getItem(k)) { localStorage.setItem(k, '1'); api({ accion: 'visita' }); }
-  } catch (e) { if (C) api({ accion: 'visita' }); }
+    if (!localStorage.getItem(k)) { localStorage.setItem(k, '1'); api({ accion: 'visita' }); }
+  } catch (e) { api({ accion: 'visita' }); }
 
   // ---- días y horas ----
   var libres = {};            // 'YYYY-MM-DD' → ['10:00', …]
