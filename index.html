@@ -92,7 +92,7 @@
    el.addEventListener("click",fin);
    
    v.addEventListener("ended",function(){setTimeout(fin,250)});
-   setTimeout(fin,8000);/* por si el vídeo no carga */
+   var empezo=false;v.addEventListener("playing",function(){empezo=true});v.addEventListener("waiting",function(){if(empezo)fin()});setTimeout(function(){if(!empezo)fin()},1000);/* si no arranca en 1 s o se para a cargar, entra directo */setTimeout(fin,8000);
    var p=v.play();if(p&&p.catch)p.catch(fin)})})();
   </script>
 
