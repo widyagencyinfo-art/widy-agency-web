@@ -9,7 +9,20 @@ import html, re, subprocess
 # La portada y el portafolio de partida son los que había publicados ANTES del rediseño (etiqueta de git).
 # No leer de HEAD: HEAD ya contiene la portada nueva.
 ORIGEN = "portada-antes-26nov"
-src = subprocess.run(["git", "show", ORIGEN + ":index.html"], capture_output=True, text=True, check=True).stdout
+import sys
+# Dos formas de usarlo:
+#  · en la copia publicada (~/pages-webs/widy-agency): sin argumentos; parte de la etiqueta de git.
+#  · en la carpeta de origen (~/widy-agency/web): con --archivos; lo llama _build/build_web.py al final y
+#    parte de la portada y el portafolio que ese script acaba de generar.
+ARCHIVOS = "--archivos" in sys.argv
+def original(ruta_git, ruta_archivo):
+    if ARCHIVOS:
+        t = open(ruta_archivo, encoding="utf-8").read()
+        if 'class="tp"' in t or '/trabajos/motovatio"' in t:
+            sys.exit(f"{ruta_archivo} ya tiene el diseño nuevo: vuelve a generar la web con _build/build_web.py antes de pasar este script.")
+        return t
+    return subprocess.run(["git", "show", ORIGEN + ":" + ruta_git], capture_output=True, text=True, check=True).stdout
+src = original("index.html", "index.html")
 ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>'
 OUT = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>'
 CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>'
@@ -548,7 +561,7 @@ print("casos:", ", ".join(slugs))
 # ================= portafolio (/trabajos): los 4 casos nuevos van los primeros =================
 RES = {"motovatio": "Web, anuncios y WhatsApp con IA · 230 contactos en 12 días", "la-fleury": "Tienda online a medida y fotos de producto",
        "la-trattoria": "Web con carta, pedidos y reservas", "neza-studios": "Marca, anuncios, redes y web"}
-tr = subprocess.run(["git", "show", ORIGEN + ":trabajos.html"], capture_output=True, text=True, check=True).stdout
+tr = original("trabajos.html", "trabajos/index.html")
 tarjetas = ""
 for sl, c in CASOS.items():
     tarjetas += f'''<a class="cs-card reveal" href="/trabajos/{sl}">
@@ -559,5 +572,16 @@ for sl, c in CASOS.items():
 ancla = '<div class="cs-grid">'
 assert ancla in tr
 tr = tr.replace(ancla, ancla + "\n        " + tarjetas, 1)
-open("trabajos.html", "w").write(tr)
+open("trabajos/index.html", "w").write(tr)
+if not ARCHIVOS or os.path.exists("trabajos.html"):
+    open("trabajos.html", "w").write(tr)
 print("portafolio: 4 casos nuevos añadidos")
+
+# mapa del sitio: los 4 casos nuevos
+if os.path.exists("sitemap.xml"):
+    sm = open("sitemap.xml", encoding="utf-8").read()
+    extra = "".join(f'\n  <url><loc>https://widy.agency/trabajos/{sl}</loc><lastmod>2026-11-26</lastmod><priority>0.7</priority></url>'
+                    for sl in CASOS if f"/trabajos/{sl}<" not in sm)
+    if extra:
+        open("sitemap.xml", "w").write(sm.replace("</urlset>", extra.lstrip("\n") + "\n</urlset>") if "\n</urlset>" not in sm else sm.replace("\n</urlset>", extra + "\n</urlset>"))
+        print("sitemap: casos añadidos")
