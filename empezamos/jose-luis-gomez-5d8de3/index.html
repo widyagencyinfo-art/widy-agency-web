@@ -164,6 +164,9 @@
   .acciones .total b{font:800 1.2rem var(--head);color:var(--ink)}
   .enlace{display:block;width:100%;text-align:center;margin-top:10px;background:none;border:0;color:var(--blue);font:600 .9rem var(--head);cursor:pointer;text-decoration:none}
   .enlace.gris{color:var(--mut)}
+  .error{margin-top:10px;padding:12px 14px;border-radius:14px;background:#FEF3F2;color:#B42318;font-size:.9rem;line-height:1.5}
+  .error a{color:#B42318;font-weight:700}
+  .btn:disabled{opacity:.6;cursor:wait}
   .hecho-ico{font-size:3rem;line-height:1}
 
   footer{color:var(--mut);font-size:.84rem;text-align:center;padding:26px 18px 34px;line-height:1.6}
@@ -315,8 +318,9 @@
       </div>
     </div>
     <div class="acciones">
-      <button type="button" class="btn btn-wa" id="confirmar">Ya he pagado · Enviar confirmación</button>
-      <button type="button" class="enlace" id="luego">Lo pago en un rato: enviar solo mis datos</button>
+      <button type="button" class="btn btn-main" id="confirmar">Ya he pagado · Confirmar</button>
+      <p class="error" id="error" hidden></p>
+      <button type="button" class="enlace" id="luego">Lo pago en un rato: guardar mis datos</button>
       <button type="button" class="enlace gris" data-ir="2">← Volver</button>
     </div>
   </div>
@@ -328,7 +332,7 @@
     <div class="pant-cab">
       <div class="hecho-ico">🎉</div>
       <h2 style="margin-top:14px">¡Listo, <span class="ser">José Luis!</span></h2>
-      <p>Te escribimos hoy mismo por WhatsApp para confirmar el pago, mandarte la factura y darte fecha de arranque.</p>
+      <p>Hemos recibido tus datos. Te escribimos hoy mismo por WhatsApp para confirmar el pago, mandarte la factura y darte fecha de arranque.</p>
     </div>
     <div class="card">
       <h3>Lo que viene ahora</h3>
@@ -401,7 +405,31 @@
     }
     return t;
   };
-  const enviar = pagado => { const u = wa(mensaje(pagado)); const v = window.open(u, '_blank'); if (!v) { location.href = u; return; } ir(4); };
+  const API = 'https://getwidy.es/api/empezamos';
+  const val = n => { const i = document.querySelector('#datos input[name="' + n + '"]'); return i ? i.value.trim() : ''; };
+  const enviar = async pagado => {
+    const btns = [$('#confirmar'), $('#luego')], err = $('#error');
+    btns.forEach(b => b.disabled = true); err.hidden = true;
+    const txt = $('#confirmar').textContent; $('#confirmar').textContent = 'Enviando…';
+    const datos = {
+      slug: location.pathname.split('/').filter(Boolean).pop(), negocio: D.negocio, contacto: D.nombre,
+      nombre_fiscal: val('Nombre o empresa'), nif: val('DNI/CIF'), direccion: val('Dirección fiscal'), correo: val('Correo'),
+      pago: pagado ? metodo : 'luego',
+      secciones: [...$$('#chips .chip.on').map(c => c.textContent), $('#otra').value.trim()].filter(Boolean),
+      estilos: $$('#estilos .chip.on').map(c => c.textContent), como: $('#como').value.trim(), referencia: $('#ref').value.trim(),
+    };
+    try {
+      const r = await fetch(API, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(datos) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || 'No se ha podido enviar.');
+      ir(4);
+    } catch (e) {
+      err.innerHTML = (e.message || 'No se ha podido enviar.') + ' Si sigue fallando, <a href="' + wa(mensaje(pagado)) + '" target="_blank" rel="noopener">mándanoslo por WhatsApp</a>.';
+      err.hidden = false;
+    } finally {
+      btns.forEach(b => b.disabled = false); $('#confirmar').textContent = txt;
+    }
+  };
   $('#confirmar').addEventListener('click', () => enviar(true));
   $('#luego').addEventListener('click', () => enviar(false));
 
