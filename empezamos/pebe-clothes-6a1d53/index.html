@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Empezamos · PeBe Clothes</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#040A1C">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800&family=Instrument+Serif:ital@1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--n0:#040A1C;--n1:#071230;--blue:#1F5FF0;--sky:#9CC6FF;--ink:#071230;--mut:#57627F;--line:#E3E8F3;--paper:#F5F7FC;--ok:#12B76A;
+    --ease:cubic-bezier(.22,1,.36,1);--head:'Figtree',system-ui,sans-serif;--ser:'Instrument Serif',Georgia,serif;--mono:'Geist Mono',ui-monospace,Menlo,monospace;--body:'Geist',system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);overflow-x:clip}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px}
+  .ser{font-family:var(--ser);font-style:italic;font-weight:400;letter-spacing:-.01em}
+  .k{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+  .k:before{content:"";width:24px;height:1.5px;background:currentColor}
+
+  /* ---------- cabecera fija con los pasos ---------- */
+  .nav{position:sticky;top:0;z-index:30;background:rgba(4,10,28,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;height:62px}
+  .nav img{height:22px;flex:none}
+  .pasos{list-style:none;display:flex;align-items:center;gap:6px}
+  .pasos li{display:flex;align-items:center;gap:6px;font:600 .8rem var(--head);color:#7F90C2;cursor:default}
+  .pasos li i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:800 .75rem var(--head);font-style:normal;border:1.5px solid #34467A;color:#7F90C2;transition:all .3s}
+  .pasos li.on{color:#fff}
+  .pasos li.on i{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 0 4px rgba(31,95,240,.25)}
+  .pasos li.ok i{background:var(--ok);border-color:var(--ok);color:#fff}
+  .pasos li.ok{cursor:pointer}
+  .pasos .sep{width:14px;height:1.5px;background:#34467A}
+  @media(max-width:520px){.pasos li span{display:none}.pasos li.on span{display:inline}}
+
+  /* ---------- pantallas ---------- */
+  .pant{display:none;animation:entra .5s var(--ease)}
+  .pant.on{display:block}
+  @keyframes entra{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .pant-cab{padding:34px 0 8px}
+  .pant-cab h2{font:800 clamp(1.9rem,6vw,2.6rem)/1.05 var(--head);letter-spacing:-.035em;margin-top:12px}
+  .pant-cab h2 .ser{color:var(--blue)}
+  .pant-cab p{color:var(--mut);margin-top:10px;font-size:1.04rem;line-height:1.55;max-width:34em}
+
+  /* portada del presupuesto */
+  .hero{position:relative;background:var(--n0);color:#fff;overflow:hidden;padding:34px 0 120px}
+  .hero:before{content:"";position:absolute;right:-180px;top:-200px;width:620px;height:620px;background:radial-gradient(closest-side,rgba(31,95,240,.55),transparent);pointer-events:none}
+  .hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(#000,transparent 90%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .k{color:var(--sky)}
+  h1{font:800 clamp(2.5rem,10vw,4rem)/.98 var(--head);letter-spacing:-.045em;margin-top:14px}
+  h1 .ser{color:var(--sky)}
+  .hero p{color:#B4C2E6;margin-top:14px;font-size:1.06rem;line-height:1.55;max-width:32em}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:26px}
+  .meta div{font:600 .95rem var(--head)}
+  .meta small{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:#7F90C2;font-weight:400;margin-bottom:3px}
+
+  .phones{position:relative;height:400px;max-width:360px;margin:34px auto 0;width:100%}
+  .phone{position:absolute;width:46%;aspect-ratio:9/19;border-radius:28px;padding:7px;background:linear-gradient(160deg,#25345F,#0B1430);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08)}
+  .phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:22px}
+  .phone.a{left:4%;top:44px;transform:rotate(-6deg)}
+  .phone.b{right:4%;top:0;transform:rotate(5deg);z-index:2}
+  .phones figcaption{position:absolute;left:0;right:0;bottom:-24px;text-align:center;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#7F90C2}
+  @media(min-width:860px){.hero .wrap{max-width:1000px;display:grid;grid-template-columns:1.15fr .85fr;column-gap:40px;align-items:center}.phones{margin:0;height:460px;max-width:400px}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px 22px;box-shadow:0 30px 60px -45px rgba(7,18,48,.4)}
+  @media(min-width:760px){.card{padding:34px}}
+  .sube{margin-top:-84px;position:relative;z-index:2}
+  .card+.card,.card+.extra,.extra+.card{margin-top:14px}
+  .card h3{font:800 1.3rem var(--head);letter-spacing:-.02em}
+  .inc{list-style:none;margin-top:14px}
+  .toca{font-size:.88rem;color:var(--mut);margin-top:6px}
+  .inc li{border-top:1px solid var(--line)}
+  .inc .sum{display:flex;gap:14px;align-items:baseline;padding:14px 0;font-size:1rem;line-height:1.45;list-style:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .inc .sum::-webkit-details-marker{display:none}
+  .inc li.sin .sum{cursor:default}
+  .inc .n{font-family:var(--mono);font-size:.74rem;color:var(--blue);flex:none;width:22px}
+  .inc .t{flex:1}
+  .inc .mas{flex:none;align-self:center;width:28px;height:28px;border-radius:50%;background:var(--paper);position:relative;transition:background .2s,transform .3s var(--ease)}
+  .inc .mas:before,.inc .mas:after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2px;border-radius:2px;background:var(--blue);transform:translate(-50%,-50%)}
+  .inc .mas:after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s var(--ease)}
+  .inc details[open] .mas{background:#EAF0FF}
+  .inc details[open] .mas:after{transform:translate(-50%,-50%) rotate(0deg)}
+  .inc .det{padding:0 0 18px 36px;animation:entra .35s var(--ease)}
+  .inc .det p{color:#2B3654;line-height:1.55;font-size:.96rem}
+  .inc figure{margin-top:14px;max-width:250px}
+  .inc figure img{width:100%;height:auto;border-radius:16px;border:1px solid var(--line);box-shadow:0 20px 40px -26px rgba(7,18,48,.45)}
+  .inc .duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:340px;margin-top:14px}
+  .inc .duo figure{margin:0;max-width:none}
+  .inc .duo img{aspect-ratio:672/1000;object-fit:cover}
+  .inc figcaption{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:8px}
+
+  .extra{background:var(--n1);color:#fff;border-radius:26px;padding:28px 22px;position:relative;overflow:hidden}
+  .extra:before{content:"";position:absolute;right:-110px;top:-110px;width:300px;height:300px;background:radial-gradient(closest-side,rgba(31,95,240,.5),transparent)}
+  .extra h3{font:800 1.3rem var(--head);position:relative;margin-top:10px}
+  .extra ul{list-style:none;display:grid;gap:10px;margin-top:16px;position:relative}
+  .extra li{display:flex;gap:12px;color:#C9D4F2;line-height:1.5}
+  .extra li:before{content:"✓";flex:none;width:22px;height:22px;border-radius:7px;background:rgba(156,198,255,.15);color:var(--sky);font-size:.75rem;font-weight:800;display:grid;place-items:center;margin-top:1px}
+
+  .resumen table{width:100%;border-collapse:collapse;margin-top:14px;font-size:1rem}
+  .resumen td{padding:12px 0;border-top:1px solid var(--line)}
+  .resumen td:last-child{text-align:right;font-weight:600;white-space:nowrap;padding-left:12px}
+  .resumen tr.total td{border-top:2px solid var(--ink);font:800 1.5rem var(--head);padding-top:14px}
+  .nota{margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--paper);color:#2B3654;font-size:.92rem;line-height:1.5}
+  .nota b{color:var(--ink)}
+  .oferta{display:inline-flex;gap:8px;align-items:center;margin-top:14px;padding:9px 14px;border-radius:999px;background:#FFF4DB;color:#6B4E0E;font-weight:600;font-size:.9rem;line-height:1.35}
+  .pdf{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-weight:600;color:var(--blue);text-decoration:none}
+  .contacto{display:flex;gap:14px;align-items:center}
+  .contacto img{width:54px;height:54px;border-radius:50%;object-fit:cover;flex:none}
+  .contacto b{font:700 1.05rem var(--head);display:block}
+  .contacto small{color:var(--mut);font-size:.9rem;line-height:1.4;display:block}
+  .contacto a{color:var(--blue);font-weight:600}
+
+  /* formulario */
+  label{display:block;font-weight:600;font-size:.88rem;margin-top:14px;color:#2B3654}
+  textarea{width:100%;margin-top:6px;padding:14px 15px;border-radius:14px;border:1.5px solid var(--line);font:16px/1.5 var(--body);color:var(--ink);background:#fff;resize:vertical}
+  textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(31,95,240,.12)}
+  input{width:100%;margin-top:6px;padding:14px 15px;border-radius:14px;border:1.5px solid var(--line);font:16px var(--body);color:var(--ink);background:#fff}
+  input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(31,95,240,.12)}
+  input.mal{border-color:#E5484D;box-shadow:0 0 0 4px rgba(229,72,77,.12)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .chip{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:10px 15px;font:600 .92rem var(--head);color:var(--ink);cursor:pointer}
+  .chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .lista{list-style:none;display:grid;gap:10px;margin-top:14px}
+  .lista li{font-size:.95rem;color:#2B3654;display:flex;gap:10px;line-height:1.5}
+  .lista li:before{content:"→";color:var(--blue);font-weight:700}
+  .sub{color:var(--mut);margin-top:6px;line-height:1.5;font-size:.95rem}
+
+  /* pago */
+  .tabs{display:flex;gap:6px;margin-top:16px}
+  .tab{flex:1;min-width:0;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:12px 4px;font:700 .86rem var(--head);color:var(--ink);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .tab em{font-style:normal;font-size:1.15rem;line-height:1}
+  .tab.on{border-color:var(--blue);background:#EEF3FF;color:var(--blue)}
+  .met{display:none;margin-top:14px;border:1.5px solid var(--line);border-radius:18px;padding:4px 14px 12px}
+  .met.on{display:block}
+  .fila{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+  .fila:first-child{border-top:0}
+  .fila small{flex:none;width:70px;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+  .fila .dato{flex:1;min-width:0;font-family:var(--mono);font-size:.92rem;overflow-wrap:anywhere}
+  .copiar{flex:none;border:0;border-radius:999px;background:var(--ink);color:#fff;font:700 .8rem var(--head);padding:8px 13px;cursor:pointer}
+  .copiar.hecho{background:var(--ok)}
+  .tip{font-size:.88rem;color:var(--mut);margin-top:8px;line-height:1.5}
+  .met-tarjeta{text-align:center;padding:18px 14px}
+  .met-tarjeta p{color:var(--mut);font-size:.92rem;margin-bottom:14px;line-height:1.5}
+  .seguro{display:grid;gap:10px;margin-top:16px}
+  .seguro div{display:flex;gap:10px;font-size:.9rem;line-height:1.5;color:#2B3654}
+  .seguro svg{flex:none;width:19px;height:19px;stroke:var(--ok);fill:none;stroke-width:2;margin-top:2px}
+  .seguro a{color:var(--blue);font-weight:600}
+
+  /* botones y barra inferior */
+  .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;font:700 1.02rem var(--head);text-decoration:none;border:0;cursor:pointer;overflow:hidden;isolation:isolate}
+  .btn-main{background:linear-gradient(135deg,#2C69F6,#1F5FF0 55%,#3A46DC);color:#fff;box-shadow:0 10px 30px -10px rgba(31,95,240,.75),inset 0 1px 0 rgba(255,255,255,.25)}
+  .btn-main:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.4) 50%,transparent 65%);transform:translateX(-120%);animation:brillo 5.5s var(--ease) 1.5s infinite}
+  @keyframes brillo{0%,72%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+  .btn-wa{background:#1FA855;color:#fff}
+  .btn-line{border:1.5px solid var(--ink);color:var(--ink);background:#fff}
+  .acciones{position:sticky;bottom:0;z-index:20;margin:22px -18px 0;padding:14px 18px calc(14px + env(safe-area-inset-bottom));background:rgba(245,247,252,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 -16px 30px -18px rgba(7,18,48,.22);border-top:1px solid var(--line)}
+  @media(min-width:796px){.acciones{margin:22px 0 0;border-radius:24px 24px 0 0;padding:14px 18px 16px}}
+  .acciones .btn{width:100%}
+  .acciones .total{display:flex;justify-content:space-between;align-items:baseline;font:600 .92rem var(--head);color:var(--mut);margin-bottom:10px;padding:0 4px}
+  .acciones .total b{font:800 1.2rem var(--head);color:var(--ink)}
+  .enlace{display:block;width:100%;text-align:center;margin-top:10px;background:none;border:0;color:var(--blue);font:600 .9rem var(--head);cursor:pointer;text-decoration:none}
+  .enlace.gris{color:var(--mut)}
+  .error{margin-top:10px;padding:12px 14px;border-radius:14px;background:#FEF3F2;color:#B42318;font-size:.9rem;line-height:1.5}
+  .error a{color:#B42318;font-weight:700}
+  .btn:disabled{opacity:.6;cursor:wait}
+  .metodos{display:grid;gap:10px;margin-top:16px}
+  .mp{border:1.5px solid var(--line);border-radius:18px;background:#fff;transition:border-color .2s,box-shadow .2s}
+  .mp[open]{border-color:var(--blue);box-shadow:0 0 0 4px rgba(31,95,240,.08)}
+  .mp summary{display:flex;align-items:center;gap:14px;padding:16px;cursor:pointer;list-style:none;-webkit-tap-highlight-color:transparent}
+  .mp summary::-webkit-details-marker{display:none}
+  .mp .ico{flex:none;width:44px;height:44px;border-radius:13px;background:var(--paper);display:grid;place-items:center}
+  .mp .ico svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .mp[open] .ico{background:#EAF0FF}
+  .mp .t{flex:1;min-width:0}
+  .mp .t b{display:block;font:700 1.02rem var(--head)}
+  .mp .t small{display:block;color:var(--mut);font-size:.84rem;margin-top:2px}
+  .mp .chev{flex:none;width:10px;height:10px;border-right:2px solid var(--mut);border-bottom:2px solid var(--mut);transform:rotate(45deg);margin:0 6px 4px 0;transition:transform .3s var(--ease)}
+  .mp[open] .chev{transform:rotate(-135deg);margin-bottom:-4px;border-color:var(--blue)}
+  .mp-body{padding:0 16px 14px;animation:entra .35s var(--ease)}
+  .mp-body .fila:first-child{border-top:1px solid var(--line)}
+  .mp-tarjeta{text-align:center;padding-top:14px;border-top:1px solid var(--line)}
+  .mp-tarjeta p{color:var(--mut);font-size:.9rem;line-height:1.5;margin-bottom:14px}
+  .mp-tarjeta .btn{width:100%}
+  .ico-ok{width:64px;height:64px;border-radius:50%;background:#E7F8EF;display:grid;place-items:center}
+  .ico-ok svg{width:30px;height:30px;stroke:var(--ok);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .oferta svg{width:16px;height:16px;stroke:#6B4E0E;fill:none;stroke-width:2;flex:none}
+
+  footer{color:var(--mut);font-size:.84rem;text-align:center;padding:26px 18px 34px;line-height:1.6}
+  footer a{color:var(--blue);font-weight:600;text-decoration:none}
+  @media(prefers-reduced-motion:reduce){.pant{animation:none}.btn-main:after{animation:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <img src="/widy-logo.png" alt="Widy">
+    <ol class="pasos" aria-label="Pasos">
+      <li data-p="1" class="on"><i>1</i><span>Presupuesto</span></li><li class="sep" aria-hidden="true"></li>
+      <li data-p="2"><i>2</i><span>Empezar</span></li><li class="sep" aria-hidden="true"></li>
+      <li data-p="3"><i>3</i><span>Pago</span></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ===================== 1 · PRESUPUESTO ===================== -->
+<section class="pant on" data-pant="1">
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-txt">
+      <span class="k">Presupuesto para PeBe Clothes · 27 nov 2026</span>
+      <h1>La tienda online de <span class="ser">PeBe Clothes.</span></h1>
+      <p>Aquí tienes por escrito todo lo que hablamos: qué hacemos, qué incluye y cuánto cuesta.</p>
+      <div class="meta">
+        <div><small>Total</small>302,50 €</div>
+        <div><small>Pago</small>Único</div>
+        <div><small>Válido hasta</small>5 dic</div>
+      </div>
+      </div>
+      <figure class="phones">
+        <div class="phone a"><img src="/home/img/m-lunares.webp" alt="Tienda online de Lunares del Este hecha por Widy"></div>
+        <div class="phone b"><img src="/home/img/m-fleury-hero.webp" alt="Tienda online de La Fleury hecha por Widy"></div>
+        <figcaption>Tiendas que ya hemos hecho</figcaption>
+      </figure>
+    </div>
+  </header>
+  <div class="wrap">
+    <div class="card sube">
+      <span class="k">Qué incluye</span>
+      <h3 style="margin-top:10px">Tu tienda online + mantenimiento</h3>
+      <p class="toca">Toca cada punto para ver qué significa, con un ejemplo.</p>
+      <ul class="inc"><li><details><summary class="sum"><span class="n">01</span><span class="t">Diseño a medida con tu marca, pensado para el móvil</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Tu tienda con tu logo, tus colores y tus fotos. No es una plantilla: se diseña para tu marca y pensando en el móvil, que es desde donde compra casi todo el mundo.</p><figure><img src="/home/img/m-fleury-hero.webp" alt="" loading="lazy"><figcaption>Ejemplo: la tienda de La Fleury en el móvil</figcaption></figure></div></details></li><li><details><summary class="sum"><span class="n">02</span><span class="t">Catálogo por secciones con tallas, colores y stock</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Cada prenda en su sección (vestidos, blusas…). En cada ficha la clienta elige talla y color, y cuando algo se agota deja de poder comprarse solo.</p><figure><img src="/home/img/m-fleury-grid.webp" alt="" loading="lazy"><figcaption>Ejemplo: sección de La Fleury con sus colores</figcaption></figure></div></details></li><li><details><summary class="sum"><span class="n">03</span><span class="t">Pago con tarjeta, Apple Pay y Google Pay</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>La clienta paga en el carrito con su tarjeta o con Apple Pay o Google Pay, sin tener que crearse una cuenta. El dinero te llega a tu cuenta del banco.</p></div></details></li><li><details><summary class="sum"><span class="n">04</span><span class="t">Envío a domicilio y recogida en tienda</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Al comprar, la clienta elige si se lo mandas a casa (con la tarifa de envío que tú decidas) o si pasa a recogerlo por tu tienda.</p></div></details></li><li><details><summary class="sum"><span class="n">05</span><span class="t">Tu dominio propio y el alojamiento incluidos</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Tu dirección propia en internet, por ejemplo pebeclothes.es, a tu nombre. El alojamiento (donde «vive» la web) y el certificado de seguridad van incluidos: no pagas nada aparte.</p></div></details></li><li><details><summary class="sum"><span class="n">06</span><span class="t">Las primeras 30 prendas subidas por nosotros</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Nos pasas fotos, precios y tallas, y nosotros subimos las primeras 30 prendas. Las siguientes las puedes subir tú desde el móvil en un minuto, o mandárnoslas.</p></div></details></li><li><details><summary class="sum"><span class="n">07</span><span class="t">Fotos de tus prendas en modelo, creadas con IA</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>A partir de las fotos de tus prendas creamos imágenes con modelo para la portada y las secciones, para que la tienda luzca desde el primer día. Si prefieres usar solo tus fotos reales, también se puede.</p><div class="duo"><figure><img src="/home/img/antes.webp" alt="" loading="lazy"><figcaption>Foto de la prenda</figcaption></figure><figure><img src="/home/img/despues.webp" alt="" loading="lazy"><figcaption>Con IA</figcaption></figure></div></div></details></li><li><details><summary class="sum"><span class="n">08</span><span class="t">SEO: la tienda preparada para salir en Google</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Dejamos cada prenda con su título y su descripción, la tienda rápida y dada de alta en Google para que empiece a aparecer en las búsquedas. La posición depende de muchas cosas y nadie la puede garantizar, pero sale bien hecha desde el primer día.</p></div></details></li><li><details><summary class="sum"><span class="n">09</span><span class="t">Añadimos tus prendas nuevas</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Cuando te llegue mercancía nueva, nos mandas fotos, precio y tallas y te las subimos nosotros. Va incluido en el mantenimiento mensual.</p></div></details></li><li><details><summary class="sum"><span class="n">10</span><span class="t">Cambios en el diseño cuando los pidas</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Una foto de portada nueva, una sección de rebajas, colores o textos: nos lo pides por WhatsApp y lo cambiamos. Va incluido en el mantenimiento mensual.</p></div></details></li><li><details><summary class="sum"><span class="n">11</span><span class="t">2 rondas de cambios antes de publicar</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Te enseñamos la tienda terminada antes de publicarla. Nos dices qué cambiar (colores, textos, fotos…) y lo ajustamos, hasta 2 veces. Con tu OK, se publica.</p></div></details></li></ul>
+    </div>
+    
+    <div class="card resumen">
+      <span class="k">Precio</span>
+      <table><tr><td>Tienda online PeBe Clothes · montaje completo</td><td>250,00 €</td></tr><tr><td>IVA (21 %) · deducible</td><td>52,50 €</td></tr><tr class="total"><td>Total</td><td>302,50 €</td></tr></table>
+      <p class="nota"><b>El IVA es deducible.</b> Si tu negocio tributa en régimen general, los 52,50 € de IVA los recuperas en tu declaración trimestral, así que la tienda te sale por 250 €. Si estás en recargo de equivalencia, como muchas tiendas pequeñas, no se deduce: tu gestor te lo confirma en un momento.</p>
+      <p class="nota"><b>Mantenimiento:</b> 30 € + IVA al mes, desde el mes siguiente a publicar la tienda. Sin permanencia: te ayudamos con todo (cambios, prendas nuevas y soporte por WhatsApp).</p>
+      <span class="oferta"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8c-2-3-6-3-6 0 0 1 1 1.5 2 1.5M12 8c2-3 6-3 6 0 0 1-1 1.5-2 1.5"/></svg>Precio de oferta de Navidad, para las tiendas que confirmen antes del 5 de diciembre.</span>
+      <div></div>
+    </div>
+    <div class="card contacto">
+      <img src="/home/img/dario-cara.jpg" alt="Darío Pulido">
+      <div><b>Darío Pulido · Widy</b><small>Llevo tu tienda de principio a fin. ¿Alguna duda? <a class="duda" href="#">Escríbeme por WhatsApp</a></small></div>
+    </div>
+    <div class="acciones">
+      <div class="total"><span>PeBe Clothes</span><b>302,50 €</b></div>
+      <button type="button" class="btn btn-main" data-ir="2">Aceptar y empezar →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 2 · EMPEZAR ===================== -->
+<section class="pant" data-pant="2">
+  <div class="wrap">
+    <div class="pant-cab">
+      <span class="k">Paso 2 de 3 · Empezar</span>
+      <h2>Cuéntanos lo que <span class="ser">necesitamos.</span></h2>
+      <p>Con esto preparamos tu factura y empezamos a montar tu tienda.</p>
+    </div>
+    <form class="card" id="datos" novalidate>
+      <h3>Datos para tu factura</h3>
+      <label>Nombre y apellidos, o empresa<input name="Nombre o empresa" autocomplete="name" required></label>
+      <label>DNI o CIF<input name="DNI/CIF" required></label>
+      <label>Dirección fiscal<input name="Dirección fiscal" autocomplete="street-address" required></label>
+      <label>Correo para recibir los pedidos<input name="Correo" type="email" autocomplete="email" required></label>
+      <a class="enlace" id="foto-dni" href="#" style="text-align:left">¿Te es más fácil? Mándanos una foto del DNI y lo rellenamos nosotros →</a>
+    </form>
+    <div class="card">
+      <h3>Las secciones de tu tienda</h3>
+      <p class="sub">Marca las que quieres. Las podrás cambiar cuando quieras.</p>
+      <div class="chips" id="chips"><button type="button" class="chip">Vestidos</button><button type="button" class="chip">Blusas</button><button type="button" class="chip">Pantalones</button><button type="button" class="chip">Faldas</button><button type="button" class="chip">Abrigos</button><button type="button" class="chip">Punto</button><button type="button" class="chip">Complementos</button><button type="button" class="chip">Novedades</button></div>
+      <label>¿Alguna más?<input id="otra" placeholder="Por ejemplo: Fiesta, Rebajas…"></label>
+    </div>
+    <div class="card">
+      <h3>El diseño de tu tienda</h3>
+      <p class="sub">Cuéntanos qué estilo te gusta más. Así la primera versión ya va a tu gusto.</p>
+      <label>¿Qué estilo te gusta más?</label>
+      <div class="chips" id="estilos">
+        <button type="button" class="chip">Elegante</button><button type="button" class="chip">Minimalista</button><button type="button" class="chip">Moderno</button>
+        <button type="button" class="chip">Femenino</button><button type="button" class="chip">Colorido</button><button type="button" class="chip">Clásico</button>
+      </div>
+      <label>¿Cómo te gustaría que quedara tu tienda online?<textarea id="como" rows="4" placeholder="Por ejemplo: colores suaves, mucha foto de las prendas, que se vea elegante…"></textarea></label>
+      <label>¿Alguna tienda online que te guste como referencia?<input id="ref" inputmode="url" placeholder="Pega aquí el enlace (opcional)"></label>
+    </div>
+    <div class="card">
+      <h3>Lo que nos irás pasando</h3>
+      <ul class="lista">
+        <li>Tu logo (si no lo tienes en buena calidad, lo preparamos nosotros)</li>
+        <li>Fotos de tus prendas con precio, tallas y colores, poco a poco</li>
+        <li>Cómo envías y si hay recogida en tienda</li>
+      </ul>
+    </div>
+    <div class="acciones">
+      <button type="button" class="btn btn-main" id="a-pago">Siguiente: el pago →</button>
+      <button type="button" class="enlace gris" data-ir="1">← Volver al presupuesto</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3 · PAGO ===================== -->
+<section class="pant" data-pant="3">
+  <div class="wrap">
+    <div class="pant-cab">
+      <span class="k">Paso 3 de 3 · Pago</span>
+      <h2>Reserva tu <span class="ser">arranque.</span></h2>
+      <p>Un único pago de <b>302,50 € (250 € + IVA)</b>. En cuanto entre, te mandamos la factura y te damos fecha de arranque.</p>
+    </div>
+    <div class="card">
+      <h3>¿Cómo prefieres pagar?</h3>
+      <div class="metodos">
+        <details class="mp" data-m="trans" open>
+          <summary><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 10h18M5 10v8m4-8v8m6-8v8m4-8v8M3 21h18M12 3 3 8h18z"/></svg></span><span class="t"><b>Transferencia bancaria</b><small>Recomendado · sin comisiones</small></span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="mp-body">
+            <div class="fila"><small>Cuenta</small><span class="dato">ES63 2100 8355 0621 0006 1594</span><button type="button" class="copiar" data-c="ES63 2100 8355 0621 0006 1594">Copiar</button></div>
+            <div class="fila"><small>Importe</small><span class="dato">302,50 €</span><button type="button" class="copiar" data-c="302,50">Copiar</button></div>
+            <div class="fila"><small>Concepto</small><span class="dato">Tienda online PeBe Clothes</span><button type="button" class="copiar" data-c="Tienda online PeBe Clothes">Copiar</button></div>
+            <div class="fila"><small>Titular</small><span class="dato">Darío Pulido Moreno</span></div>
+            <p class="tip">Abre la app de tu banco, pega los datos y, si puedes, márcala como <b>inmediata</b>.</p>
+          </div>
+        </details>
+        <details class="mp" data-m="tarjeta">
+          <summary><span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20M6 15h4"/></svg></span><span class="t"><b>Tarjeta</b><small>También Apple Pay y Google Pay</small></span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="mp-body"><div class="mp-tarjeta"><p>Pago seguro con Stripe. La factura te llega sola al correo. Cuando termines, vuelve aquí y pulsa «Ya he pagado».</p>
+          <a class="btn btn-main" href="https://getwidy.es/pagar/kf9gv4p5kcpt" target="_blank" rel="noopener">Pagar 302,50 € con tarjeta</a></div></div>
+        </details>
+        <details class="mp" data-m="klarna">
+          <summary><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9h18M8 2v4M16 2v4M7.5 13h2M11 13h2M14.5 13h2M7.5 17h2M11 17h2"/></svg></span><span class="t"><b>Paga a plazos</b><small>Divídelo en cómodos pagos con Klarna</small></span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="mp-body"><div class="mp-tarjeta"><p>Al pagar, elige <b>Klarna</b> y te enseña las opciones para dividir el pago. Nosotros arrancamos igual, desde el primer día. Cuando termines, vuelve aquí y pulsa «Ya he pagado».</p>
+          <a class="btn btn-main" href="https://getwidy.es/pagar/kf9gv4p5kcpt" target="_blank" rel="noopener">Pagar a plazos con Klarna</a></div></div>
+        </details>
+        <details class="mp" data-m="bizum">
+          <summary><span class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span><span class="t"><b>Bizum</b><small>Al momento, desde tu banco</small></span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="mp-body">
+            <div class="fila"><small>Teléfono</small><span class="dato">722 494 080</span><button type="button" class="copiar" data-c="722494080">Copiar</button></div>
+            <div class="fila"><small>Importe</small><span class="dato">302,50 €</span><button type="button" class="copiar" data-c="302,50">Copiar</button></div>
+            <div class="fila"><small>A nombre de</small><span class="dato">Darío Pulido Moreno</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="seguro">
+        <div><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span><b>Pago seguro.</b> Factura oficial con cada pago, con nuestro NIF 54181804Z.</span></div>
+        <div><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span>La cuenta está a nombre de <b>Darío Pulido Moreno</b>, titular de Widy: el mismo nombre de tu factura.</span></div>
+        <div><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span>Con tarjeta pagas a través de <b>Stripe</b>, pasarela certificada. Widy nunca ve los datos de tu tarjeta.</span></div>
+        <div><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span>Al pagar aceptas nuestras <a href="/condiciones">condiciones de contratación</a>.</span></div>
+      </div>
+    </div>
+    <div class="acciones">
+      <button type="button" class="btn btn-main" id="confirmar">Ya he pagado · Confirmar</button>
+      <p class="error" id="error" hidden></p>
+      <button type="button" class="enlace" id="luego">Lo pago en un rato: guardar mis datos</button>
+      <button type="button" class="enlace gris" data-ir="2">← Volver</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4 · LISTO ===================== -->
+<section class="pant" data-pant="4">
+  <div class="wrap">
+    <div class="pant-cab">
+      <div class="ico-ok"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+      <h2 style="margin-top:14px">¡Listo, <span class="ser">PeBe Clothes!</span></h2>
+      <p>Hemos recibido tus datos. Te escribimos hoy mismo por WhatsApp para confirmar el pago, mandarte la factura y darte fecha de arranque.</p>
+    </div>
+    <div class="card">
+      <h3>Lo que viene ahora</h3>
+      <ul class="lista">
+        <li>Nos vas pasando tu logo y las fotos de tus prendas por WhatsApp</li>
+        <li>Montamos tu tienda con tus secciones</li>
+        <li>Te la enseñamos antes de publicarla, con 2 rondas de cambios</li>
+        <li>Con tu OK, queda abierta para vender</li>
+      </ul>
+    </div>
+    <div class="acciones"><a class="btn btn-line duda" href="#">Escribir a Darío</a></div>
+  </div>
+</section>
+
+<footer>Widy · estudio de Darío Pulido Moreno · NIF 54181804Z<br><a href="/condiciones">Condiciones</a> · <a href="/">widy.agency</a></footer>
+
+<script>
+  const D = {"nombre": "PeBe Clothes", "negocio": "PeBe Clothes", "importe_txt": "302,50 € (250 € + IVA)", "whatsapp": "34624869847"};
+  const wa = t => 'https://wa.me/' + D.whatsapp + '?text=' + encodeURIComponent(t);
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  let actual = 1, metodo = 'trans';
+  const pintar = n => {
+    actual = n;
+    $$('.pant').forEach(p => p.classList.toggle('on', +p.dataset.pant === n));
+    $$('.pasos li[data-p]').forEach(li => { const p = +li.dataset.p; li.classList.toggle('on', p === n); li.classList.toggle('ok', p < n || n === 4); });
+  };
+  const ir = n => { pintar(n); scrollTo({ top: 0, behavior: 'smooth' }); history.pushState({ n }, '', '#p' + n); };
+  addEventListener('popstate', e => pintar((e.state && e.state.n) || 1));
+  history.replaceState({ n: 1 }, '', location.pathname);
+  $$('[data-ir]').forEach(b => b.addEventListener('click', () => ir(+b.dataset.ir)));
+  $$('.pasos li[data-p]').forEach(li => li.addEventListener('click', () => { if (li.classList.contains('ok') && actual !== 4) ir(+li.dataset.p); }));
+
+  // paso 2: comprobar los datos antes de seguir
+  $('#a-pago').addEventListener('click', () => {
+    const vacios = $$('#datos input[required]').filter(i => !i.value.trim() || (i.type === 'email' && !/^\S+@\S+\.\S+$/.test(i.value)));
+    $$('#datos input').forEach(i => i.classList.toggle('mal', vacios.includes(i)));
+    if (vacios.length) { vacios[0].focus(); vacios[0].scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+    ir(3);
+  });
+  $$('#datos input').forEach(i => i.addEventListener('input', () => i.classList.remove('mal')));
+  $$('.chip').forEach(c => c.addEventListener('click', () => c.classList.toggle('on')));
+
+  // paso 3: forma de pago
+  $$('.mp').forEach(d => d.addEventListener('toggle', () => {
+    if (!d.open) return;
+    metodo = d.dataset.m;
+    $$('.mp').forEach(o => { if (o !== d) o.open = false; });
+  }));
+  $$('.copiar').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.c); } catch (e) {}
+    b.textContent = '¡Copiado!'; b.classList.add('hecho');
+    setTimeout(() => { b.textContent = 'Copiar'; b.classList.remove('hecho'); }, 1800);
+  }));
+
+  const nombres = { trans: 'transferencia', bizum: 'Bizum', tarjeta: 'tarjeta', klarna: 'Klarna (a plazos)' };
+  const mensaje = pagado => {
+    let t = '¡Hola Darío! Soy ' + D.nombre + ', de ' + D.negocio + '. Acepto el presupuesto y te paso todo para empezar 😊\n\n';
+    t += pagado ? '*Pago:* hecho por ' + nombres[metodo] + ' (' + D.importe_txt + ')' : '*Pago:* lo hago en un rato';
+    t += '\n\n*Datos para la factura*';
+    $$('#datos input').forEach(i => { if (i.value.trim()) t += '\n• ' + i.name + ': ' + i.value.trim(); });
+    const s = $$('#chips .chip.on').map(c => c.textContent); const otra = $('#otra').value.trim(); if (otra) s.push(otra);
+    t += '\n\n*Secciones de la tienda*\n' + (s.length ? s.map(x => '• ' + x).join('\n') : '• Aún no lo sé, lo hablamos');
+    const est = $$('#estilos .chip.on').map(c => c.textContent), como = $('#como').value.trim(), ref = $('#ref').value.trim();
+    if (est.length || como || ref) {
+      t += '\n\n*Diseño*';
+      if (est.length) t += '\n• Estilo: ' + est.join(', ');
+      if (como) t += '\n• Cómo me gustaría: ' + como;
+      if (ref) t += '\n• Tienda de referencia: ' + ref;
+    }
+    return t;
+  };
+  const API = 'https://getwidy.es/api/empezamos';
+  const val = n => { const i = document.querySelector('#datos input[name="' + n + '"]'); return i ? i.value.trim() : ''; };
+  const enviar = async pagado => {
+    const btns = [$('#confirmar'), $('#luego')], err = $('#error');
+    btns.forEach(b => b.disabled = true); err.hidden = true;
+    const txt = $('#confirmar').textContent; $('#confirmar').textContent = 'Enviando…';
+    const datos = {
+      slug: location.pathname.split('/').filter(Boolean).pop(), negocio: D.negocio, contacto: D.nombre,
+      nombre_fiscal: val('Nombre o empresa'), nif: val('DNI/CIF'), direccion: val('Dirección fiscal'), correo: val('Correo'),
+      pago: pagado ? metodo : 'luego',
+      secciones: [...$$('#chips .chip.on').map(c => c.textContent), $('#otra').value.trim()].filter(Boolean),
+      estilos: $$('#estilos .chip.on').map(c => c.textContent), como: $('#como').value.trim(), referencia: $('#ref').value.trim(),
+    };
+    try {
+      const r = await fetch(API, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(datos) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || 'No se ha podido enviar.');
+      ir(4);
+    } catch (e) {
+      err.innerHTML = (e.message || 'No se ha podido enviar.') + ' Si sigue fallando, <a href="' + wa(mensaje(pagado)) + '" target="_blank" rel="noopener">mándanoslo por WhatsApp</a>.';
+      err.hidden = false;
+    } finally {
+      btns.forEach(b => b.disabled = false); $('#confirmar').textContent = txt;
+    }
+  };
+  $('#confirmar').addEventListener('click', () => enviar(true));
+  $('#luego').addEventListener('click', () => enviar(false));
+
+  const duda = wa('¡Hola Darío! Tengo una duda sobre la tienda de ' + D.negocio + '.');
+  $$('.duda').forEach(a => a.href = duda);
+  $('#foto-dni').href = wa('¡Hola Darío! Soy ' + D.nombre + ', de ' + D.negocio + '. Te mando una foto del DNI para la factura 👇');
+</script>
+</body>
+</html>
