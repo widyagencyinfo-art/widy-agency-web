@@ -329,6 +329,11 @@
           <div class="mp-body"><div class="mp-tarjeta"><p>Pago seguro con Stripe. La factura te llega sola al correo. Cuando termines, vuelve aquí y pulsa «Ya he pagado».</p>
           <a class="btn btn-main" href="https://getwidy.es/pagar/pdx9u22pgnm7" target="_blank" rel="noopener">Pagar 302,50 € con tarjeta</a></div></div>
         </details>
+        <details class="mp" data-m="klarna">
+          <summary><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9h18M8 2v4M16 2v4M7.5 13h2M11 13h2M14.5 13h2M7.5 17h2M11 17h2"/></svg></span><span class="t"><b>Paga a plazos</b><small>Divídelo en cómodos pagos con Klarna</small></span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="mp-body"><div class="mp-tarjeta"><p>Al pagar, elige <b>Klarna</b> y te enseña las opciones para dividir el pago. Nosotros arrancamos igual, desde el primer día. Cuando termines, vuelve aquí y pulsa «Ya he pagado».</p>
+          <a class="btn btn-main" href="https://getwidy.es/pagar/pdx9u22pgnm7" target="_blank" rel="noopener">Pagar a plazos con Klarna</a></div></div>
+        </details>
         <details class="mp" data-m="bizum">
           <summary><span class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span><span class="t"><b>Bizum</b><small>Al momento, desde tu banco</small></span><span class="chev" aria-hidden="true"></span></summary>
           <div class="mp-body">
@@ -415,7 +420,7 @@
     setTimeout(() => { b.textContent = 'Copiar'; b.classList.remove('hecho'); }, 1800);
   }));
 
-  const nombres = { trans: 'transferencia', bizum: 'Bizum', tarjeta: 'tarjeta' };
+  const nombres = { trans: 'transferencia', bizum: 'Bizum', tarjeta: 'tarjeta', klarna: 'Klarna (a plazos)' };
   const mensaje = pagado => {
     let t = '¡Hola Darío! Soy ' + D.nombre + ', de ' + D.negocio + '. Acepto el presupuesto y te paso todo para empezar 😊\n\n';
     t += pagado ? '*Pago:* hecho por ' + nombres[metodo] + ' (' + D.importe_txt + ')' : '*Pago:* lo hago en un rato';
