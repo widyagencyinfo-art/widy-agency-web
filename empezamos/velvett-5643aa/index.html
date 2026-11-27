@@ -49,6 +49,14 @@
   .copiar.hecho{background:#E7F8EF;color:var(--verde)}
   .metodo.link{border-color:var(--azul);background:#F5F8FF}
   .metodo .flecha{font-weight:800;color:var(--azul);font-size:20px}
+  .metodo.principal{border-color:var(--azul);box-shadow:0 0 0 4px rgba(31,95,240,.08)}
+  .tip{font-size:13.5px;color:var(--gris);margin:8px 2px 0}
+  .seguro{margin-top:16px;padding:16px;border-radius:16px;background:#F2FBF6;border:1px solid #CFEFDD}
+  .seguro div{display:flex;gap:8px;align-items:center;font-size:16px}
+  .seguro ul{list-style:none;display:grid;gap:7px;margin-top:10px}
+  .seguro li{font-size:14px;color:#2B3654;padding-left:18px;position:relative}
+  .seguro li:before{content:"•";position:absolute;left:4px;color:var(--verde);font-weight:800}
+  .seguro a{color:var(--azul);font-weight:700}
   label{display:block;font-weight:700;font-size:14px;margin-top:12px}
   input,select{width:100%;margin-top:6px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--linea);font:16px Figtree,sans-serif;color:var(--tinta);background:#fff}
   input:focus,select:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 4px rgba(31,95,240,.12)}
@@ -95,22 +103,33 @@
 
   <section class="card">
     <div class="paso"><span class="n">1</span><h3>Reserva tu arranque</h3></div>
-    <p class="sub">Un único pago de <b>302,50 € (250 € + IVA)</b>. En cuanto entre, te reservamos la fecha de arranque y te avisamos. Al pagar aceptas nuestras <a href="/condiciones" style="color:var(--azul);font-weight:700">condiciones de contratación</a>.</p>
-    
-    <div class="metodo"><span class="ico">📲</span><span class="txt"><b>Bizum</b><small class="dato">722 494 080</small><small>A nombre de Darío Pulido Moreno</small></span><button class="copiar" data-c="722494080">Copiar</button></div>
-    <div class="metodo"><span class="ico">🏦</span><span class="txt"><b>Transferencia</b><small class="dato">ES63 2100 8355 0621 0006 1594</small><small>Titular: Darío Pulido Moreno · Concepto: Velvett</small></span><button class="copiar" data-c="ES63 2100 8355 0621 0006 1594">Copiar</button></div>
+    <p class="sub">Un único pago de <b>302,50 € (250 € + IVA)</b>. En cuanto entre, te mandamos la factura y te reservamos la fecha de arranque. Al pagar aceptas nuestras <a href="/condiciones" style="color:var(--azul);font-weight:700">condiciones de contratación</a>.</p>
+    <div class="metodo principal"><span class="ico">🏦</span><span class="txt"><b>Transferencia bancaria</b><small class="dato">ES63 2100 8355 0621 0006 1594</small><small>Titular: Darío Pulido Moreno (Widy) · Concepto: Velvett</small></span><button class="copiar" data-c="ES63 2100 8355 0621 0006 1594">Copiar</button></div>
+    <p class="tip">💡 Si tu banco lo permite, hazla <b>inmediata</b> y mándanos la captura del justificante por WhatsApp. Así arrancamos sin esperar.</p>
+    <a class="metodo link" href="https://getwidy.es/pagar/trrv2ve2cgxy" target="_blank" rel="noopener">
+          <span class="ico">💳</span><span class="txt"><b>Pagar con tarjeta</b><small>También Apple Pay o Google Pay. Pago seguro con Stripe; la factura te llega sola al correo.</small></span><span class="flecha">→</span></a>
+    <div class="metodo"><span class="ico">📲</span><span class="txt"><b>También por Bizum</b><small class="dato">722 494 080</small><small>A nombre de Darío Pulido Moreno</small></span><button class="copiar" data-c="722494080">Copiar</button></div>
+    <div class="seguro">
+      <div><span>🔒</span><b>Pago seguro</b></div>
+      <ul>
+        <li><b>Factura oficial</b> con cada pago, con nuestro NIF 54181804Z.</li>
+        <li>La cuenta está a nombre de <b>Darío Pulido Moreno</b>, titular de Widy: el mismo nombre que verás en la factura.</li>
+        <li>Con tarjeta, pagas a través de <b>Stripe</b>, una pasarela de pago certificada. Widy nunca ve los datos de tu tarjeta.</li>
+        <li>Todo por escrito en nuestras <a href="/condiciones">condiciones de contratación</a>.</li>
+      </ul>
+    </div>
   </section>
 
   <section class="card">
     <div class="paso"><span class="n">2</span><h3>Tus datos para la factura</h3></div>
-    <p class="sub">Si pagas por Bizum o transferencia, rellénalo y nos lo mandas por WhatsApp con un toque.</p>
+    <p class="sub">Si pagas por transferencia o Bizum, rellénalo y nos lo mandas por WhatsApp con un toque. Con tarjeta no hace falta: te los pide al pagar.</p>
     <form id="datos">
       <label>Nombre y apellidos, o nombre de la empresa<input name="Nombre o empresa" autocomplete="name" required></label>
       <label>DNI o CIF<input name="DNI/CIF" required></label>
       <label>Dirección fiscal<input name="Dirección fiscal" autocomplete="street-address" required></label>
       <label>Correo para recibir los pedidos<input name="Correo" type="email" autocomplete="email" required></label>
       <label>¿Cómo has pagado?
-        <select name="Pago"><option>Bizum</option><option>Transferencia</option><option>Todavía no, lo hago ahora</option></select>
+        <select name="Pago"><option>Transferencia</option><option>Bizum</option><option>Todavía no, lo hago ahora</option></select>
       </label>
       <button class="btn wa" type="submit">Enviar mis datos por WhatsApp</button>
       <p class="nota">Se abre WhatsApp con el mensaje ya escrito. Solo tienes que darle a enviar.</p>
