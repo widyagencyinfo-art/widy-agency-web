@@ -59,6 +59,13 @@
   .meta div{font:600 .95rem var(--head)}
   .meta small{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:#7F90C2;font-weight:400;margin-bottom:3px}
 
+  .phones{position:relative;height:400px;max-width:360px;margin:34px auto 0;width:100%}
+  .phone{position:absolute;width:46%;aspect-ratio:9/19;border-radius:28px;padding:7px;background:linear-gradient(160deg,#25345F,#0B1430);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08)}
+  .phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:22px}
+  .phone.a{left:4%;top:44px;transform:rotate(-6deg)}
+  .phone.b{right:4%;top:0;transform:rotate(5deg);z-index:2}
+  .phones figcaption{position:absolute;left:0;right:0;bottom:-24px;text-align:center;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#7F90C2}
+  @media(min-width:860px){.hero .wrap{max-width:1000px;display:grid;grid-template-columns:1.15fr .85fr;column-gap:40px;align-items:center}.phones{margin:0;height:460px;max-width:400px}}
   .card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px 22px;box-shadow:0 30px 60px -45px rgba(7,18,48,.4)}
   @media(min-width:760px){.card{padding:34px}}
   .sube{margin-top:-84px;position:relative;z-index:2}
@@ -91,6 +98,8 @@
 
   /* formulario */
   label{display:block;font-weight:600;font-size:.88rem;margin-top:14px;color:#2B3654}
+  textarea{width:100%;margin-top:6px;padding:14px 15px;border-radius:14px;border:1.5px solid var(--line);font:16px/1.5 var(--body);color:var(--ink);background:#fff;resize:vertical}
+  textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(31,95,240,.12)}
   input{width:100%;margin-top:6px;padding:14px 15px;border-radius:14px;border:1.5px solid var(--line);font:16px var(--body);color:var(--ink);background:#fff}
   input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(31,95,240,.12)}
   input.mal{border-color:#E5484D;box-shadow:0 0 0 4px rgba(229,72,77,.12)}
@@ -161,6 +170,7 @@
 <section class="pant on" data-pant="1">
   <header class="hero">
     <div class="wrap">
+      <div class="hero-txt">
       <span class="k">Presupuesto para Patricia · 27 nov 2026</span>
       <h1>La tienda online de <span class="ser">Velvett.</span></h1>
       <p>Aquí tienes por escrito todo lo que hablamos: qué hacemos, qué incluye y cuánto cuesta.</p>
@@ -169,6 +179,12 @@
         <div><small>Pago</small>Único</div>
         <div><small>Válido hasta</small>5 dic</div>
       </div>
+      </div>
+      <figure class="phones">
+        <div class="phone a"><img src="/home/img/m-lunares.webp" alt="Tienda online de Lunares del Este hecha por Widy"></div>
+        <div class="phone b"><img src="/home/img/m-fleury.webp" alt="Tienda online de La Fleury hecha por Widy"></div>
+        <figcaption>Tiendas que ya hemos hecho</figcaption>
+      </figure>
     </div>
   </header>
   <div class="wrap">
@@ -180,7 +196,7 @@
     <div class="extra"><span class="k" style="color:var(--sky)">Incluido</span><h3>Tus devoluciones, protegidas</h3><ul><li>Primero se ofrece cambio de talla o un vale para tu tienda</li><li>Solo prendas sin usar, sin lavar y con etiqueta</li><li>Tú revisas la prenda antes de devolver nada; si llega usada, se descuenta</li><li>El envío de vuelta lo paga la clienta</li><li>Guía de tallas en cada prenda para que acierten a la primera</li></ul></div>
     <div class="card resumen">
       <span class="k">Precio</span>
-      <table><tr><td>Tienda online Velvett · montaje completo</td><td>250,00 €</td></tr><tr><td>IVA (21 %)</td><td>52,50 €</td></tr><tr class="total"><td>Total</td><td>302,50 €</td></tr></table>
+      <table><tr><td>Tienda online Velvett · montaje completo</td><td>250,00 €</td></tr><tr><td>IVA (21 %) · deducible</td><td>52,50 €</td></tr><tr class="total"><td>Total</td><td>302,50 €</td></tr></table>
       <p class="nota"><b>El IVA es deducible.</b> Si tu negocio tributa en régimen general, los 52,50 € de IVA los recuperas en tu declaración trimestral, así que la tienda te sale por 250 €. Si estás en recargo de equivalencia, como muchas tiendas pequeñas, no se deduce: tu gestor te lo confirma en un momento.</p>
       <p class="nota"><b>Mantenimiento:</b> 30 € + IVA al mes, desde el mes siguiente a publicar la tienda. Sin permanencia: te ayudamos con todo (cambios, prendas nuevas, devoluciones y soporte por WhatsApp).</p>
       <span class="oferta">🎄 Precio de oferta de Navidad, para las tiendas que confirmen antes del 5 de diciembre.</span>
@@ -218,6 +234,17 @@
       <p class="sub">Marca las que quieres. Las podrás cambiar cuando quieras.</p>
       <div class="chips" id="chips"><button type="button" class="chip">Vestidos</button><button type="button" class="chip">Blusas</button><button type="button" class="chip">Pantalones</button><button type="button" class="chip">Faldas</button><button type="button" class="chip">Abrigos</button><button type="button" class="chip">Punto</button><button type="button" class="chip">Complementos</button><button type="button" class="chip">Novedades</button></div>
       <label>¿Alguna más?<input id="otra" placeholder="Por ejemplo: Fiesta, Rebajas…"></label>
+    </div>
+    <div class="card">
+      <h3>El diseño de tu tienda</h3>
+      <p class="sub">Cuéntanos qué estilo te gusta más. Así la primera versión ya va a tu gusto.</p>
+      <label>¿Qué estilo te gusta más?</label>
+      <div class="chips" id="estilos">
+        <button type="button" class="chip">Elegante</button><button type="button" class="chip">Minimalista</button><button type="button" class="chip">Moderno</button>
+        <button type="button" class="chip">Femenino</button><button type="button" class="chip">Colorido</button><button type="button" class="chip">Clásico</button>
+      </div>
+      <label>¿Cómo te gustaría que quedara tu tienda online?<textarea id="como" rows="4" placeholder="Por ejemplo: colores suaves, mucha foto de las prendas, que se vea elegante…"></textarea></label>
+      <label>¿Alguna tienda online que te guste como referencia?<input id="ref" inputmode="url" placeholder="Pega aquí el enlace (opcional)"></label>
     </div>
     <div class="card">
       <h3>Lo que nos irás pasando</h3>
@@ -346,8 +373,15 @@
     t += pagado ? '*Pago:* hecho por ' + nombres[metodo] + ' (' + D.importe_txt + ')' : '*Pago:* lo hago en un rato';
     t += '\n\n*Datos para la factura*';
     $$('#datos input').forEach(i => { if (i.value.trim()) t += '\n• ' + i.name + ': ' + i.value.trim(); });
-    const s = $$('.chip.on').map(c => c.textContent); const otra = $('#otra').value.trim(); if (otra) s.push(otra);
+    const s = $$('#chips .chip.on').map(c => c.textContent); const otra = $('#otra').value.trim(); if (otra) s.push(otra);
     t += '\n\n*Secciones de la tienda*\n' + (s.length ? s.map(x => '• ' + x).join('\n') : '• Aún no lo sé, lo hablamos');
+    const est = $$('#estilos .chip.on').map(c => c.textContent), como = $('#como').value.trim(), ref = $('#ref').value.trim();
+    if (est.length || como || ref) {
+      t += '\n\n*Diseño*';
+      if (est.length) t += '\n• Estilo: ' + est.join(', ');
+      if (como) t += '\n• Cómo me gustaría: ' + como;
+      if (ref) t += '\n• Tienda de referencia: ' + ref;
+    }
     return t;
   };
   const enviar = pagado => { const u = wa(mensaje(pagado)); const v = window.open(u, '_blank'); if (!v) { location.href = u; return; } ir(4); };
