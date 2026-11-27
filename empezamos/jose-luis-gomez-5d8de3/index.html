@@ -72,8 +72,23 @@
   .card+.card,.card+.extra,.extra+.card{margin-top:14px}
   .card h3{font:800 1.3rem var(--head);letter-spacing:-.02em}
   .inc{list-style:none;margin-top:14px}
-  .inc li{display:flex;gap:14px;align-items:baseline;padding:13px 0;border-top:1px solid var(--line);font-size:1rem;line-height:1.45}
-  .inc li span{font-family:var(--mono);font-size:.74rem;color:var(--blue);flex:none;width:22px}
+  .toca{font-size:.88rem;color:var(--mut);margin-top:6px}
+  .inc li{border-top:1px solid var(--line)}
+  .inc .sum{display:flex;gap:14px;align-items:baseline;padding:14px 0;font-size:1rem;line-height:1.45;list-style:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .inc .sum::-webkit-details-marker{display:none}
+  .inc li.sin .sum{cursor:default}
+  .inc .n{font-family:var(--mono);font-size:.74rem;color:var(--blue);flex:none;width:22px}
+  .inc .t{flex:1}
+  .inc .mas{flex:none;align-self:center;width:28px;height:28px;border-radius:50%;background:var(--paper);position:relative;transition:background .2s,transform .3s var(--ease)}
+  .inc .mas:before,.inc .mas:after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2px;border-radius:2px;background:var(--blue);transform:translate(-50%,-50%)}
+  .inc .mas:after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s var(--ease)}
+  .inc details[open] .mas{background:#EAF0FF}
+  .inc details[open] .mas:after{transform:translate(-50%,-50%) rotate(0deg)}
+  .inc .det{padding:0 0 18px 36px;animation:entra .35s var(--ease)}
+  .inc .det p{color:#2B3654;line-height:1.55;font-size:.96rem}
+  .inc figure{margin-top:14px;max-width:220px}
+  .inc figure img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:18px;border:6px solid #0B1430;box-shadow:0 20px 40px -24px rgba(7,18,48,.6)}
+  .inc figcaption{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:8px}
 
   .extra{background:var(--n1);color:#fff;border-radius:26px;padding:28px 22px;position:relative;overflow:hidden}
   .extra:before{content:"";position:absolute;right:-110px;top:-110px;width:300px;height:300px;background:radial-gradient(closest-side,rgba(31,95,240,.5),transparent)}
@@ -191,7 +206,8 @@
     <div class="card sube">
       <span class="k">Qué incluye</span>
       <h3 style="margin-top:10px">Tu tienda online, ordenada por secciones</h3>
-      <ul class="inc"><li><span>01</span>Diseño a medida con tu marca, pensado para el móvil</li><li><span>02</span>Una sección para cada tipo de prenda: vestidos, blusas y las que quieras</li><li><span>03</span>Filtros por talla, color y precio dentro de cada sección</li><li><span>04</span>Pago con tarjeta, Apple Pay y Google Pay</li><li><span>05</span>Envío a domicilio y recogida en tienda</li><li><span>06</span>Tu dominio propio y el alojamiento incluidos</li><li><span>07</span>Las primeras 30 prendas subidas por nosotros</li><li><span>08</span>2 rondas de cambios antes de publicar</li></ul>
+      <p class="toca">Toca cada punto para ver qué significa, con un ejemplo.</p>
+      <ul class="inc"><li><details><summary class="sum"><span class="n">01</span><span class="t">Diseño a medida con tu marca, pensado para el móvil</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Tu tienda con tu logo, tus colores y tus fotos. No es una plantilla: se diseña para tu marca y pensando en el móvil, que es desde donde compra casi todo el mundo.</p><figure><img src="/home/img/m-fleury.webp" alt="" loading="lazy"><figcaption>Ejemplo: la tienda de La Fleury en el móvil</figcaption></figure></div></details></li><li><details><summary class="sum"><span class="n">02</span><span class="t">Una sección para cada tipo de prenda: vestidos, blusas y las que quieras</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Cada tipo de prenda tiene su propia sección en el menú y en la portada: vestidos, blusas, pantalones… La clienta va directa a lo que busca.</p><figure><img src="/home/img/m-lunares.webp" alt="" loading="lazy"><figcaption>Ejemplo: portada con secciones de Lunares del Este</figcaption></figure></div></details></li><li><details><summary class="sum"><span class="n">03</span><span class="t">Filtros por talla, color y precio dentro de cada sección</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Dentro de cada sección la clienta filtra por su talla, el color o el precio, y solo ve lo que le interesa.</p></div></details></li><li><details><summary class="sum"><span class="n">04</span><span class="t">Pago con tarjeta, Apple Pay y Google Pay</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>La clienta paga en el carrito con su tarjeta o con Apple Pay o Google Pay, sin tener que crearse una cuenta. El dinero te llega a tu cuenta del banco.</p></div></details></li><li><details><summary class="sum"><span class="n">05</span><span class="t">Envío a domicilio y recogida en tienda</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Al comprar, la clienta elige si se lo mandas a casa (con la tarifa de envío que tú decidas) o si pasa a recogerlo por tu tienda.</p></div></details></li><li><details><summary class="sum"><span class="n">06</span><span class="t">Tu dominio propio y el alojamiento incluidos</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Tu dirección propia en internet, por ejemplo joseluisgomez.es, a tu nombre. El alojamiento (donde «vive» la web) y el certificado de seguridad van incluidos: no pagas nada aparte.</p></div></details></li><li><details><summary class="sum"><span class="n">07</span><span class="t">Las primeras 30 prendas subidas por nosotros</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Nos pasas fotos, precios y tallas, y nosotros subimos las primeras 30 prendas. Las siguientes las puedes subir tú desde el móvil en un minuto, o mandárnoslas.</p></div></details></li><li><details><summary class="sum"><span class="n">08</span><span class="t">2 rondas de cambios antes de publicar</span><span class="mas" aria-hidden="true"></span></summary><div class="det"><p>Te enseñamos la tienda terminada antes de publicarla. Nos dices qué cambiar (colores, textos, fotos…) y lo ajustamos, hasta 2 veces. Con tu OK, se publica.</p></div></details></li></ul>
     </div>
     
     <div class="card resumen">
